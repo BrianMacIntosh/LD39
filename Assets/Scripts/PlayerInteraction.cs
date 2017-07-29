@@ -44,26 +44,25 @@ public class PlayerInteraction : MonoBehaviour
 		}
 	}
 
-	private void SetDownPickup()
+	public void SetDownPickup()
 	{
 		if (m_holdingPickup != null)
 		{
 			m_holdingPickup.transform.SetParent(null);
-			m_holdingPickup.GetComponent<Collider2D>().enabled = true;
-			m_holdingPickup.HeldBy = null;
+			m_holdingPickup.NotifyDrop(this);
 			m_holdingPickup = null;
 		}
 	}
 
-	private void PickUpPickup()
+	public void PickUpPickup()
 	{
 		Pickup target = GetPickupToGrab(m_playerType, transform.position, transform.forward);
 		if (target != null)
 		{
 			target.transform.SetParent(transform);
-			target.GetComponent<Collider2D>().enabled = false;
 			target.transform.localRotation = Quaternion.identity;
 			target.transform.localPosition = new Vector3(0f, 1f, 0f);
+			target.NotifyPickUp(this);
 			m_holdingPickup = target;
 		}
 	}

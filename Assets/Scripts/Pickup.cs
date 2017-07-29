@@ -18,7 +18,7 @@ public class Pickup : MonoBehaviour
 	[SerializeField]
 	private string m_cancelsWithTag = "";
 
-	public PlayerInteraction HeldBy { get; set; }
+	public PlayerInteraction HeldBy { get; private set; }
 
 #if UNITY_EDITOR
 	[UnityEditor.Callbacks.DidReloadScripts]
@@ -44,6 +44,23 @@ public class Pickup : MonoBehaviour
 	private void OnDestroy()
 	{
 		Pickups.Remove(this);
+
+		if (HeldBy)
+		{
+			HeldBy.SetDownPickup();
+		}
+	}
+
+	public virtual void NotifyPickUp(PlayerInteraction pickUpper)
+	{
+		GetComponent<Collider2D>().enabled = false;
+		HeldBy = pickUpper;
+	}
+
+	public virtual void NotifyDrop(PlayerInteraction dropper)
+	{
+		GetComponent<Collider2D>().enabled = true;
+		HeldBy = null;
 	}
 
 	/// <summary>

@@ -12,6 +12,9 @@ public class GhostHealth : MonoBehaviour
 	[SerializeField]
 	private float m_timeToRegen = 0.5f;
 
+	[SerializeField]
+	private GameObject m_onDeathSpawnPrefab = null;
+
 	/// <summary>
 	/// The ghost's current health.
 	/// </summary>
@@ -33,6 +36,10 @@ public class GhostHealth : MonoBehaviour
 			if (m_health <= 0f)
 			{
 				Destroy(gameObject);
+				if (m_onDeathSpawnPrefab)
+				{
+					Instantiate(m_onDeathSpawnPrefab, transform.position, Quaternion.identity);
+				}
 			}
 		}
 		else
