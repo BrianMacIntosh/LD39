@@ -75,7 +75,10 @@ public class Ghost_Move : MonoBehaviour {
 
     private void OnDestroy()
     {
-        GhostSpawnPointManager.Instance.DecrementGhostCount();
+        if(GhostSpawnPointManager.Instance != null)
+        {
+            GhostSpawnPointManager.Instance.DecrementGhostCount();
+        }
     }
 
     void Update ()

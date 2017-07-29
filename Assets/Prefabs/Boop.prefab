@@ -40,6 +40,7 @@ GameObject:
   - component: {fileID: 50077222537446536}
   - component: {fileID: 58857459539094632}
   - component: {fileID: 114622492763301248}
+  - component: {fileID: 114099470009381744}
   m_Layer: 0
   m_Name: Boop
   m_TagString: Player
@@ -212,6 +213,22 @@ Light:
   m_UseColorTemperature: 0
   m_ShadowRadius: 0
   m_ShadowAngle: 0
+--- !u!114 &114099470009381744
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1926900810641854}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8c3b703266ba23f46833f099fb414c00, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  currentEnergy: 100
+  maxEnergy: 100
+  drainRate: 0.25
+  ghostsAttacking: 0
+  ghostDrainRate: 5
 --- !u!114 &114574390375242090
 MonoBehaviour:
   m_ObjectHideFlags: 1

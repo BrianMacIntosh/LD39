@@ -3706,6 +3706,11 @@ Prefab:
       propertyPath: m_Icon
       value: 
       objectReference: {fileID: 0}
+    - target: {fileID: 114917907784697154, guid: 78be3718fb8f2f7439969af4f852ddc6,
+        type: 2}
+      propertyPath: maxGhosts
+      value: 15
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 78be3718fb8f2f7439969af4f852ddc6, type: 2}
   m_IsPrefabParent: 0
