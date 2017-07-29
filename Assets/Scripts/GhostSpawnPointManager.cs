@@ -39,7 +39,7 @@ public class GhostSpawnPointManager : MonoBehaviour {
         {
             spawnRate = baseSpawnRate + Time.time * spawnAcceleration;
         }
-        if(timeSinceLastSpawn > 1.0f/spawnRate)
+        if((timeSinceLastSpawn > 1.0f/spawnRate) && (ghostCount <= maxGhosts))
         {
             if (spawnGhost())
             {
