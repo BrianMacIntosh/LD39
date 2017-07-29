@@ -4629,7 +4629,25 @@ Prefab:
     - target: {fileID: 20724767985556146, guid: d471b7c30aacefa44b97a569cb69ff34,
         type: 2}
       propertyPath: orthographic size
-      value: 9
+      value: 9.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 20724767985556146, guid: d471b7c30aacefa44b97a569cb69ff34,
+        type: 2}
+      propertyPath: m_OcclusionCulling
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 20724767985556146, guid: d471b7c30aacefa44b97a569cb69ff34,
+        type: 2}
+      propertyPath: m_NormalizedViewPortRect.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4506535097751954, guid: d471b7c30aacefa44b97a569cb69ff34, type: 2}
+      propertyPath: m_LocalPosition.y
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 4506535097751954, guid: d471b7c30aacefa44b97a569cb69ff34, type: 2}
+      propertyPath: m_LocalPosition.z
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: d471b7c30aacefa44b97a569cb69ff34, type: 2}
