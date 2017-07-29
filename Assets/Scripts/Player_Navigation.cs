@@ -9,7 +9,8 @@ public class Player_Navigation : MonoBehaviour {
     public float dirDegAngle = 90;
     public bool isBeep = true;
 
-    // Update is called once per frame
+	private float m_angularVelocity = 0f;
+	
     void Update ()
     {
         Rigidbody2D rb2d = GetComponent<Rigidbody2D>();
@@ -30,9 +31,10 @@ public class Player_Navigation : MonoBehaviour {
         Vector2 moveDirection = new Vector2(direction[0]*moveForward, direction[1]*moveForward);
 
         rb2d.velocity = moveDirection * move_speed;
-        rb2d.angularVelocity = -turn * turn_speed;
+        m_angularVelocity = -turn * turn_speed;
         dirDegAngle = transform.rotation.eulerAngles.z + 90;
 
+		rb2d.rotation += m_angularVelocity * Time.deltaTime;
 	}
 
     private Vector2 GetVector2FromAngle(float degAngle)
