@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class BatteryPickup : MonoBehaviour
+public class BatteryPickup : Pickup
 {
 	[Tooltip("The amount of energy the pickup restores.")]
 	[SerializeField]

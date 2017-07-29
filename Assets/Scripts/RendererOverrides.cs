@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class SpriteRender : MonoBehaviour
+public class RendererOverrides : MonoBehaviour
 {
 	private Renderer m_renderer;
 

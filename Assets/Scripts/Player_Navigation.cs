@@ -2,11 +2,20 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+public enum PlayerType
+{
+	None,
+	Beep,
+	Boop,
+}
+
 public class Player_Navigation : MonoBehaviour {
 
     public float move_speed = 5;
     public float turn_speed = 100;
     public float dirDegAngle = 90;
+
+	//TODO: change to enum
     public bool isBeep = true;
 
 	private float m_angularVelocity = 0f;

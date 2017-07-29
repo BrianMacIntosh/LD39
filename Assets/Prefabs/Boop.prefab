@@ -39,6 +39,7 @@ GameObject:
   - component: {fileID: 212298636536198190}
   - component: {fileID: 50077222537446536}
   - component: {fileID: 58857459539094632}
+  - component: {fileID: 114622492763301248}
   m_Layer: 0
   m_Name: Boop
   m_TagString: Player
@@ -69,15 +70,15 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1926900810641854}
-  m_LocalRotation: {x: -0, y: -0, z: -0.9751093, w: 0.22172508}
-  m_LocalPosition: {x: -9.55, y: -0.29, z: 0}
+  m_LocalRotation: {x: 0, y: 0, z: 1, w: 0}
+  m_LocalPosition: {x: -1, y: 7, z: 0}
   m_LocalScale: {x: 0.8, y: 0.9, z: 1}
   m_Children:
   - {fileID: 4966106545945716}
   - {fileID: 4862995626891518}
   m_Father: {fileID: 0}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: -154.37901}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 180}
 --- !u!4 &4862995626891518
 Transform:
   m_ObjectHideFlags: 1
@@ -98,7 +99,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1964702990894294}
   m_LocalRotation: {x: -0.7071068, y: 0, z: 0, w: 0.7071068}
-  m_LocalPosition: {x: 0, y: 0.14, z: -0.1}
+  m_LocalPosition: {x: 0, y: -0.5, z: -0.1}
   m_LocalScale: {x: 6, y: 6, z: 1}
   m_Children: []
   m_Father: {fileID: 4844736337858348}
@@ -171,20 +172,6 @@ Light:
   m_Lightmapping: 4
   m_AreaSize: {x: 1, y: 1}
   m_BounceIntensity: 1
-  m_FalloffTable:
-    m_Table[0]: 0
-    m_Table[1]: 0
-    m_Table[2]: 0
-    m_Table[3]: 0
-    m_Table[4]: 0
-    m_Table[5]: 0
-    m_Table[6]: 0
-    m_Table[7]: 0
-    m_Table[8]: 0
-    m_Table[9]: 0
-    m_Table[10]: 0
-    m_Table[11]: 0
-    m_Table[12]: 0
   m_ColorTemperature: 6570
   m_UseColorTemperature: 0
   m_ShadowRadius: 0
@@ -200,8 +187,8 @@ Light:
   m_Type: 0
   m_Color: {r: 0.61663276, g: 0.60294116, b: 1, a: 1}
   m_Intensity: 1000
-  m_Range: 10
-  m_SpotAngle: 30
+  m_Range: 6.5
+  m_SpotAngle: 25
   m_CookieSize: 10
   m_Shadows:
     m_Type: 1
@@ -221,20 +208,6 @@ Light:
   m_Lightmapping: 4
   m_AreaSize: {x: 1, y: 1}
   m_BounceIntensity: 1
-  m_FalloffTable:
-    m_Table[0]: 0
-    m_Table[1]: 0
-    m_Table[2]: 0
-    m_Table[3]: 0
-    m_Table[4]: 0
-    m_Table[5]: 0
-    m_Table[6]: 0
-    m_Table[7]: 0
-    m_Table[8]: 0
-    m_Table[9]: 0
-    m_Table[10]: 0
-    m_Table[11]: 0
-    m_Table[12]: 0
   m_ColorTemperature: 6570
   m_UseColorTemperature: 0
   m_ShadowRadius: 0
@@ -250,10 +223,25 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 22972bbd538fada438d0399f8a4cddcf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  move_speed: 3
-  turn_speed: 200
+  move_speed: 1.5
+  turn_speed: 120
   dirDegAngle: 90
   isBeep: 0
+--- !u!114 &114622492763301248
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1926900810641854}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e9ad11b6e4ebb5c4daf39930e240ae11, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_playerType: 2
+  m_interactControl: BoopInteract
+  m_interactRadius: 1
+  m_interactArc: 180
 --- !u!114 &114663819333950480
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -265,8 +253,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b4e406ac6be03984a81ab3f7564fac40, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_radius: 9
-  m_arc: 30
+  m_radius: 6
+  m_arc: 25
   m_damageRatio: 2
 --- !u!212 &212298636536198190
 SpriteRenderer:
@@ -309,4 +297,3 @@ SpriteRenderer:
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
-  m_MaskInteraction: 0

@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class ObjectivePickup : MonoBehaviour
+public class ObjectivePickup : Pickup
 {
 	
 }
