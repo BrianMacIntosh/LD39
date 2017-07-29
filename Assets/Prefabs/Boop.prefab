@@ -9,47 +9,47 @@ Prefab:
     m_Modifications: []
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 0}
-  m_RootGameObject: {fileID: 1900664111778978}
+  m_RootGameObject: {fileID: 1926900810641854}
   m_IsPrefabParent: 1
---- !u!1 &1900664111778978
+--- !u!1 &1926900810641854
 GameObject:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   serializedVersion: 5
   m_Component:
-  - component: {fileID: 4866999568451868}
-  - component: {fileID: 212388830138975444}
-  - component: {fileID: 114200874182219446}
-  - component: {fileID: 50264662479607344}
-  - component: {fileID: 61337797596958498}
+  - component: {fileID: 4844736337858348}
+  - component: {fileID: 114574390375242090}
+  - component: {fileID: 212298636536198190}
+  - component: {fileID: 50077222537446536}
+  - component: {fileID: 61480231971257854}
   m_Layer: 0
-  m_Name: Beep
+  m_Name: Boop
   m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &4866999568451868
+--- !u!4 &4844736337858348
 Transform:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1900664111778978}
+  m_GameObject: {fileID: 1926900810641854}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 4.69, y: -0.66, z: -1}
+  m_LocalPosition: {x: -6.32, y: 1.46, z: -1}
   m_LocalScale: {x: 0.8, y: 0.9, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!50 &50264662479607344
+--- !u!50 &50077222537446536
 Rigidbody2D:
   serializedVersion: 4
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1900664111778978}
+  m_GameObject: {fileID: 1926900810641854}
   m_BodyType: 0
   m_Simulated: 1
   m_UseFullKinematicContacts: 0
@@ -63,12 +63,12 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
---- !u!61 &61337797596958498
+--- !u!61 &61480231971257854
 BoxCollider2D:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1900664111778978}
+  m_GameObject: {fileID: 1926900810641854}
   m_Enabled: 1
   m_Density: 1
   m_Material: {fileID: 0}
@@ -80,7 +80,7 @@ BoxCollider2D:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
     oldSize: {x: 1, y: 1}
-    newSize: {x: 0.2, y: 0.2}
+    newSize: {x: 1, y: 1}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
     adaptiveTiling: 0
@@ -88,27 +88,27 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1, y: 1}
   m_EdgeRadius: 0
---- !u!114 &114200874182219446
+--- !u!114 &114574390375242090
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1900664111778978}
+  m_GameObject: {fileID: 1926900810641854}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 22972bbd538fada438d0399f8a4cddcf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  move_speed: 5
-  turn_speed: 100
+  move_speed: 3
+  turn_speed: 200
   dirDegAngle: 90
-  isBeep: 1
---- !u!212 &212388830138975444
+  isBeep: 0
+--- !u!212 &212298636536198190
 SpriteRenderer:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1900664111778978}
+  m_GameObject: {fileID: 1926900810641854}
   m_Enabled: 1
   m_CastShadows: 0
   m_ReceiveShadows: 0
@@ -136,11 +136,11 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: 6b52ec95d2c98454890f63e1bf5f642d, type: 3}
-  m_Color: {r: 0.24178185, g: 0.06325693, b: 0.9558824, a: 1}
+  m_Color: {r: 0.14792386, g: 0.83823526, b: 0.35263687, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
-  m_Size: {x: 0.2, y: 0.2}
+  m_Size: {x: 1, y: 1}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
