@@ -22,6 +22,7 @@ GameObject:
   - component: {fileID: 58255206738741482}
   - component: {fileID: 212111267419305898}
   - component: {fileID: 114696122816720326}
+  - component: {fileID: 114613210669561656}
   m_Layer: 0
   m_Name: DoorSensor
   m_TagString: Untagged
@@ -57,6 +58,18 @@ CircleCollider2D:
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
   m_Radius: 0.5
+--- !u!114 &114613210669561656
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1470223376114542}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1fc62883c576ab1458858a7d13911f8a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_receiveShadows: 1
 --- !u!114 &114696122816720326
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -77,12 +90,12 @@ SpriteRenderer:
   m_GameObject: {fileID: 1470223376114542}
   m_Enabled: 1
   m_CastShadows: 0
-  m_ReceiveShadows: 0
+  m_ReceiveShadows: 1
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
   m_Materials:
-  - {fileID: 10754, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: 2100000, guid: e611b3e9c35a9424598779240e5c31d4, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
