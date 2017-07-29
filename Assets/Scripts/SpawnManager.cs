@@ -12,6 +12,8 @@ public class SpawnManager : MonoBehaviour
 
 		[Tooltip("An optional second prefab to also spawn.")]
 		public GameObject MirrorObject;
+
+		public float Weight = 1f;
 	}
 
 	/// <summary>
@@ -79,10 +81,29 @@ public class SpawnManager : MonoBehaviour
 		}
 		if ((timeSinceLastSpawn > 1.0f / spawnRate) && (SpawnedObjectCount <= maxObjects))
 		{
-			Spawnable spawnPrefab = BaseObjects[Random.Range(0, BaseObjects.Length)];
-			if (SpawnObject(spawnPrefab))
+			// add up the total weight available
+			float weight = 0f;
+			foreach (Spawnable spawnable in BaseObjects)
 			{
-				timeSinceLastSpawn = 0;
+				weight += spawnable.Weight;
+			}
+
+			// select a weight
+			float random = Random.Range(0f, weight);
+
+			// spawn the correct entry
+			weight = 0f;
+			foreach (Spawnable spawnable in BaseObjects)
+			{
+				weight += spawnable.Weight;
+				if (random <= weight)
+				{
+					if (SpawnObject(spawnable))
+					{
+						timeSinceLastSpawn = 0;
+					}
+					break;
+				}
 			}
 		}
 	}

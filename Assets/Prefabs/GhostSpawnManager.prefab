@@ -55,7 +55,13 @@ MonoBehaviour:
   - BaseObject: {fileID: 1781497521802900, guid: 3458fa5907c3fd04e8c3000a6317983d,
       type: 2}
     MirrorObject: {fileID: 0}
+    Weight: 5
+  - BaseObject: {fileID: 1781497521802900, guid: ea85579b0f51fae4fad3154ae69da519,
+      type: 2}
+    MirrorObject: {fileID: 0}
+    Weight: 1
   baseSpawnRate: 0.25
+  spawnRate: 0.25
   spawnAcceleration: 0.01
   spawnRateMax: 1
   minSpawnDistance: 2
