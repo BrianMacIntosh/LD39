@@ -24,8 +24,8 @@ public class GhostHealth : MonoBehaviour
 
 	void Update()
 	{
-		int hitCount = GhostDamager.ContainsCount(transform.position);
-		if (hitCount > 0)
+		float hitCount = GhostDamager.DamageAmount(transform.position);
+		if (hitCount > 0f)
 		{
 			IsBeingDamaged = true;
 
