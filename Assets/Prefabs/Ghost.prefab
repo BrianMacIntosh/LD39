@@ -90,6 +90,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a3edf7c394edc99459693bb3f0134286, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  m_timeToKill: 1
+  m_timeToRegen: 0.5
 --- !u!114 &114724448025775082
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -102,6 +104,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   move_speed: 2
+  speedMultiplierDuringDamage: 0.2
   detectDistance: 30
   waypointDetectDistance: 20
   waypointMinDistance: 0.05

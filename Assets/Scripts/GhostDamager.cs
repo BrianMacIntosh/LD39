@@ -12,6 +12,12 @@ public class GhostDamager : MonoBehaviour
 	[SerializeField]
 	private float m_arc = 90f;
 
+	[Tooltip("Changes the amount of damage done by this damager.")]
+	[SerializeField]
+	private float m_damageRatio = 1f;
+
+	public float DamageRatio { get { return m_damageRatio; } }
+
 	private void Awake()
 	{
 		s_allDamagers.Add(this);
@@ -81,14 +87,14 @@ public class GhostDamager : MonoBehaviour
 	/// <summary>
 	/// Returns the number of <see cref="GhostDamager"/>s that the point is inside of.
 	/// </summary>
-	public static int ContainsCount(Vector3 position)
+	public static float DamageAmount(Vector3 position)
 	{
-		int count = 0;
+		float count = 0;
 		foreach (GhostDamager damager in s_allDamagers)
 		{
 			if (damager != null && damager.Contains(position))
 			{
-				count++;
+				count += damager.DamageRatio;
 			}
 		}
 		return count;
