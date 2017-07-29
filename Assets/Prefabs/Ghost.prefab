@@ -24,6 +24,7 @@ GameObject:
   - component: {fileID: 50609476422806224}
   - component: {fileID: 58805237872318428}
   - component: {fileID: 114112700212785968}
+  - component: {fileID: 114696060879838286}
   m_Layer: 8
   m_Name: Ghost
   m_TagString: Ghost
@@ -92,6 +93,18 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_timeToKill: 1
   m_timeToRegen: 0.5
+--- !u!114 &114696060879838286
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1781497521802900}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1fc62883c576ab1458858a7d13911f8a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_receiveShadows: 1
 --- !u!114 &114724448025775082
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -120,12 +133,12 @@ SpriteRenderer:
   m_GameObject: {fileID: 1781497521802900}
   m_Enabled: 1
   m_CastShadows: 0
-  m_ReceiveShadows: 0
+  m_ReceiveShadows: 1
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
   m_Materials:
-  - {fileID: 10754, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: 2100000, guid: 749359a46cb3f6248a687b5dd9da9de9, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
