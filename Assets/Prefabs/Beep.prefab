@@ -226,7 +226,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_playerType: 1
   m_interactControl: BeepInteract
-  m_interactRadius: 1
+  m_interactRadius: 1.5
   m_interactArc: 180
 --- !u!114 &114200874182219446
 MonoBehaviour:

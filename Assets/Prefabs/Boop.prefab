@@ -257,7 +257,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_playerType: 2
   m_interactControl: BoopInteract
-  m_interactRadius: 1
+  m_interactRadius: 1.5
   m_interactArc: 180
 --- !u!114 &114663819333950480
 MonoBehaviour:

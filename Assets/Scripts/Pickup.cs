@@ -12,6 +12,12 @@ public class Pickup : MonoBehaviour
 	[SerializeField]
 	private PlayerType m_onlyPlayer = PlayerType.None;
 
+	[SerializeField]
+	private string m_tag = "";
+
+	[SerializeField]
+	private string m_cancelsWithTag = "";
+
 	public PlayerInteraction HeldBy { get; set; }
 
 #if UNITY_EDITOR
@@ -45,7 +51,7 @@ public class Pickup : MonoBehaviour
 	/// </summary>
 	public bool CanBeGrabbedBy(PlayerType playerType)
 	{
-		if (m_onlyPlayer == PlayerType.None)
+		if (m_onlyPlayer == PlayerType.Both)
 		{
 			return true;
 		}
