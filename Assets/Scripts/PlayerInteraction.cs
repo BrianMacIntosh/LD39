@@ -49,6 +49,7 @@ public class PlayerInteraction : MonoBehaviour
 		if (m_holdingPickup != null)
 		{
 			m_holdingPickup.transform.SetParent(null);
+			m_holdingPickup.GetComponent<Collider2D>().enabled = true;
 			m_holdingPickup.HeldBy = null;
 			m_holdingPickup = null;
 		}
@@ -60,6 +61,9 @@ public class PlayerInteraction : MonoBehaviour
 		if (target != null)
 		{
 			target.transform.SetParent(transform);
+			target.GetComponent<Collider2D>().enabled = false;
+			target.transform.localRotation = Quaternion.identity;
+			target.transform.localPosition = new Vector3(0f, 1f, 0f);
 			m_holdingPickup = target;
 		}
 	}

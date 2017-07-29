@@ -7,6 +7,7 @@ public enum PlayerType
 	None,
 	Beep,
 	Boop,
+	Both,
 }
 
 public class Player_Navigation : MonoBehaviour {

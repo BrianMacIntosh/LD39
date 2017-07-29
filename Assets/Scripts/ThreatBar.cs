@@ -18,7 +18,7 @@ public class ThreatBar : MonoBehaviour {
     // Update is called once per frame
     void Update()
     {
-        float scaledThreat = (1f - defaultLevel) * (ghostSpawnManager.GetComponent<GhostSpawnPointManager>().spawnRate - 0.25f);
+        float scaledThreat = (1f - defaultLevel) * (ghostSpawnManager.GetComponent<SpawnManager>().spawnRate - 0.25f);
         GetComponent<Image>().fillAmount = defaultLevel + scaledThreat;
     }
 }

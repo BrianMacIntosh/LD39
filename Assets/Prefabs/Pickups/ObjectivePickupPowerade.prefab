@@ -91,7 +91,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 58fd741d823330845ab74b82266ffa39, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_onlyPlayer: 0
+  m_onlyPlayer: 3
+  m_tag: objective
+  m_cancelsWithTag: 
 --- !u!212 &212203602308506762
 SpriteRenderer:
   m_ObjectHideFlags: 1
@@ -133,4 +135,3 @@ SpriteRenderer:
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
-  m_MaskInteraction: 0

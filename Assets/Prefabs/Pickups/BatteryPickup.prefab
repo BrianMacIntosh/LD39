@@ -91,7 +91,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b53a13aad03b3144fbdbceec27035776, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_onlyPlayer: 0
+  m_onlyPlayer: 3
+  m_tag: battery
+  m_cancelsWithTag: 
   m_energy: 1
 --- !u!212 &212551452546947770
 SpriteRenderer:
@@ -134,4 +136,3 @@ SpriteRenderer:
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
-  m_MaskInteraction: 0

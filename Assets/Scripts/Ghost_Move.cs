@@ -20,9 +20,8 @@ public class Ghost_Move : MonoBehaviour {
     private GameObject[] playerList;
     private bool touchingTargetPlayer = false;
 
-    /// <summary>
-    /// Returns the ghost's current top movement speed.
-    /// </summary>
+	private Rigidbody2D m_rigidbody;
+
     private void Start()
     {
         playerList = GameObject.FindGameObjectsWithTag("Player");
@@ -45,7 +44,10 @@ public class Ghost_Move : MonoBehaviour {
         }
     }
 
-    public float CurrentMoveSpeed
+	/// <summary>
+	/// Returns the ghost's current top movement speed.
+	/// </summary>
+	public float CurrentMoveSpeed
 	{
 		get
 		{
@@ -69,17 +71,8 @@ public class Ghost_Move : MonoBehaviour {
 	private void Awake()
 	{
 		m_health = GetComponent<GhostHealth>();
-
-        GhostSpawnPointManager.Instance.IncrementGhostCount();
+		m_rigidbody = GetComponent<Rigidbody2D>();
 	}
-
-    private void OnDestroy()
-    {
-        if(GhostSpawnPointManager.Instance != null)
-        {
-            GhostSpawnPointManager.Instance.DecrementGhostCount();
-        }
-    }
 
     void Update ()
     {
@@ -118,7 +111,12 @@ public class Ghost_Move : MonoBehaviour {
                 }
             }
         }
-    }
+
+		m_rigidbody.rotation = Mathf.LerpAngle(
+			m_rigidbody.rotation,
+			Mathf.Atan2(m_rigidbody.velocity.y, m_rigidbody.velocity.x) * Mathf.Rad2Deg,
+			5f * Time.deltaTime);
+	}
 
     private bool findTargetPlayer()
     {
@@ -133,12 +131,11 @@ public class Ghost_Move : MonoBehaviour {
 
     private void moveTowardTargetPlayerPosition()
     {
-        Rigidbody2D rb2d = GetComponent<Rigidbody2D>();
         Vector3 moveDir = playerPosition - transform.position;
         ghostDirection = moveDir.normalized;
         if(!touchingTargetPlayer)
         {
-            rb2d.velocity = CurrentMoveSpeed * moveDir.normalized;
+			m_rigidbody.velocity = CurrentMoveSpeed * moveDir.normalized;
         }
     }
     
@@ -163,11 +160,11 @@ public class Ghost_Move : MonoBehaviour {
 
     private void moveTowardTargetWaypoint()
     {
-        Rigidbody2D rb2d = GetComponent<Rigidbody2D>();
         Vector3 moveDir = targetWaypoint.transform.position - transform.position;
         ghostDirection = moveDir.normalized;
-        rb2d.velocity = CurrentMoveSpeed * moveDir.normalized;
-        if(moveDir.magnitude <= waypointMinDistance)
+		m_rigidbody.velocity = CurrentMoveSpeed * moveDir.normalized;
+
+		if (moveDir.magnitude <= waypointMinDistance)
         {
             hasTargetWaypoint = false;
         }
