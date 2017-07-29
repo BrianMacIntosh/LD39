@@ -23,7 +23,7 @@ GameObject:
   - component: {fileID: 212566222354671928}
   - component: {fileID: 50609476422806224}
   - component: {fileID: 58805237872318428}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Ghost
   m_TagString: Ghost
   m_Icon: {fileID: 0}
@@ -89,7 +89,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 041487aacefe90a4883888659fc32e63, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  move_speed: 1
+  move_speed: 2
   detectDistance: 30
   waypointDetectDistance: 20
   waypointMinDistance: 0.05
