@@ -135,7 +135,13 @@ Shader "LD39/Standard (Capped Lights)"
 				half4 c = UNITY_BRDF_PBS(s.diffColor, s.specColor, s.oneMinusReflectivity, s.smoothness, s.normalWorld, -s.eyeVec, light, noIndirect);
 
 				UNITY_APPLY_FOG_COLOR(i.fogCoord, c.rgb, half4(0,0,0,0)); // fog towards black in additive pass
-				c.rgb = min(c.rgb, tex2D(_MainTex, i.tex.rg) * _Color);
+
+				// do not allow the intensity of the light to get above that of the source texture
+				half4 sourceTexture = tex2D(_MainTex, i.tex.rg);
+				float sourceTextureGreyscale = (sourceTexture.r + sourceTexture.g + sourceTexture.b) / 3;
+				float lightGreyscale = (c.r + c.g + c.b) / 3;
+				c.rgb *= saturate(sourceTextureGreyscale / lightGreyscale);
+
 				return OutputForward(c, s.alpha);
 			}
 
