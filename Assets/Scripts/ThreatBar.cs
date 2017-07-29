@@ -5,20 +5,20 @@ using UnityEngine.UI;
 
 public class ThreatBar : MonoBehaviour {
 
-    GameObject ghostSpawnPointManager;
+    GameObject ghostSpawnManager;
     public float threatLevel = 0;
     public float defaultLevel = 0.05f;
     // Use this for initialization
     void Start()
     {
-        ghostSpawnPointManager = GameObject.Find("GhostSpawnPointManager");
+        ghostSpawnManager = GameObject.Find("GhostSpawnManager");
 
     }
 
     // Update is called once per frame
     void Update()
     {
-        float scaledThreat = (1f - defaultLevel) * (ghostSpawnPointManager.GetComponent<GhostSpawnPointManager>().spawnRate - 0.25f);
+        float scaledThreat = (1f - defaultLevel) * (ghostSpawnManager.GetComponent<GhostSpawnPointManager>().spawnRate - 0.25f);
         GetComponent<Image>().fillAmount = defaultLevel + scaledThreat;
     }
 }
