@@ -5,6 +5,7 @@ using UnityEngine;
 public class Ghost_Move : MonoBehaviour {
 
     public float move_speed = 3;
+	public float speedMultiplierDuringDamage = 0.2f;
     public float detectDistance= 10;
     public float waypointDetectDistance = 15;
     public float waypointMinDistance = 0.2f;
@@ -16,8 +17,36 @@ public class Ghost_Move : MonoBehaviour {
     public GameObject targetWaypoint;
     public bool hasTargetWaypoint = false;
     public Vector3 ghostDirection = new Vector3(0, 1, 0);
-	
-	// Update is called once per frame
+
+	/// <summary>
+	/// Returns the ghost's current top movement speed.
+	/// </summary>
+	public float CurrentMoveSpeed
+	{
+		get
+		{
+			if (m_health.IsBeingDamaged)
+			{
+				return move_speed * speedMultiplierDuringDamage;
+			}
+			else
+			{
+				return move_speed;
+			}
+		}
+	}
+
+	#region Cached Components
+
+	private GhostHealth m_health;
+
+	#endregion
+
+	private void Awake()
+	{
+		m_health = GetComponent<GhostHealth>();
+	}
+
 	void Update ()
     {
         if (playerSeen)
@@ -73,7 +102,7 @@ public class Ghost_Move : MonoBehaviour {
         Rigidbody2D rb2d = GetComponent<Rigidbody2D>();
         Vector3 moveDir = playerPosition - transform.position;
         ghostDirection = moveDir.normalized;
-        rb2d.velocity = move_speed * moveDir.normalized;
+        rb2d.velocity = CurrentMoveSpeed * moveDir.normalized;
     }
     
     private void findClosestPlayer()
@@ -101,7 +130,7 @@ public class Ghost_Move : MonoBehaviour {
         Rigidbody2D rb2d = GetComponent<Rigidbody2D>();
         Vector3 moveDir = targetWaypoint.transform.position - transform.position;
         ghostDirection = moveDir.normalized;
-        rb2d.velocity = move_speed * moveDir.normalized;
+        rb2d.velocity = CurrentMoveSpeed * moveDir.normalized;
         if(moveDir.magnitude < waypointMinDistance)
         {
             hasTargetWaypoint = false;
