@@ -20,6 +20,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4905527991101804}
   - component: {fileID: 108884399324249392}
+  - component: {fileID: 114222791944937428}
   m_Layer: 8
   m_Name: HardLight
   m_TagString: Untagged
@@ -36,6 +37,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4123369365208244}
   - component: {fileID: 108839426993379160}
+  - component: {fileID: 114493786976281980}
   m_Layer: 0
   m_Name: Ambient
   m_TagString: Untagged
@@ -68,7 +70,7 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1724055062888082}
-  m_LocalRotation: {x: -0, y: -0, z: -0.9751093, w: 0.22172508}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: -0.1}
   m_LocalScale: {x: 0.97922504, y: 1.0233734, z: 1}
   m_Children: []
@@ -235,6 +237,36 @@ MonoBehaviour:
   turn_speed: 100
   dirDegAngle: 90
   isBeep: 1
+--- !u!114 &114222791944937428
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1619269977637664}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b4e406ac6be03984a81ab3f7564fac40, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_damageGhosts: 1
+  m_revealObjects: 1
+  m_radius: 1
+  m_arc: 90
+--- !u!114 &114493786976281980
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1724055062888082}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b4e406ac6be03984a81ab3f7564fac40, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_damageGhosts: 0
+  m_revealObjects: 1
+  m_radius: 3.5
+  m_arc: 360
 --- !u!212 &212388830138975444
 SpriteRenderer:
   m_ObjectHideFlags: 1

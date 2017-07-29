@@ -18,6 +18,9 @@ public class Door : MonoBehaviour
 	private static int s_animatorOpenParam;
 
 	[RuntimeInitializeOnLoadMethod]
+#if UNITY_EDITOR
+	[UnityEditor.Callbacks.DidReloadScripts]
+#endif
 	private static void StaticInit()
 	{
 		s_animatorOpenParam = Animator.StringToHash("Open");

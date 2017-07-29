@@ -20,6 +20,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4862995626891518}
   - component: {fileID: 108144525128984198}
+  - component: {fileID: 114195922002964914}
   m_Layer: 0
   m_Name: Ambient
   m_TagString: Untagged
@@ -55,6 +56,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4966106545945716}
   - component: {fileID: 108521836627208638}
+  - component: {fileID: 114663819333950480}
   m_Layer: 8
   m_Name: HardLight
   m_TagString: Untagged
@@ -220,6 +222,21 @@ Light:
   m_UseColorTemperature: 0
   m_ShadowRadius: 0
   m_ShadowAngle: 0
+--- !u!114 &114195922002964914
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1583774283572026}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b4e406ac6be03984a81ab3f7564fac40, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_damageGhosts: 0
+  m_revealObjects: 1
+  m_radius: 3.5
+  m_arc: 360
 --- !u!114 &114574390375242090
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -235,6 +252,21 @@ MonoBehaviour:
   turn_speed: 200
   dirDegAngle: 90
   isBeep: 0
+--- !u!114 &114663819333950480
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1964702990894294}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b4e406ac6be03984a81ab3f7564fac40, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_damageGhosts: 1
+  m_revealObjects: 1
+  m_radius: 1
+  m_arc: 90
 --- !u!212 &212298636536198190
 SpriteRenderer:
   m_ObjectHideFlags: 1
