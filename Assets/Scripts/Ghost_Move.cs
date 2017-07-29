@@ -18,6 +18,7 @@ public class Ghost_Move : MonoBehaviour {
     public Vector3 ghostDirection = new Vector3(0, 1, 0);
     private GameObject[] waypointList;
     private GameObject[] playerList;
+    private bool touchingTargetPlayer = false;
 
     /// <summary>
     /// Returns the ghost's current top movement speed.
@@ -27,6 +28,23 @@ public class Ghost_Move : MonoBehaviour {
         playerList = GameObject.FindGameObjectsWithTag("Player");
         waypointList = GameObject.FindGameObjectsWithTag("GhostPatrolWaypoint");
     }
+
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        if(collision.gameObject == targetPlayer)
+        {
+            touchingTargetPlayer = true;
+        }
+    }
+
+    private void OnCollisionExit2D(Collision2D collision)
+    {
+        if (collision.gameObject == targetPlayer)
+        {
+            touchingTargetPlayer = false;
+        }
+    }
+
     public float CurrentMoveSpeed
 	{
 		get
@@ -115,7 +133,10 @@ public class Ghost_Move : MonoBehaviour {
         Rigidbody2D rb2d = GetComponent<Rigidbody2D>();
         Vector3 moveDir = playerPosition - transform.position;
         ghostDirection = moveDir.normalized;
-        rb2d.velocity = CurrentMoveSpeed * moveDir.normalized;
+        if(!touchingTargetPlayer)
+        {
+            rb2d.velocity = CurrentMoveSpeed * moveDir.normalized;
+        }
     }
     
     private void findClosestPlayer()
