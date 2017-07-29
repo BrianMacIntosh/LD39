@@ -25,6 +25,11 @@ public class DoorSensor : MonoBehaviour
 	/// </summary>
 	private List<GameObject> m_activators = new List<GameObject>();
 
+	private void OnValidate()
+	{
+		UpdateSprite();
+	}
+
 	private void OnDisable()
 	{
 		m_target.RemoveActiveSensorAll(this);
