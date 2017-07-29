@@ -7,7 +7,24 @@ public class DoorSensor : MonoBehaviour
 	[Tooltip("The door to control from this sensor.")]
 	[SerializeField]
 	private Door m_target = null;
-	
+
+	[SerializeField]
+	private Sprite m_upSprite = null;
+
+	[SerializeField]
+	private Sprite m_downSprite = null;
+
+	#region Cached components
+
+	private SpriteRenderer m_spriteRenderer;
+
+	#endregion
+
+	/// <summary>
+	/// List of objects that are currently activating this sensor.
+	/// </summary>
+	private List<GameObject> m_activators = new List<GameObject>();
+
 	private void OnDisable()
 	{
 		m_target.RemoveActiveSensorAll(this);
@@ -17,7 +34,12 @@ public class DoorSensor : MonoBehaviour
 	{
 		if (collision.gameObject.CompareTag("Player"))
 		{
-			m_target.AddActiveSensor(this);
+			if (m_activators.Count == 0)
+			{
+				m_target.AddActiveSensor(this);
+			}
+			m_activators.Add(collision.gameObject);
+			UpdateSprite();
 		}
 	}
 
@@ -25,7 +47,21 @@ public class DoorSensor : MonoBehaviour
 	{
 		if (collision.gameObject.CompareTag("Player"))
 		{
-			m_target.RemoveActiveSensor(this);
+			m_activators.Remove(collision.gameObject);
+			if (m_activators.Count == 0)
+			{
+				m_target.RemoveActiveSensor(this);
+			}
+			UpdateSprite();
 		}
+	}
+
+	private void UpdateSprite()
+	{
+		if (m_spriteRenderer == null)
+		{
+			m_spriteRenderer = GetComponent<SpriteRenderer>();
+		}
+		m_spriteRenderer.sprite = m_activators.Count > 0 ? m_downSprite : m_upSprite;
 	}
 }
