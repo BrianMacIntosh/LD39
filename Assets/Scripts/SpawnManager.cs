@@ -25,7 +25,7 @@ public class SpawnManager : MonoBehaviour
 	[Tooltip("In 'objects per second'.")]
 	public float baseSpawnRate = 0.25f;
 
-	private float spawnRate = 0.25f;
+	public float spawnRate = 0.25f;
 
 	public float spawnAcceleration = 0.01f;
 
