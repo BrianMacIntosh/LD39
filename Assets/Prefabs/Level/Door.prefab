@@ -21,7 +21,7 @@ GameObject:
   - component: {fileID: 4132664436125668}
   - component: {fileID: 95871322693072266}
   - component: {fileID: 114427280255759914}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Door
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -38,7 +38,7 @@ GameObject:
   - component: {fileID: 4965986705755852}
   - component: {fileID: 212485380921730802}
   - component: {fileID: 61749478583164936}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: DoorA
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -55,7 +55,7 @@ GameObject:
   - component: {fileID: 4428851109683596}
   - component: {fileID: 212648605470012286}
   - component: {fileID: 61483094478399512}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: DoorB
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -222,6 +222,7 @@ SpriteRenderer:
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
+  m_MaskInteraction: 0
 --- !u!212 &212648605470012286
 SpriteRenderer:
   m_ObjectHideFlags: 1
@@ -263,3 +264,4 @@ SpriteRenderer:
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
+  m_MaskInteraction: 0
