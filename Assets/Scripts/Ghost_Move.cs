@@ -45,9 +45,16 @@ public class Ghost_Move : MonoBehaviour {
 	private void Awake()
 	{
 		m_health = GetComponent<GhostHealth>();
+
+        GhostSpawnPointManager.Instance.IncrementGhostCount();
 	}
 
-	void Update ()
+    private void OnDestroy()
+    {
+        GhostSpawnPointManager.Instance.DecrementGhostCount();
+    }
+
+    void Update ()
     {
         if (playerSeen)
         {
