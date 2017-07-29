@@ -90,8 +90,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   move_speed: 1
-  detectDistance: 10
+  detectDistance: 30
+  waypointDetectDistance: 20
+  waypointMinDistance: 0.05
   timeOut: 1
+  targetWaypoint: {fileID: 0}
+  hasTargetWaypoint: 0
+  ghostDirection: {x: 0, y: 1, z: 0}
 --- !u!212 &212566222354671928
 SpriteRenderer:
   m_ObjectHideFlags: 1
