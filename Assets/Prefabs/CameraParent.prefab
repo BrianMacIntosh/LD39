@@ -23,7 +23,7 @@ GameObject:
   - component: {fileID: 33363939096840054}
   - component: {fileID: 114529749788612426}
   - component: {fileID: 114809191043127968}
-  m_Layer: 0
+  m_Layer: 17
   m_Name: Lights
   m_TagString: Untagged
   m_Icon: {fileID: 0}
