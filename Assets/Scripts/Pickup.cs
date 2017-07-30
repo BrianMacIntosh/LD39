@@ -18,7 +18,13 @@ public class Pickup : MonoBehaviour
 	[SerializeField]
 	private string m_cancelsWithTag = "";
 
+	[SerializeField]
+	private bool m_resetRotationOnDrop = false;
+
 	public PlayerInteraction HeldBy { get; private set; }
+
+	private Collider2D m_collider;
+	private Rigidbody2D m_rigidbody;
 
 #if UNITY_EDITOR
 	[UnityEditor.Callbacks.DidReloadScripts]
@@ -39,6 +45,9 @@ public class Pickup : MonoBehaviour
 	private void Awake()
 	{
 		Pickups.Add(this);
+
+		m_collider = GetComponent<Collider2D>();
+		m_rigidbody = GetComponent<Rigidbody2D>();
 	}
 
 	private void OnDestroy()
@@ -53,13 +62,32 @@ public class Pickup : MonoBehaviour
 
 	public virtual void NotifyPickUp(PlayerInteraction pickUpper)
 	{
-		GetComponent<Collider2D>().enabled = false;
+		if (m_collider != null)
+		{
+			m_collider.enabled = false;
+		}
+		if (m_rigidbody)
+		{
+			m_rigidbody.velocity = Vector3.zero;
+			m_rigidbody.simulated = false;
+		}
 		HeldBy = pickUpper;
 	}
 
 	public virtual void NotifyDrop(PlayerInteraction dropper)
 	{
-		GetComponent<Collider2D>().enabled = true;
+		if (m_collider)
+		{
+			m_collider.enabled = true;
+		}
+		if (m_rigidbody)
+		{
+			m_rigidbody.simulated = true;
+		}
+		if (m_resetRotationOnDrop)
+		{
+			transform.localRotation = Quaternion.identity;
+		}
 		HeldBy = null;
 	}
 

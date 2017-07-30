@@ -102,7 +102,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   beep: {fileID: 0}
   pushSpeed: 6
-  isPushed: 0
 --- !u!114 &114677417315983626
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -117,6 +116,7 @@ MonoBehaviour:
   m_onlyPlayer: 1
   m_tag: 
   m_cancelsWithTag: 
+  m_resetRotationOnDrop: 1
 --- !u!212 &212961405325705816
 SpriteRenderer:
   m_ObjectHideFlags: 1
@@ -158,4 +158,3 @@ SpriteRenderer:
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
-  m_MaskInteraction: 0
