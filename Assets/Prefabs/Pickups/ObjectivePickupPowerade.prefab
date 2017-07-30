@@ -25,7 +25,7 @@ GameObject:
   - component: {fileID: 61302102724769530}
   m_Layer: 0
   m_Name: ObjectivePickupPowerade
-  m_TagString: Untagged
+  m_TagString: Objective
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -91,7 +91,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 58fd741d823330845ab74b82266ffa39, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_onlyPlayer: 3
+  m_onlyPlayer: 1
   m_tag: objective
   m_cancelsWithTag: 
   m_resetRotationOnDrop: 0

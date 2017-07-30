@@ -7,6 +7,9 @@ TagManager:
   - Ghost
   - GhostPatrolWaypoint
   - Box
+  - Water
+  - Objective
+  - Battery
   layers:
   - Default
   - TransparentFX
