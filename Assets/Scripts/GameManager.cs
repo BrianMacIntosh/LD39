@@ -47,6 +47,12 @@ public class GameManager : MonoBehaviour
 	}
 	private GameObject m_boop;
 
+	public void RefindPlayers()
+	{
+		m_players = null;
+		TryFindPlayers();
+	}
+
 	private void TryFindPlayers()
 	{
 		if (m_players == null)
