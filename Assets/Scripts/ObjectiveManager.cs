@@ -23,6 +23,7 @@ public class ObjectiveManager : MonoBehaviour
     {
         if(m_objectiveCount >= m_objectiveMax)
         {
+            SceneLoader.Instance.NextScene();
         }
     }
 
