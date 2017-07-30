@@ -23,7 +23,7 @@ GameObject:
   - component: {fileID: 114668718872550380}
   - component: {fileID: 61346906468834102}
   - component: {fileID: 114028325156055748}
-  m_Layer: 9
+  m_Layer: 10
   m_Name: FirePickup
   m_TagString: Untagged
   m_Icon: {fileID: 0}
