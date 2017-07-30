@@ -38,6 +38,7 @@ public class Player_Navigation : MonoBehaviour {
 	private PlayerEnergy m_energyComponent;
 	private Rigidbody2D m_rigidbody;
 	private AudioSource m_audioSource;
+	private Animator m_animator;
 
 	#endregion
 
@@ -46,6 +47,7 @@ public class Player_Navigation : MonoBehaviour {
 		m_energyComponent = GetComponent<PlayerEnergy>();
 		m_rigidbody = GetComponent<Rigidbody2D>();
 		m_audioSource = OurUtility.GetOrAddComponent<AudioSource>(gameObject);
+		m_animator = GetComponent<Animator>();
 	}
 
 	void Update()
@@ -101,6 +103,9 @@ public class Player_Navigation : MonoBehaviour {
 			m_audioSource.volume = 0.1f;
 			m_audioSource.Play();
 		}
+
+		m_animator.SetBool("IsMoving", moveForward != 0f || turn != 0f);
+		m_animator.speed = Mathf.Max(1f, m_rigidbody.velocity.magnitude / 1.5f);
 
 		m_lastMoveForward = moveForward;
 		m_lastTurn = turn;
