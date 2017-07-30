@@ -778,7 +778,7 @@ MonoBehaviour:
       m_Calls: []
     m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
-  m_Sprite: {fileID: 21300000, guid: a92f506227383ee4d932c08148d2f16d, type: 3}
+  m_Sprite: {fileID: 21300000, guid: e75962494b31ebc46aa014af20274135, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -805,9 +805,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   isBeep: 1
   player: {fileID: 0}
-  boxImage: {fileID: 21300000, guid: a92f506227383ee4d932c08148d2f16d, type: 3}
+  boxImage: {fileID: 21300000, guid: e75962494b31ebc46aa014af20274135, type: 3}
   waterImage: {fileID: 21300000, guid: 342b7cb4cdff04742ae79b9270318d6f, type: 3}
-  objectiveImage: {fileID: 21300000, guid: ad61346e71d04ec45a1f5d2ee657f3f8, type: 3}
+  objectiveImage: {fileID: 21300000, guid: 28324034ab090874eb1cf48dd4eb2611, type: 3}
 --- !u!1 &577979180
 GameObject:
   m_ObjectHideFlags: 0
@@ -1491,6 +1491,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   isBeep: 0
   player: {fileID: 0}
-  boxImage: {fileID: 21300000, guid: a92f506227383ee4d932c08148d2f16d, type: 3}
+  boxImage: {fileID: 21300000, guid: e75962494b31ebc46aa014af20274135, type: 3}
   waterImage: {fileID: 21300000, guid: 342b7cb4cdff04742ae79b9270318d6f, type: 3}
-  objectiveImage: {fileID: 21300000, guid: ad61346e71d04ec45a1f5d2ee657f3f8, type: 3}
+  objectiveImage: {fileID: 21300000, guid: 28324034ab090874eb1cf48dd4eb2611, type: 3}
