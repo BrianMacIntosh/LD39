@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -22,7 +22,7 @@ public class PlayerInteraction : MonoBehaviour
 	/// <summary>
 	/// The pickup that the player is currently holding.
 	/// </summary>
-	private Pickup m_holdingPickup = null;
+	public Pickup m_holdingPickup = null;
 
 	private void OnDestroy()
 	{

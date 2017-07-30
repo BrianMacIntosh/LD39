@@ -24,7 +24,7 @@ GameObject:
   - component: {fileID: 95539113116563238}
   m_Layer: 0
   m_Name: BatteryPickup
-  m_TagString: Untagged
+  m_TagString: Battery
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -148,6 +148,7 @@ MonoBehaviour:
   m_tag: battery
   m_cancelsWithTag: 
   m_resetRotationOnDrop: 0
+  m_onPickUpAudio: {fileID: 8300000, guid: 3443130b0dc54a74385040a0e14cdd6f, type: 3}
   m_energy: 20
 --- !u!212 &212724040294101826
 SpriteRenderer:

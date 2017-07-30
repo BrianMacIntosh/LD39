@@ -21,10 +21,17 @@ public class Pickup : MonoBehaviour
 	[SerializeField]
 	private bool m_resetRotationOnDrop = false;
 
+	[SerializeField]
+	private AudioClip m_onPickUpAudio = null;
+
 	public PlayerInteraction HeldBy { get; private set; }
+
+	#region Cached Components
 
 	private Collider2D m_collider;
 	private Rigidbody2D m_rigidbody;
+
+	#endregion
 
 #if UNITY_EDITOR
 	[UnityEditor.Callbacks.DidReloadScripts]
@@ -70,6 +77,11 @@ public class Pickup : MonoBehaviour
 		{
 			m_rigidbody.velocity = Vector3.zero;
 			m_rigidbody.simulated = false;
+		}
+		if (m_onPickUpAudio)
+		{
+			AudioSource audioSource = OurUtility.GetOrAddComponent<AudioSource>(pickUpper.gameObject);
+			audioSource.PlayOneShot(m_onPickUpAudio);
 		}
 		HeldBy = pickUpper;
 	}

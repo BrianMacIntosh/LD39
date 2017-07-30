@@ -83,6 +83,7 @@ MonoBehaviour:
   m_tag: fire
   m_cancelsWithTag: water
   m_resetRotationOnDrop: 0
+  m_onPickUpAudio: {fileID: 0}
 --- !u!114 &114668718872550380
 MonoBehaviour:
   m_ObjectHideFlags: 1

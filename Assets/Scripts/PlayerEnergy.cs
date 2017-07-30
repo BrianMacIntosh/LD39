@@ -10,30 +10,42 @@ public class PlayerEnergy : MonoBehaviour
 	public int ghostsAttacking = 0;
 	public float ghostDrainRate = 5;
 
-	void Start()
+	[SerializeField]
+	private Animator m_lightAnimator = null;
+
+	[SerializeField]
+	private AudioClip m_outOfPowerAudio = null;
+
+	public bool HasEnergy { get { return currentEnergy > 0; } }
+
+	#region Cached Components
+
+	private AudioSource m_audioSource;
+
+	#endregion
+
+	private void Awake()
 	{
-
+		m_audioSource = OurUtility.GetOrAddComponent<AudioSource>(gameObject);
 	}
-
 
 	void Update()
 	{
-		currentEnergy -= drainRate * Time.deltaTime;
-		currentEnergy -= ghostsAttacking * ghostDrainRate * Time.deltaTime;
-		if (currentEnergy > maxEnergy)
-		{
-			currentEnergy = maxEnergy;
-		}
-		if (currentEnergy < 0)
-		{
-			currentEnergy = 0;
-		}
-
+		AddEnergy(-drainRate * Time.deltaTime);
+		AddEnergy(-ghostsAttacking * ghostDrainRate * Time.deltaTime);
 	}
 
 	public void AddEnergy(float amount)
 	{
+		float previousEnergy = currentEnergy;
 		currentEnergy = Mathf.Clamp(currentEnergy + amount, 0, maxEnergy);
+
+		m_lightAnimator.SetFloat("Energy", currentEnergy / maxEnergy);
+
+		if (previousEnergy > 0f && currentEnergy <= 0f)
+		{
+			m_audioSource.PlayOneShot(m_outOfPowerAudio);
+		}
 	}
 
 	private void OnCollisionEnter2D(Collision2D collision)

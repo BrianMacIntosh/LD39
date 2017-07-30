@@ -18,9 +18,17 @@ public class GhostDamager : MonoBehaviour
 
 	public float DamageRatio { get { return m_damageRatio; } }
 
+	#region Cached Components
+
+	private Light m_light;
+
+	#endregion
+
 	private void Awake()
 	{
 		s_allDamagers.Add(this);
+
+		m_light = GetComponent<Light>();
 	}
 
 	private void OnDestroy()
@@ -61,6 +69,12 @@ public class GhostDamager : MonoBehaviour
 	/// </summary>
 	public bool Contains(Vector3 position)
 	{
+		// only works if the light is on
+		if (m_light.intensity <= 0f)
+		{
+			return false;
+		}
+
 		Transform transform = this.transform;
 		Vector2 d = position - transform.position;
 		float distanceSq = (d.x * d.x) + (d.y * d.y);
