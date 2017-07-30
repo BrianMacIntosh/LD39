@@ -15,6 +15,12 @@ public class GhostHealth : MonoBehaviour
 	[SerializeField]
 	private GameObject m_onDeathSpawnPrefab = null;
 
+	[SerializeField]
+	private AudioClip m_gettingDamagedAudio = null;
+
+	[SerializeField]
+	private AudioClip m_deathAudio = null;
+
 	/// <summary>
 	/// The ghost's current health.
 	/// </summary>
@@ -25,17 +31,36 @@ public class GhostHealth : MonoBehaviour
 	/// </summary>
 	public bool IsBeingDamaged { get; private set; }
 
+	#region Cached Components
+
+	private AudioSource m_audioSource;
+
+	#endregion
+
+	private void Awake()
+	{
+		m_audioSource = OurUtility.GetOrAddComponent<AudioSource>(gameObject);
+	}
+
 	void Update()
 	{
 		float hitCount = GhostDamager.DamageAmount(transform.position);
 		if (hitCount > 0f)
 		{
+			if (!IsBeingDamaged && m_gettingDamagedAudio)
+			{
+				m_audioSource.PlayOneShot(m_gettingDamagedAudio, 0.5f);
+			}
 			IsBeingDamaged = true;
 
 			m_health -= Time.deltaTime * hitCount / m_timeToKill;
 			if (m_health <= 0f)
 			{
 				Destroy(gameObject);
+				if (m_deathAudio)
+				{
+					m_audioSource.PlayOneShot(m_deathAudio);
+				}
 				if (m_onDeathSpawnPrefab)
 				{
 					Instantiate(m_onDeathSpawnPrefab, transform.position, Quaternion.identity);

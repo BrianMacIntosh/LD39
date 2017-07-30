@@ -292,6 +292,7 @@ MonoBehaviour:
   ghostsAttacking: 0
   ghostDrainRate: 5
   m_lightAnimator: {fileID: 95783854843109360}
+  m_outOfPowerAudio: {fileID: 8300000, guid: 38128d5eb43d572428d9245b229e10d4, type: 3}
 --- !u!212 &212388830138975444
 SpriteRenderer:
   m_ObjectHideFlags: 1
