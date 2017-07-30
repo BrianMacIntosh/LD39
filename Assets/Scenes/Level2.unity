@@ -5551,6 +5551,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   SceneName: Scenes/Level2
+  BossNeutralSprite: {fileID: 21300000, guid: b36cc90689022fb4d8d539a2af1aecb7, type: 3}
+  BossNegativeSprite: {fileID: 21300000, guid: b1e44ba0e573dc34d8ee67de52d754e6, type: 3}
+  BossPositiveSprite: {fileID: 21300000, guid: 00b90596be0ef8840850200e3b2136af, type: 3}
+  ObjectiveSprite: {fileID: 21300000, guid: 9a873e9ec0558a74caa31c02604eb225, type: 3}
   CameraRigPrefab: {fileID: 1415632435154360, guid: d471b7c30aacefa44b97a569cb69ff34,
     type: 2}
   BoopPrefab: {fileID: 1926900810641854, guid: 8ce3f5a7237321a4a9ecb41443cb9671, type: 2}

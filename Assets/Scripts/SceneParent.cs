@@ -6,6 +6,11 @@ public class SceneParent : MonoBehaviour
 {
 	public string SceneName = "";
 
+	public Sprite BossNeutralSprite;
+	public Sprite BossNegativeSprite;
+	public Sprite BossPositiveSprite;
+	public Sprite ObjectiveSprite;
+
 	public GameObject CameraRigPrefab;
 	public GameObject BoopPrefab;
 	public GameObject BeepPrefab;
