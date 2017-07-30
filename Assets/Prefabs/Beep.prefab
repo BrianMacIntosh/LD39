@@ -260,6 +260,9 @@ MonoBehaviour:
   move_speed: 2.8
   turn_speed: 90
   dirDegAngle: 90
+  m_moveStartAudio: {fileID: 8300000, guid: b3310403c28db3b46909649bccd23cae, type: 3}
+  m_moveLoopAudio: {fileID: 8300000, guid: 0773e6ad5e0756443b20c92253577d8c, type: 3}
+  m_moveEndAudio: {fileID: 8300000, guid: c52bbc8a60e50ae42b1ce309854a46d6, type: 3}
   isBeep: 1
 --- !u!114 &114222791944937428
 MonoBehaviour:

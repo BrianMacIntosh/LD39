@@ -172,7 +172,7 @@ public class Ghost_Move : MonoBehaviour {
                     playerPosition = player.transform.position;
                     targetPlayer = player;
                     playerSeen = true;
-					m_audioSource.PlayOneShot(m_ghostAggroAudio, 0.5f);
+					m_audioSource.PlayOneShot(m_ghostAggroAudio, 0.25f);
 					break;
                 }
             }
