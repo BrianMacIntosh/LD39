@@ -16,17 +16,28 @@ public class PlayerEnergy : MonoBehaviour
 	[SerializeField]
 	private AudioClip m_outOfPowerAudio = null;
 
+	[SerializeField]
+	private Sprite m_outOfPowerSprite = null;
+
+	[SerializeField]
+	private Sprite m_lightOnSprite = null;
+
+	[SerializeField]
+	private Sprite m_lightOffSprite = null;
+
 	public bool HasEnergy { get { return currentEnergy > 0; } }
 
 	#region Cached Components
 
 	private AudioSource m_audioSource;
+	private SpriteRenderer m_spriteRenderer;
 
 	#endregion
 
 	private void Awake()
 	{
 		m_audioSource = OurUtility.GetOrAddComponent<AudioSource>(gameObject);
+		m_spriteRenderer = GetComponent<SpriteRenderer>();
 	}
 
 	void Update()
@@ -46,6 +57,20 @@ public class PlayerEnergy : MonoBehaviour
 		{
 			m_audioSource.PlayOneShot(m_outOfPowerAudio);
 		}
+
+		UpdateSprite();
+	}
+
+	private void UpdateSprite()
+	{
+		if (currentEnergy <= 0f)
+		{
+			m_spriteRenderer.sprite = m_outOfPowerSprite;
+		}
+		else
+		{
+			m_spriteRenderer.sprite = m_lightOnSprite;
+		}
 	}
 
 	private void OnCollisionEnter2D(Collision2D collision)
@@ -55,6 +80,7 @@ public class PlayerEnergy : MonoBehaviour
 			ghostsAttacking++;
 		}
 	}
+
 	private void OnCollisionExit2D(Collision2D collision)
 	{
 		if (collision.gameObject.tag == "Ghost")

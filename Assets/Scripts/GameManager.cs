@@ -27,9 +27,25 @@ public class GameManager : MonoBehaviour
 	}
 	private GameObject[] m_players;
 
-	public GameObject Beep { get; private set; }
+	public GameObject Beep
+	{
+		get
+		{
+			TryFindPlayers();
+			return m_beep;
+		}
+	}
+	private GameObject m_beep;
 
-	public GameObject Boop { get; private set; }
+	public GameObject Boop
+	{
+		get
+		{
+			TryFindPlayers();
+			return m_boop;
+		}
+	}
+	private GameObject m_boop;
 
 	private void TryFindPlayers()
 	{
@@ -40,11 +56,11 @@ public class GameManager : MonoBehaviour
 			{
 				if (obj.GetComponent<Player_Navigation>().isBeep)
 				{
-					Beep = obj;
+					m_beep = obj;
 				}
 				else
 				{
-					Boop = obj;
+					m_boop = obj;
 				}
 			}
 		}
