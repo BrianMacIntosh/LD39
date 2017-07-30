@@ -5,6 +5,19 @@ using UnityEngine.SceneManagement;
 
 public class SceneLoader : MonoBehaviour
 {
+	public static SceneLoader Instance
+	{
+		get
+		{
+			if (s_instance == null)
+			{
+				s_instance = FindObjectOfType<SceneLoader>();
+			}
+			return s_instance;
+		}
+	}
+	private static SceneLoader s_instance = null;
+
 	[System.Serializable]
 	public class SceneInfo
 	{
@@ -13,8 +26,15 @@ public class SceneLoader : MonoBehaviour
 		public SceneParent SceneInstance { get; set; }
 	}
 
+	private int m_currentScene = -1;
+
 	[SerializeField]
 	private SceneInfo[] m_allScenes = null;
+
+	public SceneParent CurrentScene
+	{
+		get { return m_allScenes[m_currentScene].SceneInstance; }
+	}
 
 	private void Start()
 	{
@@ -23,6 +43,8 @@ public class SceneLoader : MonoBehaviour
 		{
 			SceneManager.LoadScene(scene.SceneName, LoadSceneMode.Additive);
 		}
+
+		StartUpUi();
 	}
 
 	public void NotifySceneLoaded(SceneParent parent)
@@ -34,15 +56,48 @@ public class SceneLoader : MonoBehaviour
 			{
 				index = i;
 				m_allScenes[i].SceneInstance = parent;
-				if (index  > 0)
-				{
-					parent.gameObject.SetActive(false);
-				}
+				parent.gameObject.SetActive(false);
 				break;
 			}
 		}
 
 		// hardcoded scene height
-		parent.transform.position = new Vector3(0f, 18f * index, 0f);
+		parent.transform.position = new Vector3(0f, 18f * (index + 1f), 0f);
+	}
+
+	public void NextScene()
+	{
+		if (m_currentScene >= 0)
+		{
+			m_allScenes[m_currentScene].SceneInstance.gameObject.SetActive(false);
+		}
+		m_currentScene++;
+		if (m_currentScene < m_allScenes.Length)
+		{
+			GameObject sceneParent = m_allScenes[m_currentScene].SceneInstance.gameObject;
+			sceneParent.SetActive(true);
+			PlayerSpawn.RespawnAll();
+			CameraControl.Instance.GoTo(sceneParent.transform.position);
+		}
+	}
+
+	private void StartUpUi()
+	{
+		UiMaster ui = FindObjectOfType<UiMaster>();
+		if (ui)
+		{
+			ui.InGameUI.SetActive(false);
+			ui.FrontEndUI.SetActive(true);
+		}
+		else
+		{
+			UiMaster.OnUiLoaded -= OnUiLoaded;
+			UiMaster.OnUiLoaded += OnUiLoaded;
+		}
+	}
+
+	void OnUiLoaded()
+	{
+		StartUpUi();
 	}
 }

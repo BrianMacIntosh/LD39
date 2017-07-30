@@ -18,7 +18,7 @@ public class SceneParent : MonoBehaviour
 			loader.NotifySceneLoaded(this);
 		}
 
-		PlayerSpawn[] spawnPoints = FindObjectsOfType<PlayerSpawn>();
+		PlayerSpawn[] spawnPoints = GetComponentsInChildren<PlayerSpawn>();
 		PlayerSpawn beepSpawn = null;
 		PlayerSpawn boopSpawn = null;
 		foreach (PlayerSpawn spawn in spawnPoints)

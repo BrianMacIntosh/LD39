@@ -46,6 +46,11 @@ public class PlayerEnergy : MonoBehaviour
 		AddEnergy(-ghostsAttacking * ghostDrainRate * Time.deltaTime);
 	}
 
+	void OnRespawn()
+	{
+		AddEnergy(maxEnergy);
+	}
+
 	public void AddEnergy(float amount)
 	{
 		float previousEnergy = currentEnergy;
