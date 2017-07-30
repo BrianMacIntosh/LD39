@@ -18,6 +18,7 @@ public class ScaleToCameraPlane : MonoBehaviour
 
 	public bool DisableX;
 	public bool DisableY;
+	public bool FlipYZ;
 
 	private void OnValidate()
 	{
@@ -40,9 +41,9 @@ public class ScaleToCameraPlane : MonoBehaviour
 		if (m_camera.orthographic)
 		{
 			transform.localScale = new Vector3(
-				m_camera.orthographicSize * m_camera.pixelWidth / m_camera.pixelHeight,
-				transform.localScale.y,
-				m_camera.orthographicSize) * ManualScale;
+				(m_camera.orthographicSize * m_camera.pixelWidth / m_camera.pixelHeight) * ManualScale,
+				FlipYZ ? m_camera.orthographicSize * ManualScale : transform.localScale.y,
+				FlipYZ ? transform.localScale.z : m_camera.orthographicSize * ManualScale);
 		}
 		else
 		{

@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class PitScript : MonoBehaviour {
 
+    public GameObject filledPit;
 	// Use this for initialization
 	void Start () {
 		
@@ -20,6 +21,7 @@ public class PitScript : MonoBehaviour {
         {
             Destroy(collision.gameObject);
             Destroy(transform.parent.gameObject);
+            Instantiate(filledPit, transform.position, Quaternion.identity);
         }
     }
 }

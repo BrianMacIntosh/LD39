@@ -19,12 +19,35 @@ public class PlayerInteraction : MonoBehaviour
 	[Range(0f, 360f)]
 	private float m_interactArc = 180f;
 
+    public bool m_isBeep;
+    public GameObject m_boop;
 	/// <summary>
 	/// The pickup that the player is currently holding.
 	/// </summary>
 	public Pickup m_holdingPickup = null;
+    public int m_objectiveCount;
 
-	private void OnDestroy()
+    private void Start()
+    {
+        m_objectiveCount = 0;
+        m_isBeep = (m_playerType == PlayerType.Beep);
+        bool beepIs1 = false;
+        GameObject[] playerList = GameObject.FindGameObjectsWithTag("Player");
+        if ((playerList[0]).GetComponent<Player_Navigation>().isBeep)
+        {
+            beepIs1 = true;
+        }
+        if ((m_isBeep && beepIs1) || (!m_isBeep && !beepIs1))
+        {
+            m_boop = playerList[1];
+        }
+        else
+        {
+            m_boop = playerList[0];
+        }
+    }
+
+    private void OnDestroy()
 	{
 		SetDownPickup();
 	}
@@ -35,7 +58,8 @@ public class PlayerInteraction : MonoBehaviour
 		{
 			if (m_holdingPickup != null)
 			{
-				SetDownPickup();
+                TryGivePickupToBoop();
+                SetDownPickup();
 			}
 			else
 			{
@@ -53,6 +77,29 @@ public class PlayerInteraction : MonoBehaviour
 			m_holdingPickup = null;
 		}
 	}
+
+    public bool TryGivePickupToBoop()
+    {
+        Vector2 d = m_boop.transform.position - transform.position;
+        if (m_isBeep && m_holdingPickup.CompareTag("Objective") && (m_boop.GetComponent<PlayerInteraction>().m_objectiveCount < 5))
+        {
+            if (d.sqrMagnitude <= m_interactRadius * m_interactRadius)
+            {
+                float angle = Mathf.Atan2(d.y, d.x) * Mathf.Rad2Deg;
+                float dAng = Mathf.Abs(Mathf.DeltaAngle(angle - 90f, transform.rotation.eulerAngles.z));
+
+                if (dAng < m_interactArc / 2f)
+                {
+                    // Boop is in range
+                    Destroy(m_holdingPickup.gameObject);
+                    m_holdingPickup = null;
+                    m_boop.GetComponent<PlayerInteraction>().m_objectiveCount++;
+                    return true;
+                }
+            }
+        }
+        return false;
+    }
 
 	public void PickUpPickup()
 	{
