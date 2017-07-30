@@ -39,6 +39,8 @@ public class SpawnManager : MonoBehaviour
 	public float maxObjects = 10;
 
 	private Transform[] spawnTransformList;
+    private bool[] spawnIsValidList;
+    public bool isGhosts = true;
 
 	public delegate void ObjectSpawnedDelegate(GameObject obj);
 
@@ -50,6 +52,7 @@ public class SpawnManager : MonoBehaviour
 	/// <summary>
 	/// Returns the number of objects in existence that were spawned by this manager.
 	/// </summary>
+    
 	private int SpawnedObjectCount
 	{
 		get
@@ -70,6 +73,16 @@ public class SpawnManager : MonoBehaviour
 	void Start()
 	{
 		spawnTransformList = gameObject.GetComponentsInChildren<Transform>();
+        spawnIsValidList = new bool[spawnTransformList.Length];
+        for(int i = 0; i < spawnIsValidList.Length; i++)
+        {
+            spawnIsValidList[i] = true;
+        }
+        foreach(GameObject player in GameManager.Instance.Players)
+        {
+            player.GetComponent<PlayerInteraction>().onFireWaterPickup += SetSpawnValid;
+            player.GetComponent<PlayerInteraction>().onObjectivePickup += SetSpawnValid;
+        }
 	}
 
 	void FixedUpdate()
@@ -128,20 +141,27 @@ public class SpawnManager : MonoBehaviour
 	public bool SpawnObject(GameObject prefab)
 	{
 		Transform[] validSpawnTransforms = new Transform[spawnTransformList.Length];
+        int[] validSpawnIndexList = new int[spawnTransformList.Length];
 		int validSpawnCount = 0;
+        int spawnIndex = 0;
 		foreach (Transform spawnTransform in spawnTransformList)
 		{
-			if (spawnTransform.transform.position != transform.position)
-			{
-				GameObject[] playerList = GameObject.FindGameObjectsWithTag("Player");
-				Vector3 beepVec = playerList[0].transform.position - spawnTransform.position;
-				Vector3 boopVec = playerList[1].transform.position - spawnTransform.position;
-				if ((beepVec.magnitude > minSpawnDistance) && (boopVec.magnitude > minSpawnDistance))
-				{
-					validSpawnTransforms[validSpawnCount] = spawnTransform;
-					validSpawnCount++;
-				}
-			}
+            if (spawnIsValidList[spawnIndex])
+            {
+                if (spawnTransform.transform.position != transform.position)
+                {
+                    GameObject[] playerList = GameObject.FindGameObjectsWithTag("Player");
+                    Vector3 beepVec = playerList[0].transform.position - spawnTransform.position;
+                    Vector3 boopVec = playerList[1].transform.position - spawnTransform.position;
+                    if ((beepVec.magnitude > minSpawnDistance) && (boopVec.magnitude > minSpawnDistance))
+                    {
+                        validSpawnTransforms[validSpawnCount] = spawnTransform;
+                        validSpawnIndexList[validSpawnCount] = spawnIndex;
+                        validSpawnCount++;
+                    }
+                }
+            }
+            spawnIndex++;
 		}
 		if (validSpawnCount > 0)
 		{
@@ -149,8 +169,24 @@ public class SpawnManager : MonoBehaviour
 			GameObject newObject = Instantiate(prefab, validSpawnTransforms[index].position, Quaternion.identity);
 			m_spawnedObjects.Add(newObject);
 			if (OnObjectSpawned != null) OnObjectSpawned(newObject);
+            if(!isGhosts)
+            {
+                spawnIsValidList[validSpawnIndexList[index]] = false;
+            }
 			return true;
 		}
 		return false;
 	}
+
+    public void SetSpawnValid(Vector3 position)
+    {
+        for(int i = 0; i < spawnTransformList.Length; i++)
+        {
+            if(spawnTransformList[i].position == position)
+            {
+                spawnIsValidList[i] = true;
+                return;
+            }
+        }
+    }
 }

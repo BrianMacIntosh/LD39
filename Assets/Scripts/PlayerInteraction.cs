@@ -12,15 +12,23 @@ public class PlayerInteraction : MonoBehaviour
 	[SerializeField]
 	private string m_interactControl;
 
-	[SerializeField]
+    [SerializeField]
+    private string m_interactTransferPower;
+
+    [SerializeField]
 	private float m_interactRadius = 1f;
 
 	[SerializeField]
 	[Range(0f, 360f)]
 	private float m_interactArc = 180f;
 
+    public float m_powerTransferAmount = 20;
+
     public bool m_isBeep;
     public GameObject m_boop;
+    public GameObject m_beep;
+    //public GameObject m_fireWaterSpawnManager;
+    //public GameObject m_objectiveSpawnManager;
 	/// <summary>
 	/// The pickup that the player is currently holding.
 	/// </summary>
@@ -28,6 +36,11 @@ public class PlayerInteraction : MonoBehaviour
     private SpriteRenderer m_holdingPickupSprite;
     public SpriteRenderer m_waterSprite;
     public int m_objectiveCount;
+
+    public delegate void objectSpawn(Vector3 position);
+
+    public event objectSpawn onFireWaterPickup;
+    public event objectSpawn onObjectivePickup;
 
     private void Start()
     {
@@ -39,13 +52,15 @@ public class PlayerInteraction : MonoBehaviour
         {
             beepIs1 = true;
         }
-        if ((m_isBeep && beepIs1) || (!m_isBeep && !beepIs1))
+        if (beepIs1)
         {
             m_boop = playerList[1];
+            m_beep = playerList[0];
         }
         else
         {
             m_boop = playerList[0];
+            m_beep = playerList[1];
         }
     }
 
@@ -69,6 +84,10 @@ public class PlayerInteraction : MonoBehaviour
 				PickUpPickup();
 			}
 		}
+        if (Input.GetButtonDown(m_interactTransferPower))
+        {
+            TransferPower();
+        }
 	}
 
 	public void SetDownPickup()
@@ -130,6 +149,10 @@ public class PlayerInteraction : MonoBehaviour
                             // this pickup is in range
                             if (pickup.gameObject.CompareTag("Fire"))
                             {
+                                if (onFireWaterPickup != null)
+                                {
+                                    onFireWaterPickup(pickup.transform.position);
+                                }
                                 Destroy(pickup.gameObject);
                                 Destroy(m_holdingPickup.gameObject);
                                 m_holdingPickup = null;
@@ -149,17 +172,28 @@ public class PlayerInteraction : MonoBehaviour
 		Pickup target = GetPickupToGrab(m_playerType, transform.position, transform.forward);
 		if (target != null)
 		{
-			target.transform.SetParent(transform);
-			target.transform.localRotation = Quaternion.identity;
-			target.transform.localPosition = new Vector3(0f, 1f, 0f);
-			target.NotifyPickUp(this);
-			m_holdingPickup = target;
-            if(target.CompareTag("Water"))
+            if (target.CompareTag("Water"))
             {
                 m_holdingPickupSprite = target.gameObject.GetComponent<SpriteRenderer>();
                 m_holdingPickupSprite.enabled = false;
                 m_waterSprite.enabled = true;
+                if(onFireWaterPickup != null)
+                {
+                    onFireWaterPickup(target.transform.position);
+                }
             }
+            if(target.CompareTag("Objective"))
+            {
+                if (onObjectivePickup != null)
+                {
+                    onObjectivePickup(target.transform.position);
+                }
+            }
+            target.transform.SetParent(transform);
+			target.transform.localRotation = Quaternion.identity;
+			target.transform.localPosition = new Vector3(0f, 1f, 0f);
+			target.NotifyPickUp(this);
+			m_holdingPickup = target;
 		}
 	}
 
@@ -200,4 +234,45 @@ public class PlayerInteraction : MonoBehaviour
 
 		return bestPickup;
 	}
+
+    private bool IsInRange(Vector3 playerPosition, Vector3 interactPosition)
+    {
+        Vector2 d = interactPosition - playerPosition;
+        if (d.sqrMagnitude <= m_interactRadius * m_interactRadius)
+        {
+            float angle = Mathf.Atan2(d.y, d.x) * Mathf.Rad2Deg;
+            float dAng = Mathf.Abs(Mathf.DeltaAngle(angle - 90f, transform.rotation.eulerAngles.z));
+
+            if (dAng < m_interactArc / 2f)
+            {
+                return true;
+            }
+        }
+        return false;
+    }
+
+    private void TransferPower()
+    {
+        float beepEnergy = m_beep.GetComponent<PlayerEnergy>().currentEnergy;
+        float boopEnergy = m_boop.GetComponent<PlayerEnergy>().currentEnergy;
+        float transfer_amount;
+        if (m_isBeep)
+        {
+            if (IsInRange(transform.position, m_boop.transform.position))
+            {
+                transfer_amount = Mathf.Min(100f - boopEnergy, Mathf.Min(m_powerTransferAmount, beepEnergy));
+                m_beep.GetComponent<PlayerEnergy>().currentEnergy -= transfer_amount;
+                m_boop.GetComponent<PlayerEnergy>().currentEnergy += transfer_amount;
+            }
+        }
+        else
+        {
+            if (IsInRange(transform.position, m_beep.transform.position))
+            {
+                transfer_amount = Mathf.Min(100f - beepEnergy, Mathf.Min(m_powerTransferAmount, boopEnergy));
+                m_boop.GetComponent<PlayerEnergy>().currentEnergy -= transfer_amount;
+                m_beep.GetComponent<PlayerEnergy>().currentEnergy += transfer_amount;
+            }
+        }
+    }
 }

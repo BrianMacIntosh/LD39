@@ -42,7 +42,7 @@ RenderSettings:
 --- !u!157 &3
 LightmapSettings:
   m_ObjectHideFlags: 0
-  serializedVersion: 9
+  serializedVersion: 11
   m_GIWorkflowMode: 1
   m_GISettings:
     serializedVersion: 2
@@ -54,7 +54,7 @@ LightmapSettings:
     m_EnableBakedLightmaps: 0
     m_EnableRealtimeLightmaps: 0
   m_LightmapEditorSettings:
-    serializedVersion: 8
+    serializedVersion: 9
     m_Resolution: 2
     m_BakeResolution: 40
     m_TextureWidth: 1024
@@ -87,7 +87,7 @@ LightmapSettings:
     m_PVRFilteringAtrousNormalSigma: 1
     m_PVRFilteringAtrousPositionSigma: 1
   m_LightingDataAsset: {fileID: 0}
-  m_ShadowMaskMode: 2
+  m_UseShadowmask: 1
 --- !u!196 &4
 NavMeshSettings:
   serializedVersion: 2
@@ -421,11 +421,6 @@ Prefab:
       propertyPath: m_RootOrder
       value: 5
       objectReference: {fileID: 0}
-    - target: {fileID: 114622492763301248, guid: 8ce3f5a7237321a4a9ecb41443cb9671,
-        type: 2}
-      propertyPath: m_waterSprite
-      value: 
-      objectReference: {fileID: 1807988430}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 8ce3f5a7237321a4a9ecb41443cb9671, type: 2}
   m_IsPrefabParent: 0
@@ -905,6 +900,7 @@ SpriteRenderer:
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
+  m_MaskInteraction: 0
 --- !u!4 &131825779
 Transform:
   m_ObjectHideFlags: 0
@@ -1429,6 +1425,16 @@ Prefab:
       propertyPath: m_LocalRotation.w
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 114851912652731390, guid: bf11f2f10137c9449a245c44104e3e9d,
+        type: 2}
+      propertyPath: isGhosts
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 114851912652731390, guid: bf11f2f10137c9449a245c44104e3e9d,
+        type: 2}
+      propertyPath: minSpawnDistance
+      value: 2
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: bf11f2f10137c9449a245c44104e3e9d, type: 2}
   m_IsPrefabParent: 0
@@ -1783,6 +1789,11 @@ Prefab:
       propertyPath: m_LocalRotation.w
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 114784952426032196, guid: ca3d489ac4d1fb34eba37c7d287ba8b7,
+        type: 2}
+      propertyPath: isGhosts
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: ca3d489ac4d1fb34eba37c7d287ba8b7, type: 2}
   m_IsPrefabParent: 0
@@ -1880,6 +1891,10 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 4442919926275120, guid: 44aae850ec8c6ca429fca5ad5f33b53f, type: 2}
       propertyPath: m_RootOrder
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1847807854582072, guid: 44aae850ec8c6ca429fca5ad5f33b53f, type: 2}
+      propertyPath: m_IsActive
       value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
@@ -2713,6 +2728,7 @@ SpriteRenderer:
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
+  m_MaskInteraction: 0
 --- !u!1001 &712057470
 Prefab:
   m_ObjectHideFlags: 0
@@ -4950,11 +4966,6 @@ Transform:
   m_PrefabParentObject: {fileID: 4799210657947228, guid: 1ee1d431a45af0445af26efd5e5ab07d,
     type: 2}
   m_PrefabInternal: {fileID: 1501310252}
---- !u!4 &1507112539 stripped
-Transform:
-  m_PrefabParentObject: {fileID: 4844736337858348, guid: 8ce3f5a7237321a4a9ecb41443cb9671,
-    type: 2}
-  m_PrefabInternal: {fileID: 31787231}
 --- !u!1001 &1508064433
 Prefab:
   m_ObjectHideFlags: 0
@@ -5610,76 +5621,6 @@ Transform:
   m_PrefabParentObject: {fileID: 4799210657947228, guid: 1ee1d431a45af0445af26efd5e5ab07d,
     type: 2}
   m_PrefabInternal: {fileID: 1802347222}
---- !u!1 &1807988428
-GameObject:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  serializedVersion: 5
-  m_Component:
-  - component: {fileID: 1807988429}
-  - component: {fileID: 1807988430}
-  m_Layer: 0
-  m_Name: WaterSprite
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &1807988429
-Transform:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1807988428}
-  m_LocalRotation: {x: 0, y: 0, z: 1, w: 0}
-  m_LocalPosition: {x: -0.02, y: -0.05, z: 0}
-  m_LocalScale: {x: 1.2, y: 1.1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 1507112539}
-  m_RootOrder: 4
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 180}
---- !u!212 &1807988430
-SpriteRenderer:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1807988428}
-  m_Enabled: 0
-  m_CastShadows: 0
-  m_ReceiveShadows: 0
-  m_MotionVectors: 1
-  m_LightProbeUsage: 1
-  m_ReflectionProbeUsage: 1
-  m_Materials:
-  - {fileID: 10754, guid: 0000000000000000f000000000000000, type: 0}
-  m_StaticBatchInfo:
-    firstSubMesh: 0
-    subMeshCount: 0
-  m_StaticBatchRoot: {fileID: 0}
-  m_ProbeAnchor: {fileID: 0}
-  m_LightProbeVolumeOverride: {fileID: 0}
-  m_ScaleInLightmap: 1
-  m_PreserveUVs: 0
-  m_IgnoreNormalsForChartDetection: 0
-  m_ImportantGI: 0
-  m_SelectedEditorRenderState: 0
-  m_MinimumChartSize: 4
-  m_AutoUVMaxDistance: 0.5
-  m_AutoUVMaxAngle: 89
-  m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
-  m_SortingOrder: 5
-  m_Sprite: {fileID: 21300000, guid: 342b7cb4cdff04742ae79b9270318d6f, type: 3}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_FlipX: 0
-  m_FlipY: 0
-  m_DrawMode: 0
-  m_Size: {x: 0.29, y: 0.34}
-  m_AdaptiveModeThreshold: 0.5
-  m_SpriteTileMode: 0
-  m_WasSpriteAssigned: 1
 --- !u!1001 &1809640198
 Prefab:
   m_ObjectHideFlags: 0
@@ -6159,7 +6100,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 4820428120686478, guid: d471b7c30aacefa44b97a569cb69ff34, type: 2}
       propertyPath: m_LocalScale.x
-      value: 3.2
+      value: 3.2015269
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: d471b7c30aacefa44b97a569cb69ff34, type: 2}
