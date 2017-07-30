@@ -21,7 +21,7 @@ public class PitScript : MonoBehaviour {
         {
             Destroy(collision.gameObject);
             Destroy(transform.parent.gameObject);
-            //Instantiate(filledPit, parent)
+            Instantiate(filledPit, transform.position, Quaternion.identity);
         }
     }
 }
