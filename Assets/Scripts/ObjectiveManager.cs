@@ -19,14 +19,14 @@ public class ObjectiveManager : MonoBehaviour
             player.GetComponent<PlayerInteraction>().depositedObjects += addObjectives;
         }
 	}
-	
-	void Update ()
-    {
-        if(m_objectiveCount >= m_objectiveMax)
-        {
-            SceneLoader.Instance.NextScene();
-        }
-    }
+
+	void Update()
+	{
+		if (m_objectiveMax > 0 && m_objectiveCount >= m_objectiveMax)
+		{
+			SceneLoader.Instance.NextScene();
+		}
+	}
 
     public void addObjectives(int num)
     {
