@@ -36,6 +36,9 @@ public class SceneLoader : MonoBehaviour
 		get { return m_allScenes[m_currentScene].SceneInstance; }
 	}
 
+	public delegate void SceneChanged(SceneParent newScene);
+	public event SceneChanged OnSceneChanged;
+
 	private void Start()
 	{
 		// loads in each scene
@@ -74,10 +77,15 @@ public class SceneLoader : MonoBehaviour
 		m_currentScene++;
 		if (m_currentScene < m_allScenes.Length)
 		{
-			GameObject sceneParent = m_allScenes[m_currentScene].SceneInstance.gameObject;
-			sceneParent.SetActive(true);
+			SceneParent sceneParent = m_allScenes[m_currentScene].SceneInstance;
+			sceneParent.gameObject.SetActive(true);
 			PlayerSpawn.RespawnAll();
 			CameraControl.Instance.GoTo(sceneParent.transform.position);
+
+			if (OnSceneChanged != null)
+			{
+				OnSceneChanged(sceneParent);
+			}
 		}
 	}
 

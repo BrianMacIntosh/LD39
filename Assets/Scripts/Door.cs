@@ -82,11 +82,11 @@ public class Door : MonoBehaviour
 
 	void DoorOpenStart()
 	{
-		m_audioSource.PlayOneShot(m_doorOpen);
+		m_audioSource.PlayOneShot(m_doorOpen, 0.5f);
 	}
 
 	void DoorCloseStart()
 	{
-		m_audioSource.PlayOneShot(m_doorClose);
+		m_audioSource.PlayOneShot(m_doorClose, 0.5f);
 	}
 }

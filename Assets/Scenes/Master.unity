@@ -414,7 +414,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_allScenes:
-  - SceneName: Scenes/TestScene
+  - SceneName: Scenes/Level1
   - SceneName: Scenes/Level2
   - SceneName: Scenes/Level3
 --- !u!4 &1621525426

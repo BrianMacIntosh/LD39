@@ -6,6 +6,12 @@ public class SceneParent : MonoBehaviour
 {
 	public string SceneName = "";
 
+	public Sprite BossNeutralSprite;
+	public Sprite BossNegativeSprite;
+	public Sprite BossPositiveSprite;
+	public Sprite ObjectiveSprite;
+	public Sprite ObjectiveSpriteDim;
+
 	public GameObject CameraRigPrefab;
 	public GameObject BoopPrefab;
 	public GameObject BeepPrefab;
@@ -17,5 +23,7 @@ public class SceneParent : MonoBehaviour
 		{
 			loader.NotifySceneLoaded(this);
 		}
+		
+		GameManager.CheckFindInstance();
 	}
 }

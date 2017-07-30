@@ -3,22 +3,44 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class ThreatBar : MonoBehaviour {
+public class ThreatBar : MonoBehaviour
+{
+	SpawnManager ghostSpawnManager;
+	public float threatLevel = 0;
+	public float defaultLevel = 0.05f;
+	
+	[SerializeField]
+	private Image m_fillImage = null;
 
-    GameObject ghostSpawnManager;
-    public float threatLevel = 0;
-    public float defaultLevel = 0.05f;
-    // Use this for initialization
-    void Start()
-    {
-        ghostSpawnManager = GameObject.Find("GhostSpawnManager");
+	[SerializeField]
+	private GameObject m_elementParent = null;
 
-    }
+	void Start()
+	{
+		if (SceneLoader.Instance)
+		{
+			SceneLoader.Instance.OnSceneChanged += OnSceneChanged;
+		}
+		OnSceneChanged(FindObjectOfType<SceneParent>());
+	}
 
-    // Update is called once per frame
-    void Update()
-    {
-        float scaledThreat = (1f - defaultLevel) * (ghostSpawnManager.GetComponent<SpawnManager>().spawnRate - 0.25f);
-        GetComponent<Image>().fillAmount = defaultLevel + scaledThreat;
-    }
+	void OnSceneChanged(SceneParent parent)
+	{
+		GameObject ghostSpawner = GameObject.Find("GhostSpawnManager");
+		ghostSpawnManager = ghostSpawner ? ghostSpawner.GetComponent<SpawnManager>() : null;
+		m_elementParent.gameObject.SetActive(ghostSpawnManager != null);
+	}
+
+	void Update()
+	{
+		if (ghostSpawnManager)
+		{
+			float scaledThreat = (1f - defaultLevel) * (ghostSpawnManager.SpawnRateRatio);
+			m_fillImage.fillAmount = defaultLevel + scaledThreat;
+		}
+		else
+		{
+			m_fillImage.fillAmount = 0f;
+		}
+	}
 }
