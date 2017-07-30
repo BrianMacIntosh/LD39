@@ -3172,7 +3172,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 119fcf0cab3d9994da5aa7e4089f8862, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  SceneName: Sceens/TestScene
+  SceneName: Scenes/TestScene
   CameraRigPrefab: {fileID: 1415632435154360, guid: d471b7c30aacefa44b97a569cb69ff34,
     type: 2}
   BoopPrefab: {fileID: 1926900810641854, guid: 8ce3f5a7237321a4a9ecb41443cb9671, type: 2}
