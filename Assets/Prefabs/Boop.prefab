@@ -327,6 +327,9 @@ MonoBehaviour:
   ghostDrainRate: 5
   m_lightAnimator: {fileID: 95695596173499778}
   m_outOfPowerAudio: {fileID: 8300000, guid: 38128d5eb43d572428d9245b229e10d4, type: 3}
+  m_outOfPowerSprite: {fileID: 21300000, guid: 55f5f1e112b462b4286d9449c229349e, type: 3}
+  m_lightOnSprite: {fileID: 21300000, guid: 3a6a509701159ca48b1d752f70feb738, type: 3}
+  m_lightOffSprite: {fileID: 21300000, guid: a0c913dbe95c6d14e9b78c01281586fe, type: 3}
 --- !u!114 &114574390375242090
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -360,7 +363,11 @@ MonoBehaviour:
   m_interactControl: BoopInteract
   m_interactRadius: 1.5
   m_interactArc: 180
+  m_isBeep: 0
+  m_boop: {fileID: 0}
   m_holdingPickup: {fileID: 0}
+  m_waterSprite: {fileID: 0}
+  m_objectiveCount: 0
 --- !u!114 &114663819333950480
 MonoBehaviour:
   m_ObjectHideFlags: 1
