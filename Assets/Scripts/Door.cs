@@ -9,9 +9,16 @@ public class Door : MonoBehaviour
 	/// </summary>
 	private List<DoorSensor> m_activeSensors = new List<DoorSensor>();
 
+	[SerializeField]
+	private AudioClip m_doorOpen = null;
+
+	[SerializeField]
+	private AudioClip m_doorClose = null;
+
 	#region Cached Components
 
 	private Animator m_animator = null;
+	private AudioSource m_audioSource = null;
 
 	#endregion
 
@@ -24,6 +31,11 @@ public class Door : MonoBehaviour
 	private static void StaticInit()
 	{
 		s_animatorOpenParam = Animator.StringToHash("Open");
+	}
+
+	private void Awake()
+	{
+		m_audioSource = OurUtility.GetOrAddComponent<AudioSource>(gameObject);
 	}
 
 	/// <summary>
@@ -66,5 +78,15 @@ public class Door : MonoBehaviour
 		{
 			m_animator.SetBool(s_animatorOpenParam, m_activeSensors.Count > 0);
 		}
+	}
+
+	void DoorOpenStart()
+	{
+		m_audioSource.PlayOneShot(m_doorOpen);
+	}
+
+	void DoorCloseStart()
+	{
+		m_audioSource.PlayOneShot(m_doorClose);
 	}
 }

@@ -22,6 +22,9 @@ public class PlayerInteraction : MonoBehaviour
 	[Range(0f, 360f)]
 	private float m_interactArc = 180f;
 
+	[SerializeField]
+	private AudioClip m_extinguishFireAudio = null;
+
     public float m_powerTransferAmount = 20;
 
     public bool m_isBeep;
@@ -37,7 +40,13 @@ public class PlayerInteraction : MonoBehaviour
     public SpriteRenderer m_waterSprite;
     public int m_objectiveCount;
 
-    public delegate void objectSpawn(Vector3 position);
+	#region Cached Components
+
+	private AudioSource m_audioSource;
+
+	#endregion
+
+	public delegate void objectSpawn(Vector3 position);
 
     public event objectSpawn onFireWaterPickup;
     public event objectSpawn onObjectivePickup;
@@ -47,7 +56,9 @@ public class PlayerInteraction : MonoBehaviour
 
     private void Start()
     {
-        m_objectiveCount = 0;
+		m_audioSource = OurUtility.GetOrAddComponent<AudioSource>(gameObject);
+
+		m_objectiveCount = 0;
         m_isBeep = (m_playerType == PlayerType.Beep);
         bool beepIs1 = false;
         GameObject[] playerList = GameObject.FindGameObjectsWithTag("Player");
@@ -162,6 +173,7 @@ public class PlayerInteraction : MonoBehaviour
                                 Destroy(m_holdingPickup.gameObject);
                                 m_holdingPickup = null;
                                 m_waterSprite.enabled = false;
+								m_audioSource.PlayOneShot(m_extinguishFireAudio);
                                 return true;
                             }
                         }

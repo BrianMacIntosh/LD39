@@ -321,6 +321,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1871c4c5728f668458a2578c04ae2d7e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  m_doorOpen: {fileID: 8300000, guid: c01b96eef2db50d45a6b703910fb6d56, type: 3}
+  m_doorClose: {fileID: 8300000, guid: 1d79d1cb0929a35409c239ba277112ef, type: 3}
 --- !u!212 &212485380921730802
 SpriteRenderer:
   m_ObjectHideFlags: 1
@@ -362,7 +364,6 @@ SpriteRenderer:
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
-  m_MaskInteraction: 0
 --- !u!212 &212648605470012286
 SpriteRenderer:
   m_ObjectHideFlags: 1
@@ -404,4 +405,3 @@ SpriteRenderer:
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
-  m_MaskInteraction: 0
