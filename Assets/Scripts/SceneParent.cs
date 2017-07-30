@@ -23,5 +23,7 @@ public class SceneParent : MonoBehaviour
 		{
 			loader.NotifySceneLoaded(this);
 		}
+		
+		GameManager.CheckFindInstance();
 	}
 }

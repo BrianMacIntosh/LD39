@@ -18,11 +18,13 @@ public class MusicManager : MonoBehaviour
 		{
 			SceneLoader.Instance.OnSceneChanged += OnSceneChanged;
 		}
+		OnSceneChanged(FindObjectOfType<SceneParent>());
 	}
 
 	private void OnSceneChanged(SceneParent sceneParent)
 	{
-		m_ghostSpawnManager = GameObject.Find("GhostSpawnManager").GetComponent<SpawnManager>();
+		GameObject spawnObj = GameObject.Find("GhostSpawnManager");
+		m_ghostSpawnManager = spawnObj ? spawnObj.GetComponent<SpawnManager>() : null;
 	}
 
 	private void Update()

@@ -8,19 +8,24 @@ public class GameManager : MonoBehaviour
 	{
 		get
 		{
-			if (s_instance == null)
-			{
-				s_instance = FindObjectOfType<GameManager>();
-			}
-			if (s_instance == null)
-			{
-				//HACK: wow
-				s_instance = Instantiate(FindObjectOfType<SceneParent>().CameraRigPrefab).GetComponent<GameManager>();
-			}
+			CheckFindInstance();
 			return s_instance;
 		}
 	}
 	private static GameManager s_instance;
+
+	public static void CheckFindInstance()
+	{
+		if (s_instance == null)
+		{
+			s_instance = FindObjectOfType<GameManager>();
+		}
+		if (s_instance == null)
+		{
+			//HACK: wow
+			s_instance = Instantiate(FindObjectOfType<SceneParent>().CameraRigPrefab).GetComponent<GameManager>();
+		}
+	}
 
 	public GameObject[] Players
 	{

@@ -33,7 +33,8 @@ public class ObjectiveUI : MonoBehaviour
 	void Update()
 	{
 		int i = 0;
-		for (; i < m_objectiveManager.ObjectiveTarget; i++)
+		int target = m_objectiveManager ? m_objectiveManager.ObjectiveTarget : 0;
+		for (; i < target; i++)
 		{
 			Image child = GetChild(i);
 			if (i < m_objectiveManager.ObjectiveProgress)
