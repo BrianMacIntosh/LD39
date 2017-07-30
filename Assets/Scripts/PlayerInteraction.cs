@@ -34,7 +34,6 @@ public class PlayerInteraction : MonoBehaviour
 	/// </summary>
 	public Pickup m_holdingPickup = null;
     private SpriteRenderer m_holdingPickupSprite;
-    private GameObject m_objectiveDeposit;
     public SpriteRenderer m_waterSprite;
     public int m_objectiveCount;
 
@@ -52,7 +51,6 @@ public class PlayerInteraction : MonoBehaviour
         m_isBeep = (m_playerType == PlayerType.Beep);
         bool beepIs1 = false;
         GameObject[] playerList = GameObject.FindGameObjectsWithTag("Player");
-        m_objectiveDeposit = GameObject.FindWithTag("ObjectiveDeposit");
         if ((playerList[0]).GetComponent<Player_Navigation>().isBeep)
         {
             beepIs1 = true;
@@ -287,7 +285,8 @@ public class PlayerInteraction : MonoBehaviour
     {
         if (m_isBeep && m_holdingPickup.CompareTag("Objective"))
         {
-            if (IsInRange(m_objectiveDeposit.transform.position))
+            GameObject objectiveDeposit = GameObject.FindWithTag("ObjectiveDeposit");
+            if (IsInRange(objectiveDeposit.transform.position))
             {
                 if (depositedObjects != null)
                 {
@@ -305,7 +304,8 @@ public class PlayerInteraction : MonoBehaviour
     {
         if (!m_isBeep && (m_objectiveCount > 0))
         {
-            if (IsInRange(m_objectiveDeposit.transform.position))
+            GameObject objectiveDeposit = GameObject.FindWithTag("ObjectiveDeposit");
+            if (IsInRange(objectiveDeposit.transform.position))
             {
                 if (depositedObjects != null)
                 {

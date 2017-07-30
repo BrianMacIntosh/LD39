@@ -11,6 +11,7 @@ TagManager:
   - Objective
   - Battery
   - Fire
+  - ObjectiveDeposit
   layers:
   - Default
   - TransparentFX

@@ -22,6 +22,7 @@ GameObject:
   - component: {fileID: 212684969280364164}
   - component: {fileID: 58117222171171748}
   - component: {fileID: 114594319986135184}
+  - component: {fileID: 114210465096649326}
   m_Layer: 9
   m_Name: ObjectiveDeposit
   m_TagString: ObjectiveDeposit
@@ -88,6 +89,19 @@ CircleCollider2D:
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
   m_Radius: 0.6
+--- !u!114 &114210465096649326
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1119265121898656}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3125d8281550fac4e9a6b5eb944af287, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_objectiveCount: 0
+  m_objectiveMax: 15
 --- !u!114 &114594319986135184
 MonoBehaviour:
   m_ObjectHideFlags: 1

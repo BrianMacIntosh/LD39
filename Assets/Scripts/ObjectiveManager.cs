@@ -30,7 +30,7 @@ public class ObjectiveManager : MonoBehaviour
     public void addObjectives(int num)
     {
         m_objectiveCount += num;
-        m_objectiveCount = Mathf.Min(num, m_objectiveMax);
+        m_objectiveCount = Mathf.Min(m_objectiveCount, m_objectiveMax);
     }
 }
 
