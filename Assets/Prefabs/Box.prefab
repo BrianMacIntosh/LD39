@@ -100,8 +100,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3009114a227879a40b80c9fcf845b528, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  beep: {fileID: 0}
   pushSpeed: 6
+  isPushed: 0
 --- !u!114 &114677417315983626
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -130,7 +130,7 @@ SpriteRenderer:
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
   m_Materials:
-  - {fileID: 10754, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: 2100000, guid: 749359a46cb3f6248a687b5dd9da9de9, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -149,7 +149,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: 6b52ec95d2c98454890f63e1bf5f642d, type: 3}
+  m_Sprite: {fileID: 21300000, guid: a92f506227383ee4d932c08148d2f16d, type: 3}
   m_Color: {r: 0.30882353, g: 0.27953854, b: 0.11580882, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -158,3 +158,4 @@ SpriteRenderer:
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
+  m_MaskInteraction: 0
