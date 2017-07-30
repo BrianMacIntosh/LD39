@@ -20,9 +20,17 @@ public class Ghost_Move : MonoBehaviour {
     private GameObject[] playerList;
     private bool touchingTargetPlayer = false;
 
-	private Rigidbody2D m_rigidbody;
+	[SerializeField]
+	private AudioClip m_ghostAggroAudio = null;
 
-    private void Start()
+	#region Cached Component
+
+	private Rigidbody2D m_rigidbody;
+	private AudioSource m_audioSource;
+
+	#endregion
+
+	private void Start()
     {
         playerList = GameObject.FindGameObjectsWithTag("Player");
         waypointList = GameObject.FindGameObjectsWithTag("GhostPatrolWaypoint");
@@ -72,45 +80,51 @@ public class Ghost_Move : MonoBehaviour {
 	{
 		m_health = GetComponent<GhostHealth>();
 		m_rigidbody = GetComponent<Rigidbody2D>();
+		m_audioSource = OurUtility.GetOrAddComponent<AudioSource>(gameObject);
 	}
 
     void Update ()
     {
-        if (playerSeen)
-        {
-            if(!findTargetPlayer())
-            {
-                timeSinceSeen += Time.deltaTime;
-            }
-            else
-            {
-                timeSinceSeen = 0;
-            }
-            if(timeSinceSeen < timeOut)
-            {
-                moveTowardTargetPlayerPosition();
-            }
-            else
-            {
-                playerSeen = false;
-                hasTargetWaypoint = false;
-            }
-        }
-        else
-        {
-            findClosestPlayer();
-            if(!playerSeen)
-            {
-                if(hasTargetWaypoint)
-                {
-                    moveTowardTargetWaypoint();
-                }
-                else
-                {
-                    getNextTargetWaypoint();
-                }
-            }
-        }
+		if (playerSeen)
+		{
+			if (!findTargetPlayer())
+			{
+				timeSinceSeen += Time.deltaTime;
+			}
+			else
+			{
+				timeSinceSeen = 0;
+			}
+			if (targetPlayer != null && !IsValidTarget(targetPlayer))
+			{
+				playerSeen = false;
+				hasTargetWaypoint = false;
+			}
+			else if (timeSinceSeen < timeOut)
+			{
+				moveTowardTargetPlayerPosition();
+			}
+			else
+			{
+				playerSeen = false;
+				hasTargetWaypoint = false;
+			}
+		}
+		else
+		{
+			findClosestPlayer();
+			if (!playerSeen)
+			{
+				if (hasTargetWaypoint)
+				{
+					moveTowardTargetWaypoint();
+				}
+				else
+				{
+					getNextTargetWaypoint();
+				}
+			}
+		}
 
 		m_rigidbody.rotation = Mathf.LerpAngle(
 			m_rigidbody.rotation,
@@ -144,6 +158,11 @@ public class Ghost_Move : MonoBehaviour {
         float distance = 999999999;
         foreach (GameObject player in playerList)
         {
+			if (!IsValidTarget(player))
+			{
+				continue;
+			}
+
             Vector3 dir = player.transform.position - transform.position;
             if (!Physics2D.Raycast(transform.position, dir, dir.magnitude, LayerMask.GetMask("Walls")))
             {
@@ -153,10 +172,18 @@ public class Ghost_Move : MonoBehaviour {
                     playerPosition = player.transform.position;
                     targetPlayer = player;
                     playerSeen = true;
+					m_audioSource.PlayOneShot(m_ghostAggroAudio, 0.5f);
+					break;
                 }
             }
         }
     }
+
+	private bool IsValidTarget(GameObject gameObject)
+	{
+		PlayerEnergy energy = gameObject.GetComponent<PlayerEnergy>();
+		return energy != null && energy.HasEnergy;
+	}
 
     private void moveTowardTargetWaypoint()
     {

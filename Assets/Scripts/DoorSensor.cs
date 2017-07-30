@@ -14,9 +14,16 @@ public class DoorSensor : MonoBehaviour
 	[SerializeField]
 	private Sprite m_downSprite = null;
 
+	[SerializeField]
+	private AudioClip m_onDownAudio = null;
+
+	[SerializeField]
+	private AudioClip m_onUpAudio = null;
+
 	#region Cached components
 
 	private SpriteRenderer m_spriteRenderer;
+	private AudioSource m_audioSource;
 
 	#endregion
 
@@ -24,6 +31,11 @@ public class DoorSensor : MonoBehaviour
 	/// List of objects that are currently activating this sensor.
 	/// </summary>
 	private List<GameObject> m_activators = new List<GameObject>();
+
+	private void Awake()
+	{
+		m_audioSource = OurUtility.GetOrAddComponent<AudioSource>(gameObject);
+	}
 
 	private void OnValidate()
 	{
@@ -42,6 +54,7 @@ public class DoorSensor : MonoBehaviour
 			if (m_activators.Count == 0)
 			{
 				m_target.AddActiveSensor(this);
+				m_audioSource.PlayOneShot(m_onDownAudio);
 			}
 			m_activators.Add(collision.gameObject);
 			UpdateSprite();
@@ -56,6 +69,7 @@ public class DoorSensor : MonoBehaviour
 			if (m_activators.Count == 0)
 			{
 				m_target.RemoveActiveSensor(this);
+				m_audioSource.PlayOneShot(m_onUpAudio);
 			}
 			UpdateSprite();
 		}
