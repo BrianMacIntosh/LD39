@@ -96,8 +96,8 @@ MonoBehaviour:
   m_target: {fileID: 0}
   m_upSprite: {fileID: 21300000, guid: 59fea340a5988b34a9eb786b2d035b3d, type: 3}
   m_downSprite: {fileID: 21300000, guid: 6626a2ee2fc04b54e848b88e1be382b6, type: 3}
-  m_onDownAudio: {fileID: 8300000, guid: 763abc3e6a0ba1f44b1d0a9dbbea1b34, type: 3}
-  m_onUpAudio: {fileID: 8300000, guid: 8a2459cfd3224e846bbc65855cdd76e6, type: 3}
+  m_onDownAudio: {fileID: 8300000, guid: 089c91276ee13604db64458badd9b85c, type: 3}
+  m_onUpAudio: {fileID: 8300000, guid: 907b1b1499b4fb743adfcbc6cfb86621, type: 3}
 --- !u!212 &212111267419305898
 SpriteRenderer:
   m_ObjectHideFlags: 1
@@ -139,4 +139,3 @@ SpriteRenderer:
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
-  m_MaskInteraction: 0

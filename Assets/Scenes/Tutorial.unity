@@ -1728,27 +1728,27 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 4421288466158052, guid: 52ae2b4ba14e269479c6207aafaacda9, type: 2}
       propertyPath: m_LocalScale.x
-      value: 1
+      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 212451998291343422, guid: 52ae2b4ba14e269479c6207aafaacda9,
         type: 2}
       propertyPath: m_Size.x
-      value: 1
+      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 114142422482810888, guid: 52ae2b4ba14e269479c6207aafaacda9,
         type: 2}
       propertyPath: m_width
-      value: 1
+      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 61953088095147982, guid: 52ae2b4ba14e269479c6207aafaacda9,
         type: 2}
       propertyPath: m_SpriteTilingProperty.newSize.x
-      value: 1
+      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 61953088095147982, guid: 52ae2b4ba14e269479c6207aafaacda9,
         type: 2}
       propertyPath: m_Size.x
-      value: 1
+      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 212411665238006506, guid: 52ae2b4ba14e269479c6207aafaacda9,
         type: 2}
