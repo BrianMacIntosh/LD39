@@ -10,6 +10,7 @@ public class SceneParent : MonoBehaviour
 	public Sprite BossNegativeSprite;
 	public Sprite BossPositiveSprite;
 	public Sprite ObjectiveSprite;
+	public Sprite ObjectiveSpriteDim;
 
 	public GameObject CameraRigPrefab;
 	public GameObject BoopPrefab;

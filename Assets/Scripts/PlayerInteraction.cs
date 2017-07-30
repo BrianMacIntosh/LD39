@@ -124,7 +124,10 @@ public class PlayerInteraction : MonoBehaviour
     public bool TryGivePickupToBoop()
     {
         Vector2 d = m_boop.transform.position - transform.position;
-        if (m_isBeep && m_holdingPickup.CompareTag("Objective") && (m_boop.GetComponent<PlayerInteraction>().m_objectiveCount < 5))
+        if (m_isBeep
+			&& m_holdingPickup != null
+			&& m_holdingPickup.CompareTag("Objective")
+			&& (m_boop.GetComponent<PlayerInteraction>().m_objectiveCount < 5))
         {
             if (d.sqrMagnitude <= m_interactRadius * m_interactRadius)
             {
@@ -146,7 +149,7 @@ public class PlayerInteraction : MonoBehaviour
 
     public bool TryPutOutFire()
     {
-        if (m_holdingPickup.gameObject.CompareTag("Water"))
+        if (m_holdingPickup != null && m_holdingPickup.gameObject.CompareTag("Water"))
         {
             foreach (Pickup pickup in Pickup.Pickups)
             {

@@ -4,21 +4,22 @@ using UnityEngine;
 
 public class ObjectiveManager : MonoBehaviour
 {
-    public int m_objectiveCount = 0;
-    public int m_objectiveMax = 20;
+	[SerializeField]
+    private int m_objectiveCount = 0;
+	[SerializeField]
+	private int m_objectiveMax = 20;
 
+	public int ObjectiveProgress { get { return m_objectiveCount; } }
+	public int ObjectiveTarget { get { return m_objectiveMax; } }
 
-// Use this for initialization
     void Start ()
     {
 		foreach (GameObject player in GameManager.Instance.Players)
         {
             player.GetComponent<PlayerInteraction>().depositedObjects += addObjectives;
-            player.GetComponent<PlayerInteraction>().depositedObjects += addObjectives;
         }
 	}
 	
-	// Update is called once per frame
 	void Update ()
     {
         if(m_objectiveCount >= m_objectiveMax)

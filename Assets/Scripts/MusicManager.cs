@@ -14,7 +14,10 @@ public class MusicManager : MonoBehaviour
 
 	private void Awake()
 	{
-		SceneLoader.Instance.OnSceneChanged += OnSceneChanged;
+		if (SceneLoader.Instance)
+		{
+			SceneLoader.Instance.OnSceneChanged += OnSceneChanged;
+		}
 	}
 
 	private void OnSceneChanged(SceneParent sceneParent)
