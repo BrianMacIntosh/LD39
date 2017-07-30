@@ -98,7 +98,9 @@ public class GameManager : MonoBehaviour
 
 	private void InstantiatePlayers()
 	{
-		PlayerSpawn[] spawnPoints = GetComponentsInChildren<PlayerSpawn>();
+		SceneParent sceneParent = FindObjectOfType<SceneParent>();
+
+		PlayerSpawn[] spawnPoints = sceneParent.GetComponentsInChildren<PlayerSpawn>();
 		PlayerSpawn beepSpawn = null;
 		PlayerSpawn boopSpawn = null;
 		foreach (PlayerSpawn spawn in spawnPoints)
@@ -113,7 +115,6 @@ public class GameManager : MonoBehaviour
 			}
 		}
 
-		SceneParent sceneParent = FindObjectOfType<SceneParent>();
 		if (!GameManager.Instance.Beep)
 		{
 			if (!beepSpawn)
