@@ -25,6 +25,8 @@ public class PlayerInteraction : MonoBehaviour
 	/// The pickup that the player is currently holding.
 	/// </summary>
 	public Pickup m_holdingPickup = null;
+    private SpriteRenderer m_holdingPickupSprite;
+    public SpriteRenderer m_waterSprite;
     public int m_objectiveCount;
 
     private void Start()
@@ -72,7 +74,12 @@ public class PlayerInteraction : MonoBehaviour
 	{
 		if (m_holdingPickup != null)
 		{
-			m_holdingPickup.transform.SetParent(null);
+            if (m_holdingPickup.CompareTag("Water"))
+            {
+                m_holdingPickupSprite.enabled = true;
+                m_waterSprite.enabled = false;
+            }
+            m_holdingPickup.transform.SetParent(null);
 			m_holdingPickup.NotifyDrop(this);
 			m_holdingPickup = null;
 		}
@@ -111,6 +118,12 @@ public class PlayerInteraction : MonoBehaviour
 			target.transform.localPosition = new Vector3(0f, 1f, 0f);
 			target.NotifyPickUp(this);
 			m_holdingPickup = target;
+            if(target.CompareTag("Water"))
+            {
+                m_holdingPickupSprite = target.gameObject.GetComponent<SpriteRenderer>();
+                m_holdingPickupSprite.enabled = false;
+                m_waterSprite.enabled = true;
+            }
 		}
 	}
 
