@@ -105,7 +105,7 @@ public class Player_Navigation : MonoBehaviour {
 		}
 
 		m_animator.SetBool("IsMoving", moveForward != 0f || turn != 0f);
-		m_animator.speed = Mathf.Max(1f, m_rigidbody.velocity.magnitude / 1.5f);
+		m_animator.speed = Mathf.Max(1f, m_rigidbody.velocity.magnitude / 1.25f);
 
 		m_lastMoveForward = moveForward;
 		m_lastTurn = turn;

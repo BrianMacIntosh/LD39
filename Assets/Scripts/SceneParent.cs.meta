@@ -1,0 +1,18 @@
+fileFormatVersion: 2
+guid: 119fcf0cab3d9994da5aa7e4089f8862
+timeCreated: 1501430000
+licenseType: Free
+MonoImporter:
+  serializedVersion: 2
+  defaultReferences:
+  - CameraRigPrefab: {fileID: 1415632435154360, guid: d471b7c30aacefa44b97a569cb69ff34,
+      type: 2}
+  - BoopPrefab: {fileID: 1926900810641854, guid: 8ce3f5a7237321a4a9ecb41443cb9671,
+      type: 2}
+  - BeepPrefab: {fileID: 1900664111778978, guid: 611157542c68d9647a5dfa7197638755,
+      type: 2}
+  executionOrder: 0
+  icon: {instanceID: 0}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
