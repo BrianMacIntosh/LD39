@@ -10,6 +10,15 @@ public class BoxMove : MonoBehaviour {
 	// Use this for initialization
 	void Start ()
     {
+        GameObject[] playerList = GameObject.FindGameObjectsWithTag("Player");
+        if ((playerList[0]).GetComponent<Player_Navigation>().isBeep)
+        {
+            beep = playerList[0];
+        }
+        else
+        {
+            beep = playerList[1];
+        }
     }
 	
 	// Update is called once per frame

@@ -26,7 +26,7 @@ GameObject:
   - component: {fileID: 114677417315983626}
   m_Layer: 11
   m_Name: Box
-  m_TagString: Untagged
+  m_TagString: Box
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -115,6 +115,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_onlyPlayer: 1
+  m_tag: 
+  m_cancelsWithTag: 
 --- !u!212 &212961405325705816
 SpriteRenderer:
   m_ObjectHideFlags: 1

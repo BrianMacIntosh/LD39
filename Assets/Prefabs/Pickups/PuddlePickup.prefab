@@ -79,7 +79,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7d0b661348a7428458736676cb5eacae, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_onlyPlayer: 1
+  m_onlyPlayer: 2
   m_tag: water
   m_cancelsWithTag: fire
 --- !u!114 &114668718872550380
