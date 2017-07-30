@@ -10,6 +10,7 @@ TagManager:
   - Water
   - Objective
   - Battery
+  - Fire
   layers:
   - Default
   - TransparentFX
@@ -29,7 +30,7 @@ TagManager:
   - 
   - LightPass
   - FinalPass
-  - 
+  - DarkPass
   - 
   - 
   - 

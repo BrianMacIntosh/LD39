@@ -13,10 +13,14 @@ public class Wall : MonoBehaviour
 	private void OnValidate()
 	{
 		BoxCollider2D collider = GetComponent<BoxCollider2D>();
-		SpriteRenderer spriteRenderer = GetComponent<SpriteRenderer>();
+		SpriteRenderer[] spriteRenderers = GetComponentsInChildren<SpriteRenderer>();
 		GameObject losBlocker = GetComponentInChildren<MeshRenderer>().gameObject;
 
-		spriteRenderer.size = collider.size = new Vector2(m_width, m_height);
+		collider.size = new Vector2(m_width, m_height);
+		foreach (SpriteRenderer spriteRenderer in spriteRenderers)
+		{
+			spriteRenderer.size = collider.size;
+		}
 		losBlocker.transform.localScale = new Vector3(m_width, m_height, losBlocker.transform.localScale.z);
 	}
 }

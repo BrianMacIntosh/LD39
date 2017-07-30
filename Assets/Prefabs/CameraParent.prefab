@@ -39,6 +39,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4130481769326318}
   - component: {fileID: 114872495318801378}
+  - component: {fileID: 81952535828928862}
   m_Layer: 0
   m_Name: CameraParent
   m_TagString: Untagged
@@ -55,9 +56,6 @@ GameObject:
   m_Component:
   - component: {fileID: 4045386877108186}
   - component: {fileID: 20870745746735254}
-  - component: {fileID: 92275512769700316}
-  - component: {fileID: 124685567161469234}
-  - component: {fileID: 81928977860070812}
   m_Layer: 0
   m_Name: FinalPass
   m_TagString: MainCamera
@@ -92,9 +90,6 @@ GameObject:
   m_Component:
   - component: {fileID: 4506535097751954}
   - component: {fileID: 20724767985556146}
-  - component: {fileID: 92957157618633926}
-  - component: {fileID: 124493308032968998}
-  - component: {fileID: 81795237025718404}
   m_Layer: 0
   m_Name: LightPass
   m_TagString: MainCamera
@@ -231,7 +226,7 @@ Camera:
   m_Depth: 1
   m_CullingMask:
     serializedVersion: 2
-    m_Bits: 4294967295
+    m_Bits: 4294705151
   m_RenderingPath: -1
   m_TargetTexture: {fileID: 0}
   m_TargetDisplay: 0
@@ -321,33 +316,12 @@ MeshFilter:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1813422309602640}
   m_Mesh: {fileID: 10209, guid: 0000000000000000e000000000000000, type: 0}
---- !u!81 &81795237025718404
+--- !u!81 &81952535828928862
 AudioListener:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1824593476859808}
-  m_Enabled: 1
---- !u!81 &81928977860070812
-AudioListener:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1601178351501282}
-  m_Enabled: 1
---- !u!92 &92275512769700316
-Behaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1601178351501282}
-  m_Enabled: 1
---- !u!92 &92957157618633926
-Behaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1824593476859808}
+  m_GameObject: {fileID: 1415632435154360}
   m_Enabled: 1
 --- !u!114 &114195639503374326
 MonoBehaviour:
@@ -406,17 +380,3 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 790ac588580b7c24aaaf155cb623a4e5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!124 &124493308032968998
-Behaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1824593476859808}
-  m_Enabled: 1
---- !u!124 &124685567161469234
-Behaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1601178351501282}
-  m_Enabled: 1

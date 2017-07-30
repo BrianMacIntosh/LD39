@@ -25,6 +25,8 @@ public class PlayerInteraction : MonoBehaviour
 	/// The pickup that the player is currently holding.
 	/// </summary>
 	public Pickup m_holdingPickup = null;
+    private SpriteRenderer m_holdingPickupSprite;
+    public SpriteRenderer m_waterSprite;
     public int m_objectiveCount;
 
     private void Start()
@@ -59,6 +61,7 @@ public class PlayerInteraction : MonoBehaviour
 			if (m_holdingPickup != null)
 			{
                 TryGivePickupToBoop();
+                TryPutOutFire();
                 SetDownPickup();
 			}
 			else
@@ -72,7 +75,12 @@ public class PlayerInteraction : MonoBehaviour
 	{
 		if (m_holdingPickup != null)
 		{
-			m_holdingPickup.transform.SetParent(null);
+            if (m_holdingPickup.CompareTag("Water"))
+            {
+                m_holdingPickupSprite.enabled = true;
+                m_waterSprite.enabled = false;
+            }
+            m_holdingPickup.transform.SetParent(null);
 			m_holdingPickup.NotifyDrop(this);
 			m_holdingPickup = null;
 		}
@@ -101,6 +109,41 @@ public class PlayerInteraction : MonoBehaviour
         return false;
     }
 
+    public bool TryPutOutFire()
+    {
+        if (m_holdingPickup.gameObject.CompareTag("Water"))
+        {
+            foreach (Pickup pickup in Pickup.Pickups)
+            {
+                if (pickup != null
+                    && pickup.HeldBy == null)
+                {
+                    Vector2 d = pickup.transform.position - transform.position;
+
+                    if (d.sqrMagnitude <= m_interactRadius * m_interactRadius)
+                    {
+                        float angle = Mathf.Atan2(d.y, d.x) * Mathf.Rad2Deg;
+                        float dAng = Mathf.Abs(Mathf.DeltaAngle(angle - 90f, transform.rotation.eulerAngles.z));
+
+                        if (dAng < m_interactArc / 2f)
+                        {
+                            // this pickup is in range
+                            if (pickup.gameObject.CompareTag("Fire"))
+                            {
+                                Destroy(pickup.gameObject);
+                                Destroy(m_holdingPickup.gameObject);
+                                m_holdingPickup = null;
+                                m_waterSprite.enabled = false;
+                                return true;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+        return false;
+    }
+
 	public void PickUpPickup()
 	{
 		Pickup target = GetPickupToGrab(m_playerType, transform.position, transform.forward);
@@ -111,6 +154,12 @@ public class PlayerInteraction : MonoBehaviour
 			target.transform.localPosition = new Vector3(0f, 1f, 0f);
 			target.NotifyPickUp(this);
 			m_holdingPickup = target;
+            if(target.CompareTag("Water"))
+            {
+                m_holdingPickupSprite = target.gameObject.GetComponent<SpriteRenderer>();
+                m_holdingPickupSprite.enabled = false;
+                m_waterSprite.enabled = true;
+            }
 		}
 	}
 
