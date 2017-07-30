@@ -16,6 +16,18 @@ public class Player_Navigation : MonoBehaviour {
     public float turn_speed = 100;
     public float dirDegAngle = 90;
 
+	[SerializeField]
+	private AudioClip m_moveStartAudio = null;
+
+	[SerializeField]
+	private AudioClip m_moveLoopAudio = null;
+
+	[SerializeField]
+	private AudioClip m_moveEndAudio = null;
+
+	private float m_lastMoveForward = 0f;
+	private float m_lastTurn = 0f;
+
 	//TODO: change to enum
     public bool isBeep = true;
 
@@ -25,6 +37,7 @@ public class Player_Navigation : MonoBehaviour {
 
 	private PlayerEnergy m_energyComponent;
 	private Rigidbody2D m_rigidbody;
+	private AudioSource m_audioSource;
 
 	#endregion
 
@@ -32,6 +45,7 @@ public class Player_Navigation : MonoBehaviour {
 	{
 		m_energyComponent = GetComponent<PlayerEnergy>();
 		m_rigidbody = GetComponent<Rigidbody2D>();
+		m_audioSource = OurUtility.GetOrAddComponent<AudioSource>(gameObject);
 	}
 
 	void Update()
@@ -60,6 +74,36 @@ public class Player_Navigation : MonoBehaviour {
 		dirDegAngle = transform.rotation.eulerAngles.z + 90;
 
 		m_rigidbody.rotation += m_angularVelocity * Time.deltaTime;
+		
+		if (moveForward != 0f || turn != 0f)
+		{
+			if (m_lastMoveForward == 0f && m_lastTurn == 0f)
+			{
+				m_audioSource.clip = m_moveStartAudio;
+				m_audioSource.loop = false;
+				m_audioSource.volume = 0.1f;
+				m_audioSource.Play();
+			}
+			else if (!m_audioSource.isPlaying)
+			{
+				m_audioSource.clip = m_moveLoopAudio;
+				m_audioSource.loop = true;
+				m_audioSource.volume = 0.1f;
+				m_audioSource.Play();
+			}
+		}
+		else if (m_lastMoveForward != 0f || m_lastTurn != 0f
+			&& Mathf.Abs(moveForward) != 1f || Mathf.Abs(turn) != 1f
+			&& m_audioSource.clip != m_moveEndAudio)
+		{
+			m_audioSource.clip = m_moveEndAudio;
+			m_audioSource.loop = false;
+			m_audioSource.volume = 0.1f;
+			m_audioSource.Play();
+		}
+
+		m_lastMoveForward = moveForward;
+		m_lastTurn = turn;
 	}
 
     private Vector2 GetVector2FromAngle(float degAngle)
