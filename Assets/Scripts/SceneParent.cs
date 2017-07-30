@@ -17,47 +17,5 @@ public class SceneParent : MonoBehaviour
 		{
 			loader.NotifySceneLoaded(this);
 		}
-
-		PlayerSpawn[] spawnPoints = GetComponentsInChildren<PlayerSpawn>();
-		PlayerSpawn beepSpawn = null;
-		PlayerSpawn boopSpawn = null;
-		foreach (PlayerSpawn spawn in spawnPoints)
-		{
-			if (spawn.Player == PlayerType.Beep)
-			{
-				beepSpawn = spawn;
-			}
-			else if (spawn.Player == PlayerType.Boop)
-			{
-				boopSpawn = spawn;
-			}
-		}
-
-		if (!FindObjectOfType<GameManager>())
-		{
-			Instantiate(CameraRigPrefab);
-		}
-		if (!GameManager.Instance.Beep)
-		{
-			if (!beepSpawn)
-			{
-				Debug.LogError("No Beep spawn in scene '" + SceneName + "'.");
-			}
-			else
-			{
-				Instantiate(BeepPrefab, beepSpawn.transform.position, beepSpawn.transform.rotation);
-			}
-		}
-		if (!GameManager.Instance.Boop)
-		{
-			if (!boopSpawn)
-			{
-				Debug.LogError("No Boop spawn in scene '" + SceneName + "'.");
-			}
-			else
-			{
-				Instantiate(BoopPrefab, boopSpawn.transform.position, boopSpawn.transform.rotation);
-			}
-		}
 	}
 }
