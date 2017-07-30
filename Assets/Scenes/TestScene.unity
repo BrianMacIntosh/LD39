@@ -3446,6 +3446,27 @@ Prefab:
       propertyPath: beep
       value: 
       objectReference: {fileID: 211161786}
+    - target: {fileID: 212961405325705816, guid: bc1da6adf74e3104e8e5490b4987bf97,
+        type: 2}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: a92f506227383ee4d932c08148d2f16d,
+        type: 3}
+    - target: {fileID: 212961405325705816, guid: bc1da6adf74e3104e8e5490b4987bf97,
+        type: 2}
+      propertyPath: m_Color.r
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 212961405325705816, guid: bc1da6adf74e3104e8e5490b4987bf97,
+        type: 2}
+      propertyPath: m_Color.g
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 212961405325705816, guid: bc1da6adf74e3104e8e5490b4987bf97,
+        type: 2}
+      propertyPath: m_Color.b
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: bc1da6adf74e3104e8e5490b4987bf97, type: 2}
   m_IsPrefabParent: 0
