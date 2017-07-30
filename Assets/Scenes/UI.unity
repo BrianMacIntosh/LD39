@@ -211,6 +211,52 @@ CanvasRenderer:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 38613380}
+--- !u!1001 &54274807
+Prefab:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 4884887551923058, guid: 5cb56b5e6f3f476449e5c5af64afd057, type: 2}
+      propertyPath: m_LocalPosition.x
+      value: 2.527999
+      objectReference: {fileID: 0}
+    - target: {fileID: 4884887551923058, guid: 5cb56b5e6f3f476449e5c5af64afd057, type: 2}
+      propertyPath: m_LocalPosition.y
+      value: 1.341743
+      objectReference: {fileID: 0}
+    - target: {fileID: 4884887551923058, guid: 5cb56b5e6f3f476449e5c5af64afd057, type: 2}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4884887551923058, guid: 5cb56b5e6f3f476449e5c5af64afd057, type: 2}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4884887551923058, guid: 5cb56b5e6f3f476449e5c5af64afd057, type: 2}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4884887551923058, guid: 5cb56b5e6f3f476449e5c5af64afd057, type: 2}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4884887551923058, guid: 5cb56b5e6f3f476449e5c5af64afd057, type: 2}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4884887551923058, guid: 5cb56b5e6f3f476449e5c5af64afd057, type: 2}
+      propertyPath: m_RootOrder
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1472391402023876, guid: 5cb56b5e6f3f476449e5c5af64afd057, type: 2}
+      propertyPath: m_Name
+      value: ObjectivePickupPowerade (5)
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_ParentPrefab: {fileID: 100100000, guid: 5cb56b5e6f3f476449e5c5af64afd057, type: 2}
+  m_IsPrefabParent: 0
 --- !u!1 &140205001
 GameObject:
   m_ObjectHideFlags: 0
@@ -265,7 +311,7 @@ MonoBehaviour:
       m_Calls: []
     m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
-  m_Sprite: {fileID: 21300000, guid: ad61346e71d04ec45a1f5d2ee657f3f8, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 28324034ab090874eb1cf48dd4eb2611, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -279,6 +325,52 @@ CanvasRenderer:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 140205001}
+--- !u!1001 &245732132
+Prefab:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 4884887551923058, guid: 5cb56b5e6f3f476449e5c5af64afd057, type: 2}
+      propertyPath: m_LocalPosition.x
+      value: -2.7537725
+      objectReference: {fileID: 0}
+    - target: {fileID: 4884887551923058, guid: 5cb56b5e6f3f476449e5c5af64afd057, type: 2}
+      propertyPath: m_LocalPosition.y
+      value: 1.5893269
+      objectReference: {fileID: 0}
+    - target: {fileID: 4884887551923058, guid: 5cb56b5e6f3f476449e5c5af64afd057, type: 2}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4884887551923058, guid: 5cb56b5e6f3f476449e5c5af64afd057, type: 2}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4884887551923058, guid: 5cb56b5e6f3f476449e5c5af64afd057, type: 2}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4884887551923058, guid: 5cb56b5e6f3f476449e5c5af64afd057, type: 2}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4884887551923058, guid: 5cb56b5e6f3f476449e5c5af64afd057, type: 2}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4884887551923058, guid: 5cb56b5e6f3f476449e5c5af64afd057, type: 2}
+      propertyPath: m_RootOrder
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 1472391402023876, guid: 5cb56b5e6f3f476449e5c5af64afd057, type: 2}
+      propertyPath: m_Name
+      value: ObjectivePickupPowerade (3)
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_ParentPrefab: {fileID: 100100000, guid: 5cb56b5e6f3f476449e5c5af64afd057, type: 2}
+  m_IsPrefabParent: 0
 --- !u!1 &255802796
 GameObject:
   m_ObjectHideFlags: 0
@@ -333,7 +425,7 @@ MonoBehaviour:
       m_Calls: []
     m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
-  m_Sprite: {fileID: 21300000, guid: ad61346e71d04ec45a1f5d2ee657f3f8, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 28324034ab090874eb1cf48dd4eb2611, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -551,7 +643,7 @@ MonoBehaviour:
       m_Calls: []
     m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
-  m_Sprite: {fileID: 21300000, guid: ad61346e71d04ec45a1f5d2ee657f3f8, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 28324034ab090874eb1cf48dd4eb2611, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -715,14 +807,14 @@ MonoBehaviour:
   m_GameObject: {fileID: 520767148}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1ded1cbfa20717e4ea22bf13173dbb08, type: 3}
+  m_Script: {fileID: 11500000, guid: 656c88ff5b791954a800f0f7472374d2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  isBeep: 1
-  player: {fileID: 0}
-  boxImage: {fileID: 0}
-  waterImage: {fileID: 0}
-  objectiveImage: {fileID: 0}
+  m_obj1: {fileID: 1385727983}
+  m_obj2: {fileID: 140205003}
+  m_obj3: {fileID: 255802798}
+  m_obj4: {fileID: 352007320}
+  m_obj5: {fileID: 788438253}
 --- !u!1 &553115208
 GameObject:
   m_ObjectHideFlags: 0
@@ -930,7 +1022,7 @@ MonoBehaviour:
       m_Calls: []
     m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
-  m_Sprite: {fileID: 21300000, guid: ad61346e71d04ec45a1f5d2ee657f3f8, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 28324034ab090874eb1cf48dd4eb2611, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -944,6 +1036,52 @@ CanvasRenderer:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 788438251}
+--- !u!1001 &1105627634
+Prefab:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 4884887551923058, guid: 5cb56b5e6f3f476449e5c5af64afd057, type: 2}
+      propertyPath: m_LocalPosition.x
+      value: -1.845968
+      objectReference: {fileID: 0}
+    - target: {fileID: 4884887551923058, guid: 5cb56b5e6f3f476449e5c5af64afd057, type: 2}
+      propertyPath: m_LocalPosition.y
+      value: 2.9510329
+      objectReference: {fileID: 0}
+    - target: {fileID: 4884887551923058, guid: 5cb56b5e6f3f476449e5c5af64afd057, type: 2}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4884887551923058, guid: 5cb56b5e6f3f476449e5c5af64afd057, type: 2}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4884887551923058, guid: 5cb56b5e6f3f476449e5c5af64afd057, type: 2}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4884887551923058, guid: 5cb56b5e6f3f476449e5c5af64afd057, type: 2}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4884887551923058, guid: 5cb56b5e6f3f476449e5c5af64afd057, type: 2}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4884887551923058, guid: 5cb56b5e6f3f476449e5c5af64afd057, type: 2}
+      propertyPath: m_RootOrder
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 1472391402023876, guid: 5cb56b5e6f3f476449e5c5af64afd057, type: 2}
+      propertyPath: m_Name
+      value: ObjectivePickupPowerade (1)
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_ParentPrefab: {fileID: 100100000, guid: 5cb56b5e6f3f476449e5c5af64afd057, type: 2}
+  m_IsPrefabParent: 0
 --- !u!1 &1115255379
 GameObject:
   m_ObjectHideFlags: 0
@@ -1101,7 +1239,7 @@ MonoBehaviour:
       m_Calls: []
     m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
-  m_Sprite: {fileID: 21300000, guid: ad61346e71d04ec45a1f5d2ee657f3f8, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 28324034ab090874eb1cf48dd4eb2611, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -1151,6 +1289,52 @@ RectTransform:
   m_AnchoredPosition: {x: 1.88, y: 2.71}
   m_SizeDelta: {x: 1, y: 1}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!1001 &1585774750
+Prefab:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 4884887551923058, guid: 5cb56b5e6f3f476449e5c5af64afd057, type: 2}
+      propertyPath: m_LocalPosition.x
+      value: -0.7318444
+      objectReference: {fileID: 0}
+    - target: {fileID: 4884887551923058, guid: 5cb56b5e6f3f476449e5c5af64afd057, type: 2}
+      propertyPath: m_LocalPosition.y
+      value: 1.960701
+      objectReference: {fileID: 0}
+    - target: {fileID: 4884887551923058, guid: 5cb56b5e6f3f476449e5c5af64afd057, type: 2}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4884887551923058, guid: 5cb56b5e6f3f476449e5c5af64afd057, type: 2}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4884887551923058, guid: 5cb56b5e6f3f476449e5c5af64afd057, type: 2}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4884887551923058, guid: 5cb56b5e6f3f476449e5c5af64afd057, type: 2}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4884887551923058, guid: 5cb56b5e6f3f476449e5c5af64afd057, type: 2}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4884887551923058, guid: 5cb56b5e6f3f476449e5c5af64afd057, type: 2}
+      propertyPath: m_RootOrder
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 1472391402023876, guid: 5cb56b5e6f3f476449e5c5af64afd057, type: 2}
+      propertyPath: m_Name
+      value: ObjectivePickupPowerade (2)
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_ParentPrefab: {fileID: 100100000, guid: 5cb56b5e6f3f476449e5c5af64afd057, type: 2}
+  m_IsPrefabParent: 0
 --- !u!1 &1587931464
 GameObject:
   m_ObjectHideFlags: 0
@@ -1351,6 +1535,52 @@ CanvasRenderer:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1695071928}
+--- !u!1001 &1986036944
+Prefab:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 4884887551923058, guid: 5cb56b5e6f3f476449e5c5af64afd057, type: 2}
+      propertyPath: m_LocalPosition.x
+      value: 0.54733497
+      objectReference: {fileID: 0}
+    - target: {fileID: 4884887551923058, guid: 5cb56b5e6f3f476449e5c5af64afd057, type: 2}
+      propertyPath: m_LocalPosition.y
+      value: 1.7543821
+      objectReference: {fileID: 0}
+    - target: {fileID: 4884887551923058, guid: 5cb56b5e6f3f476449e5c5af64afd057, type: 2}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4884887551923058, guid: 5cb56b5e6f3f476449e5c5af64afd057, type: 2}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4884887551923058, guid: 5cb56b5e6f3f476449e5c5af64afd057, type: 2}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4884887551923058, guid: 5cb56b5e6f3f476449e5c5af64afd057, type: 2}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4884887551923058, guid: 5cb56b5e6f3f476449e5c5af64afd057, type: 2}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4884887551923058, guid: 5cb56b5e6f3f476449e5c5af64afd057, type: 2}
+      propertyPath: m_RootOrder
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 1472391402023876, guid: 5cb56b5e6f3f476449e5c5af64afd057, type: 2}
+      propertyPath: m_Name
+      value: ObjectivePickupPowerade (4)
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_ParentPrefab: {fileID: 100100000, guid: 5cb56b5e6f3f476449e5c5af64afd057, type: 2}
+  m_IsPrefabParent: 0
 --- !u!1 &2110323198
 GameObject:
   m_ObjectHideFlags: 0
