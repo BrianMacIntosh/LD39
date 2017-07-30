@@ -153,11 +153,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_timeToKill: 1
   m_timeToRegen: 0.5
-  m_onDeathSpawnPrefab: {fileID: 1666987443718850, guid: 79d27af65ee153d47b69947e6443c168,
-    type: 2}
+  m_onDeathSpawnPrefabs:
+  - {fileID: 1518963156008096, guid: c72c44951c1a4254eadff7293e8969d1, type: 2}
+  - {fileID: 1666987443718850, guid: 79d27af65ee153d47b69947e6443c168, type: 2}
   m_gettingDamagedAudio: {fileID: 8300000, guid: 42ad4e4652b191b4e9e6debd35e9eab2,
     type: 3}
-  m_deathAudio: {fileID: 8300000, guid: 339a1a1b507caed46a647d4f86acfbbf, type: 3}
 --- !u!114 &114144261755477676
 MonoBehaviour:
   m_ObjectHideFlags: 1
