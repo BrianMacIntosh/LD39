@@ -51,6 +51,9 @@ public class PlayerInteraction : MonoBehaviour
     public event objectSpawn onFireWaterPickup;
     public event objectSpawn onObjectivePickup;
 
+    public delegate void depositObject(int num);
+    public event depositObject depositedObjects;
+
     private void Start()
     {
 		m_audioSource = OurUtility.GetOrAddComponent<AudioSource>(gameObject);
@@ -86,12 +89,14 @@ public class PlayerInteraction : MonoBehaviour
 		{
 			if (m_holdingPickup != null)
 			{
+                TryDropObjectiveOnDeposit();
                 TryGivePickupToBoop();
                 TryPutOutFire();
                 SetDownPickup();
 			}
 			else
 			{
+                TryEmptyObjectiveBasketOnDeposit();
 				PickUpPickup();
 			}
 		}
@@ -247,9 +252,9 @@ public class PlayerInteraction : MonoBehaviour
 		return bestPickup;
 	}
 
-    private bool IsInRange(Vector3 playerPosition, Vector3 interactPosition)
+    private bool IsInRange(Vector3 interactPosition)
     {
-        Vector2 d = interactPosition - playerPosition;
+        Vector2 d = interactPosition - transform.position;
         if (d.sqrMagnitude <= m_interactRadius * m_interactRadius)
         {
             float angle = Mathf.Atan2(d.y, d.x) * Mathf.Rad2Deg;
@@ -270,7 +275,7 @@ public class PlayerInteraction : MonoBehaviour
         float transfer_amount;
         if (m_isBeep)
         {
-            if (IsInRange(transform.position, m_boop.transform.position))
+            if (IsInRange(m_boop.transform.position))
             {
                 transfer_amount = Mathf.Min(100f - boopEnergy, Mathf.Min(m_powerTransferAmount, Mathf.Max(beepEnergy - 5, 0)));
                 m_beep.GetComponent<PlayerEnergy>().currentEnergy -= transfer_amount;
@@ -279,12 +284,49 @@ public class PlayerInteraction : MonoBehaviour
         }
         else
         {
-            if (IsInRange(transform.position, m_beep.transform.position))
+            if (IsInRange(m_beep.transform.position))
             {
                 transfer_amount = Mathf.Min(100f - beepEnergy, Mathf.Min(m_powerTransferAmount, Mathf.Max(boopEnergy - 5, 0)));
                 m_boop.GetComponent<PlayerEnergy>().currentEnergy -= transfer_amount;
                 m_beep.GetComponent<PlayerEnergy>().currentEnergy += transfer_amount;
             }
         }
+    }
+    
+    private bool TryDropObjectiveOnDeposit()
+    {
+        if (m_isBeep && m_holdingPickup.CompareTag("Objective"))
+        {
+            GameObject objectiveDeposit = GameObject.FindWithTag("ObjectiveDeposit");
+            if (IsInRange(objectiveDeposit.transform.position))
+            {
+                if (depositedObjects != null)
+                {
+                    depositedObjects(1);
+                }
+                Destroy(m_holdingPickup.gameObject);
+                m_holdingPickup = null;
+                return true;
+            }
+        }
+        return false;
+    }
+
+    private bool TryEmptyObjectiveBasketOnDeposit()
+    {
+        if (!m_isBeep && (m_objectiveCount > 0))
+        {
+            GameObject objectiveDeposit = GameObject.FindWithTag("ObjectiveDeposit");
+            if (IsInRange(objectiveDeposit.transform.position))
+            {
+                if (depositedObjects != null)
+                {
+                    depositedObjects(m_objectiveCount);
+                }
+                m_objectiveCount = 0;
+                return true;
+            }
+        }
+        return false;
     }
 }
