@@ -260,7 +260,7 @@ public class PlayerInteraction : MonoBehaviour
         {
             if (IsInRange(transform.position, m_boop.transform.position))
             {
-                transfer_amount = Mathf.Min(100f - boopEnergy, Mathf.Min(m_powerTransferAmount, beepEnergy));
+                transfer_amount = Mathf.Min(100f - boopEnergy, Mathf.Min(m_powerTransferAmount, Mathf.Max(beepEnergy - 5, 0)));
                 m_beep.GetComponent<PlayerEnergy>().currentEnergy -= transfer_amount;
                 m_boop.GetComponent<PlayerEnergy>().currentEnergy += transfer_amount;
             }
@@ -269,7 +269,7 @@ public class PlayerInteraction : MonoBehaviour
         {
             if (IsInRange(transform.position, m_beep.transform.position))
             {
-                transfer_amount = Mathf.Min(100f - beepEnergy, Mathf.Min(m_powerTransferAmount, boopEnergy));
+                transfer_amount = Mathf.Min(100f - beepEnergy, Mathf.Min(m_powerTransferAmount, Mathf.Max(boopEnergy - 5, 0)));
                 m_boop.GetComponent<PlayerEnergy>().currentEnergy -= transfer_amount;
                 m_beep.GetComponent<PlayerEnergy>().currentEnergy += transfer_amount;
             }
