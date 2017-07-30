@@ -164,7 +164,7 @@ public class Ghost_Move : MonoBehaviour {
 			}
 
             Vector3 dir = player.transform.position - transform.position;
-            if (!Physics2D.Raycast(transform.position, dir, dir.magnitude, LayerMask.GetMask("Walls")))
+            if (!Physics2D.Raycast(transform.position, dir, dir.magnitude, LayerMask.GetMask("Walls", "Fire")))
             {
                 if (dir.magnitude < distance)
                 {

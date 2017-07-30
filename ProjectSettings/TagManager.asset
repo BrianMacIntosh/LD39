@@ -27,8 +27,8 @@ TagManager:
   - Walls
   - Boxes
   - Pits
-  - 
-  - 
+  - Fire
+  - FireDamager
   - 
   - LightPass
   - FinalPass

@@ -41,6 +41,7 @@ public class SpawnManager : MonoBehaviour
 	private Transform[] spawnTransformList;
     private bool[] spawnIsValidList;
     public bool isGhosts = true;
+    private bool needsTwoSpawns = false;
 
 	public delegate void ObjectSpawnedDelegate(GameObject obj);
 
@@ -133,9 +134,14 @@ public class SpawnManager : MonoBehaviour
 
 	public bool SpawnObject(Spawnable spawnable)
 	{
+        if (spawnable.MirrorObject != null)
+        {
+            needsTwoSpawns = true;
+        }
 		if (SpawnObject(spawnable.BaseObject))
 		{
-			if (spawnable.MirrorObject != null)
+            needsTwoSpawns = false;
+            if (spawnable.MirrorObject != null)
 			{
 				//TODO: it's possible that the second object will fail to spawn. That's bad.
 				SpawnObject(spawnable.MirrorObject);
@@ -173,7 +179,7 @@ public class SpawnManager : MonoBehaviour
             }
             spawnIndex++;
 		}
-		if (validSpawnCount > 0)
+		if (((validSpawnCount == 1) && !needsTwoSpawns) || (validSpawnCount > 1))
 		{
 			int index = ((int)Mathf.Round(Random.value * 100f)) % validSpawnCount;
 			GameObject newObject = Instantiate(prefab, validSpawnTransforms[index].position, Quaternion.identity);
