@@ -13,13 +13,10 @@ public class GhostHealth : MonoBehaviour
 	private float m_timeToRegen = 0.5f;
 
 	[SerializeField]
-	private GameObject m_onDeathSpawnPrefab = null;
+	private GameObject[] m_onDeathSpawnPrefabs = null;
 
 	[SerializeField]
 	private AudioClip m_gettingDamagedAudio = null;
-
-	[SerializeField]
-	private AudioClip m_deathAudio = null;
 
 	/// <summary>
 	/// The ghost's current health.
@@ -57,13 +54,9 @@ public class GhostHealth : MonoBehaviour
 			if (m_health <= 0f)
 			{
 				Destroy(gameObject);
-				if (m_deathAudio)
+				foreach (GameObject spawnPrefab in m_onDeathSpawnPrefabs)
 				{
-					m_audioSource.PlayOneShot(m_deathAudio);
-				}
-				if (m_onDeathSpawnPrefab)
-				{
-					Instantiate(m_onDeathSpawnPrefab, transform.position, Quaternion.identity);
+					Instantiate(spawnPrefab, transform.position, Quaternion.identity);
 				}
 			}
 		}

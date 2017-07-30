@@ -324,7 +324,11 @@ MonoBehaviour:
   m_interactControl: BeepInteract
   m_interactRadius: 1.5
   m_interactArc: 180
+  m_isBeep: 0
+  m_boop: {fileID: 0}
   m_holdingPickup: {fileID: 0}
+  m_waterSprite: {fileID: 0}
+  m_objectiveCount: 0
 --- !u!114 &114200874182219446
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -375,6 +379,9 @@ MonoBehaviour:
   ghostDrainRate: 5
   m_lightAnimator: {fileID: 95783854843109360}
   m_outOfPowerAudio: {fileID: 8300000, guid: 38128d5eb43d572428d9245b229e10d4, type: 3}
+  m_outOfPowerSprite: {fileID: 21300000, guid: 902b7ecb05746b94a951c23c3f2c0b65, type: 3}
+  m_lightOnSprite: {fileID: 21300000, guid: 39031f5b53323b142b05f02e3b5dcbb8, type: 3}
+  m_lightOffSprite: {fileID: 21300000, guid: 10b3b65f71e2a7c4e99680cffa900727, type: 3}
 --- !u!212 &212200522385480436
 SpriteRenderer:
   m_ObjectHideFlags: 1
