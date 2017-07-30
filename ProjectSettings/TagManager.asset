@@ -12,6 +12,7 @@ TagManager:
   - Battery
   - Fire
   - ObjectiveDeposit
+  - Arrow
   layers:
   - Default
   - TransparentFX
