@@ -3113,6 +3113,8 @@ MonoBehaviour:
   BossPositiveSprite: {fileID: 21300000, guid: 210ca0c2846252e45a5d442a9f600106, type: 3}
   ObjectiveSprite: {fileID: 21300000, guid: 28324034ab090874eb1cf48dd4eb2611, type: 3}
   ObjectiveSpriteDim: {fileID: 21300000, guid: 5fd75eefb98500a4c9dfa99b2dcd762c, type: 3}
+  ObjectiveSpriteExclame: {fileID: 21300000, guid: 82339df96350d7b4d8c48649113b6541,
+    type: 3}
   CameraRigPrefab: {fileID: 1415632435154360, guid: d471b7c30aacefa44b97a569cb69ff34,
     type: 2}
   BoopPrefab: {fileID: 1926900810641854, guid: 8ce3f5a7237321a4a9ecb41443cb9671, type: 2}

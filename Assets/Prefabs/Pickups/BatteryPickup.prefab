@@ -147,8 +147,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_onlyPlayer: 3
-  m_tag: battery
-  m_cancelsWithTag: 
   m_resetRotationOnDrop: 0
   m_onPickUpAudio: {fileID: 8300000, guid: 3443130b0dc54a74385040a0e14cdd6f, type: 3}
   m_energy: 20
@@ -193,4 +191,3 @@ SpriteRenderer:
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
-  m_MaskInteraction: 0

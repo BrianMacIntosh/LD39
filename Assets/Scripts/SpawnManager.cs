@@ -56,7 +56,7 @@ public class SpawnManager : MonoBehaviour
 	{
 		get
 		{
-			return (spawnRate - baseSpawnRate) / (spawnRateMax - baseSpawnRate);
+			return Mathf.Clamp01((spawnRate - baseSpawnRate) / (spawnRateMax - baseSpawnRate));
 		}
 	}
 

@@ -12,6 +12,9 @@ public class ObjectiveManager : MonoBehaviour
 	public int ObjectiveProgress { get { return m_objectiveCount; } }
 	public int ObjectiveTarget { get { return m_objectiveMax; } }
 
+	public delegate void ObjectiveIncremented();
+	public event ObjectiveIncremented OnObjectiveIncremented;
+
     void Start ()
     {
 		foreach (GameObject player in GameManager.Instance.Players)
@@ -32,6 +35,11 @@ public class ObjectiveManager : MonoBehaviour
     {
         m_objectiveCount += num;
         m_objectiveCount = Mathf.Min(m_objectiveCount, m_objectiveMax);
+
+		if (OnObjectiveIncremented != null)
+		{
+			OnObjectiveIncremented();
+		}
     }
 }
 

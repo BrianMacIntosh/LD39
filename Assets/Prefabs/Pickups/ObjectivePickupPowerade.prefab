@@ -94,8 +94,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_onlyPlayer: 1
-  m_tag: objective
-  m_cancelsWithTag: 
   m_resetRotationOnDrop: 0
   m_onPickUpAudio: {fileID: 8300000, guid: 189d037ae12213d4eb49f7aca480b5fe, type: 3}
 --- !u!212 &212203602308506762
@@ -139,4 +137,3 @@ SpriteRenderer:
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
-  m_MaskInteraction: 0
