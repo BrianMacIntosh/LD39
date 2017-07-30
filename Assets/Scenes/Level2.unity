@@ -685,7 +685,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 4884887551923058, guid: 5cb56b5e6f3f476449e5c5af64afd057, type: 2}
       propertyPath: m_RootOrder
-      value: 15
+      value: 16
       objectReference: {fileID: 0}
     - target: {fileID: 1472391402023876, guid: 5cb56b5e6f3f476449e5c5af64afd057, type: 2}
       propertyPath: m_Name
@@ -1119,7 +1119,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 4980107292107362, guid: e404b67293acda840bbff16776a1271e, type: 2}
       propertyPath: m_RootOrder
-      value: 16
+      value: 17
       objectReference: {fileID: 0}
     - target: {fileID: 1666987443718850, guid: e404b67293acda840bbff16776a1271e, type: 2}
       propertyPath: m_Name
@@ -2193,7 +2193,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 4980107292107362, guid: e404b67293acda840bbff16776a1271e, type: 2}
       propertyPath: m_RootOrder
-      value: 18
+      value: 19
       objectReference: {fileID: 0}
     - target: {fileID: 1666987443718850, guid: e404b67293acda840bbff16776a1271e, type: 2}
       propertyPath: m_Name
@@ -2239,7 +2239,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 4980107292107362, guid: e404b67293acda840bbff16776a1271e, type: 2}
       propertyPath: m_RootOrder
-      value: 23
+      value: 24
       objectReference: {fileID: 0}
     - target: {fileID: 1666987443718850, guid: e404b67293acda840bbff16776a1271e, type: 2}
       propertyPath: m_Name
@@ -2285,7 +2285,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 4884887551923058, guid: 5cb56b5e6f3f476449e5c5af64afd057, type: 2}
       propertyPath: m_RootOrder
-      value: 19
+      value: 20
       objectReference: {fileID: 0}
     - target: {fileID: 1472391402023876, guid: 5cb56b5e6f3f476449e5c5af64afd057, type: 2}
       propertyPath: m_Name
@@ -2724,7 +2724,7 @@ Camera:
   far clip plane: 1000
   field of view: 60
   orthographic: 1
-  orthographic size: 5
+  orthographic size: 9
   m_Depth: -1
   m_CullingMask:
     serializedVersion: 2
@@ -2840,7 +2840,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 4884887551923058, guid: 5cb56b5e6f3f476449e5c5af64afd057, type: 2}
       propertyPath: m_RootOrder
-      value: 22
+      value: 23
       objectReference: {fileID: 0}
     - target: {fileID: 1472391402023876, guid: 5cb56b5e6f3f476449e5c5af64afd057, type: 2}
       propertyPath: m_Name
@@ -2886,7 +2886,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 4980107292107362, guid: e404b67293acda840bbff16776a1271e, type: 2}
       propertyPath: m_RootOrder
-      value: 17
+      value: 18
       objectReference: {fileID: 0}
     - target: {fileID: 1666987443718850, guid: e404b67293acda840bbff16776a1271e, type: 2}
       propertyPath: m_Name
