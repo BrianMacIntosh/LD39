@@ -12,6 +12,11 @@ public class GameManager : MonoBehaviour
 			{
 				s_instance = FindObjectOfType<GameManager>();
 			}
+			if (s_instance == null)
+			{
+				//HACK: wow
+				s_instance = Instantiate(FindObjectOfType<SceneParent>().CameraRigPrefab).GetComponent<GameManager>();
+			}
 			return s_instance;
 		}
 	}
@@ -47,6 +52,18 @@ public class GameManager : MonoBehaviour
 	}
 	private GameObject m_boop;
 
+	public GameObject GetPlayer(bool isBeep)
+	{
+		if (isBeep)
+		{
+			return Beep;
+		}
+		else
+		{
+			return Boop;
+		}
+	}
+
 	public void RefindPlayers()
 	{
 		m_players = null;
@@ -58,6 +75,13 @@ public class GameManager : MonoBehaviour
 		if (m_players == null)
 		{
 			m_players = GameObject.FindGameObjectsWithTag("Player");
+
+			if (m_players == null || m_players.Length == 0)
+			{
+				InstantiatePlayers();
+				m_players = GameObject.FindGameObjectsWithTag("Player");
+			}
+
 			foreach (GameObject obj in m_players)
 			{
 				if (obj.GetComponent<Player_Navigation>().isBeep)
@@ -68,6 +92,50 @@ public class GameManager : MonoBehaviour
 				{
 					m_boop = obj;
 				}
+			}
+		}
+	}
+
+	private void InstantiatePlayers()
+	{
+		PlayerSpawn[] spawnPoints = GetComponentsInChildren<PlayerSpawn>();
+		PlayerSpawn beepSpawn = null;
+		PlayerSpawn boopSpawn = null;
+		foreach (PlayerSpawn spawn in spawnPoints)
+		{
+			if (spawn.Player == PlayerType.Beep)
+			{
+				beepSpawn = spawn;
+			}
+			else if (spawn.Player == PlayerType.Boop)
+			{
+				boopSpawn = spawn;
+			}
+		}
+
+		SceneParent sceneParent = FindObjectOfType<SceneParent>();
+		if (!GameManager.Instance.Beep)
+		{
+			if (!beepSpawn)
+			{
+				Debug.LogError("No Beep spawn found.");
+				Instantiate(sceneParent.BeepPrefab);
+			}
+			else
+			{
+				Instantiate(sceneParent.BeepPrefab, beepSpawn.transform.position, beepSpawn.transform.rotation);
+			}
+		}
+		if (!GameManager.Instance.Boop)
+		{
+			if (!boopSpawn)
+			{
+				Debug.LogError("No Boop spawn found.");
+				Instantiate(sceneParent.BoopPrefab);
+			}
+			else
+			{
+				Instantiate(sceneParent.BoopPrefab, boopSpawn.transform.position, boopSpawn.transform.rotation);
 			}
 		}
 	}

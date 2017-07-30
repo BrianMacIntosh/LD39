@@ -17,7 +17,7 @@ public class BasketUI : MonoBehaviour {
     void Start()
     {
         bool beepIs1 = false;
-        GameObject[] playerList = GameObject.FindGameObjectsWithTag("Player");
+        GameObject[] playerList = GameManager.Instance.Players;
         if ((playerList[0]).GetComponent<Player_Navigation>().isBeep)
         {
             beepIs1 = true;
