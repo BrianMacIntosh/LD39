@@ -49,7 +49,7 @@ public class DoorSensor : MonoBehaviour
 
 	private void OnTriggerEnter2D(Collider2D collision)
 	{
-		if (collision.gameObject.CompareTag("Player") || collision.gameObject.CompareTag("Box"))
+		if (collision.gameObject.CompareTag("Player"))
 		{
 			if (m_activators.Count == 0)
 			{
@@ -63,7 +63,7 @@ public class DoorSensor : MonoBehaviour
 
 	private void OnTriggerExit2D(Collider2D collision)
 	{
-		if (collision.gameObject.CompareTag("Player") || collision.gameObject.CompareTag("Box"))
+		if (collision.gameObject.CompareTag("Player"))
 		{
 			m_activators.Remove(collision.gameObject);
 			if (m_activators.Count == 0)
