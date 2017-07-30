@@ -140,7 +140,7 @@ Shader "LD39/Standard (Capped Lights)"
 				half4 sourceTexture = tex2D(_MainTex, i.tex.rg);
 				float sourceTextureGreyscale = (sourceTexture.r + sourceTexture.g + sourceTexture.b) / 3;
 				float lightGreyscale = (c.r + c.g + c.b) / 3;
-				c.rgb *= saturate(sourceTextureGreyscale / lightGreyscale);
+				c.rgb *= 0.75 * saturate(sourceTextureGreyscale / lightGreyscale);
 
 				return OutputForward(c, s.alpha);
 			}
