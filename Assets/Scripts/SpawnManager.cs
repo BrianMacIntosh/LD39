@@ -50,9 +50,19 @@ public class SpawnManager : MonoBehaviour
 	public event ObjectSpawnedDelegate OnObjectSpawned;
 
 	/// <summary>
+	/// How far the spawn rate has accelerated along its total possible rate (0-1).
+	/// </summary>
+	public float SpawnRateRatio
+	{
+		get
+		{
+			return (spawnRate - baseSpawnRate) / (spawnRateMax - baseSpawnRate);
+		}
+	}
+
+	/// <summary>
 	/// Returns the number of objects in existence that were spawned by this manager.
 	/// </summary>
-    
 	private int SpawnedObjectCount
 	{
 		get

@@ -134,7 +134,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cc3f9570178f55c4cbad38a28a8fab29, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  filledPit: {fileID: 0}
+  filledPit: {fileID: 1770464877380622, guid: 17a7fd11479a4d2468516cd0bfaa23f2, type: 2}
 --- !u!212 &212583502752863746
 SpriteRenderer:
   m_ObjectHideFlags: 1
