@@ -95,6 +95,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4506535097751954}
   - component: {fileID: 20724767985556146}
+  - component: {fileID: 114143367129311932}
   m_Layer: 0
   m_Name: LightPass
   m_TagString: MainCamera
@@ -153,7 +154,7 @@ Transform:
   m_GameObject: {fileID: 1018201767654510}
   m_LocalRotation: {x: 0, y: 0.7071068, z: -0.7071068, w: 0}
   m_LocalPosition: {x: 0, y: 0, z: 5}
-  m_LocalScale: {x: 3.20177, y: 1, z: 1.8000001}
+  m_LocalScale: {x: 3.2, y: 1, z: 1.8000001}
   m_Children: []
   m_Father: {fileID: 4045386877108186}
   m_RootOrder: 0
@@ -488,6 +489,20 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 0
+--- !u!114 &114143367129311932
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1824593476859808}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 71cfa5e89fa2b5e488f1dbde88bc98cc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_lightRenderTexture: {fileID: 8400000, guid: 0b29e6221dcb2ff4fa1fe09114e37795,
+    type: 2}
+  m_lightPassMaterial: {fileID: 2100000, guid: ff160bab5849bc24c944226430b46e85, type: 2}
 --- !u!114 &114195639503374326
 MonoBehaviour:
   m_ObjectHideFlags: 1
