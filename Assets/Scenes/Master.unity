@@ -422,6 +422,7 @@ MonoBehaviour:
   - SceneName: Scenes/Level1
   - SceneName: Scenes/Level2
   - SceneName: Scenes/Level3
+  - SceneName: Scenes/Win
 --- !u!4 &1621525426
 Transform:
   m_ObjectHideFlags: 0
