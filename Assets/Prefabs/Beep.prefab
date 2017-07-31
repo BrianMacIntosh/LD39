@@ -356,6 +356,8 @@ MonoBehaviour:
   m_interactArc: 180
   m_extinguishFireAudio: {fileID: 8300000, guid: daac3b7dc72087c42a5bc6b4cdd6ceb8,
     type: 3}
+  m_interactFailedAudio: {fileID: 8300000, guid: bfd725b5c96645a41bf6fbde600b2877,
+    type: 3}
   m_zapVfx: {fileID: 1606650086614580, guid: 5e577977483f94645aaaa00447650315, type: 2}
   m_zapOrigin: {fileID: 4065461774088798}
   m_powerTransferAmount: 20

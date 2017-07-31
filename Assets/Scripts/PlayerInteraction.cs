@@ -26,6 +26,9 @@ public class PlayerInteraction : MonoBehaviour
 	private AudioClip m_extinguishFireAudio = null;
 
 	[SerializeField]
+	private AudioClip m_interactFailedAudio = null;
+
+	[SerializeField]
 	private GameObject m_zapVfx = null;
 
 	[SerializeField]
@@ -263,6 +266,10 @@ public class PlayerInteraction : MonoBehaviour
 			target.NotifyPickUp(this);
 			m_holdingPickup = target;
 		}
+		else
+		{
+			m_audioSource.PlayOneShot(m_interactFailedAudio, 1f);
+		}
 	}
 
 	/// <summary>
@@ -321,7 +328,10 @@ public class PlayerInteraction : MonoBehaviour
 
     private void TransferPower()
     {
-		Instantiate(m_zapVfx, m_zapOrigin.position, m_zapOrigin.rotation);
+		if (GetComponent<PlayerEnergy>().HasEnergy)
+		{
+			Instantiate(m_zapVfx, m_zapOrigin.position, m_zapOrigin.rotation);
+		}
 
 		float beepEnergy = m_beep.GetComponent<PlayerEnergy>().currentEnergy;
         float boopEnergy = m_boop.GetComponent<PlayerEnergy>().currentEnergy;
