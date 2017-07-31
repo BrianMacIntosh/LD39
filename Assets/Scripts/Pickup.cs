@@ -13,6 +13,9 @@ public class Pickup : MonoBehaviour
 	private PlayerType m_onlyPlayer = PlayerType.None;
 
 	[SerializeField]
+	private bool m_pickUpOnTouch = false;
+
+	[SerializeField]
 	private bool m_resetRotationOnDrop = false;
 
 	[SerializeField]
@@ -87,18 +90,37 @@ public class Pickup : MonoBehaviour
 		HeldBy = null;
 	}
 
+	private void OnTriggerEnter2D(Collider2D collision)
+	{
+		if (m_pickUpOnTouch && collision.gameObject.CompareTag("Player"))
+		{
+			collision.gameObject.GetComponent<PlayerInteraction>().PickUp(this);
+		}
+	}
+
 	/// <summary>
 	/// Returns true if the specified player can grab this.
 	/// </summary>
-	public bool CanBeGrabbedBy(PlayerType playerType)
+	public virtual bool CanBeGrabbedBy(GameObject player)
 	{
 		if (m_onlyPlayer == PlayerType.Both)
 		{
 			return true;
 		}
+		else if (m_onlyPlayer == PlayerType.None)
+		{
+			return false;
+		}
 		else
 		{
-			return m_onlyPlayer == playerType;
+			if (player.GetComponent<PlayerInteraction>().m_isBeep)
+			{
+				return m_onlyPlayer == PlayerType.Beep;
+			}
+			else
+			{
+				return m_onlyPlayer == PlayerType.Boop;
+			}
 		}
 	}
 }

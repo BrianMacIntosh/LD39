@@ -16,4 +16,16 @@ public class BatteryPickup : Pickup
 
 		Destroy(gameObject);
 	}
+
+	public override bool CanBeGrabbedBy(GameObject player)
+	{
+		if (player.GetComponent<PlayerEnergy>().MissingEnergy < m_energy)
+		{
+			return false;
+		}
+		else
+		{
+			return base.CanBeGrabbedBy(player);
+		}
+	}
 }

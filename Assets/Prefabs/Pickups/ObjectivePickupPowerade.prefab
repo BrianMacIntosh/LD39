@@ -94,6 +94,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_onlyPlayer: 1
+  m_pickUpOnTouch: 0
   m_resetRotationOnDrop: 0
   m_onPickUpAudio: {fileID: 8300000, guid: 189d037ae12213d4eb49f7aca480b5fe, type: 3}
 --- !u!212 &212203602308506762
@@ -127,7 +128,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 2
   m_Sprite: {fileID: 21300000, guid: 28324034ab090874eb1cf48dd4eb2611, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0

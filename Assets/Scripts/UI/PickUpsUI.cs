@@ -11,7 +11,7 @@ public class PickUpsUI : MonoBehaviour {
     public Sprite waterImage;
     public Sprite objectiveImage;
     private Image imageComponent;
-    // Use this for initialization
+    
     void Start()
     {
         bool beepIs1 = false;
@@ -30,8 +30,7 @@ public class PickUpsUI : MonoBehaviour {
         }
         imageComponent = GetComponent<Image>();
     }
-
-    // Update is called once per frame
+	
     void Update ()
     {
         Pickup pickup = player.GetComponent<PlayerInteraction>().m_holdingPickup;
@@ -40,24 +39,10 @@ public class PickUpsUI : MonoBehaviour {
         {
             imageComponent.enabled = false;
         }
-        else if (pickup.CompareTag("Box"))
-        {
-            imageComponent.enabled = true;
-            imageComponent.sprite = boxImage;
-        }
-        else if (pickup.CompareTag("Water"))
-        {
-            imageComponent.enabled = true;
-            imageComponent.sprite = waterImage;
-        }
-        else if (pickup.CompareTag("Objective"))
-        {
-            imageComponent.enabled = true;
-            imageComponent.sprite = objectiveImage;
-        }
         else
         {
-            imageComponent.enabled = false;
+            imageComponent.enabled = true;
+            imageComponent.sprite = pickup.GetComponentInChildren<SpriteRenderer>().sprite;
         }
     }
 }

@@ -67,7 +67,7 @@ public class GhostDamager : MonoBehaviour
 	/// <summary>
 	/// Returns true if the specified position is inside this light.
 	/// </summary>
-	public bool Contains(Vector3 position)
+	public bool Contains(Vector3 position, float radius)
 	{
 		// only works if the light is on
 		if (m_light.intensity <= 0f)
@@ -82,13 +82,18 @@ public class GhostDamager : MonoBehaviour
 		// check distance
 		if (distanceSq < (m_radius * m_radius))
 		{
+			float dist = Mathf.Sqrt(distanceSq);
+
+			// figure out how much space the ghost takes in the arc
+			float ghostArc = Mathf.Atan(radius / dist) * Mathf.Rad2Deg;
+
 			// check arc
 			float angle = Mathf.Atan2(d.y, d.x) * Mathf.Rad2Deg;
 			float dAng = Mathf.Abs(Mathf.DeltaAngle(angle - 90f, transform.parent.rotation.eulerAngles.z)); //HACK: parent
-			if (dAng < m_arc / 2f)
+			if (dAng < m_arc / 2f + ghostArc)
 			{
 				// check los
-				if (!Physics2D.Raycast(transform.position, d.normalized, Mathf.Sqrt(distanceSq), LayerMask.GetMask("Walls")))
+				if (!Physics2D.Raycast(transform.position, d.normalized, dist, LayerMask.GetMask("Walls")))
 				{
 					return true;
 				}
@@ -101,12 +106,12 @@ public class GhostDamager : MonoBehaviour
 	/// <summary>
 	/// Returns the number of <see cref="GhostDamager"/>s that the point is inside of.
 	/// </summary>
-	public static float DamageAmount(Vector3 position)
+	public static float DamageAmount(Vector3 position, float radius)
 	{
 		float count = 0;
 		foreach (GhostDamager damager in s_allDamagers)
 		{
-			if (damager != null && damager.Contains(position))
+			if (damager != null && damager.Contains(position, radius))
 			{
 				count += damager.DamageRatio;
 			}

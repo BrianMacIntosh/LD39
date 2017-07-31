@@ -80,6 +80,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_onlyPlayer: 2
+  m_pickUpOnTouch: 0
   m_resetRotationOnDrop: 0
   m_onPickUpAudio: {fileID: 0}
 --- !u!114 &114668718872550380

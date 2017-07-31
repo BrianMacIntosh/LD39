@@ -33,11 +33,13 @@ public class Player_Navigation : MonoBehaviour {
 
 	private float m_angularVelocity = 0f;
 
+	[SerializeField]
+	private AudioSource m_audioSource;
+
 	#region Cached Components
 
 	private PlayerEnergy m_energyComponent;
 	private Rigidbody2D m_rigidbody;
-	private AudioSource m_audioSource;
 	private Animator m_animator;
 
 	#endregion
@@ -46,7 +48,6 @@ public class Player_Navigation : MonoBehaviour {
 	{
 		m_energyComponent = GetComponent<PlayerEnergy>();
 		m_rigidbody = GetComponent<Rigidbody2D>();
-		m_audioSource = OurUtility.GetOrAddComponent<AudioSource>(gameObject);
 		m_animator = GetComponent<Animator>();
 	}
 
