@@ -4,8 +4,10 @@ using UnityEngine;
 
 public class ObjectivePickup : Pickup
 {
-	private void Awake()
+	protected override void Awake()
 	{
+		base.Awake();
+
 		SceneParent sceneParent = GetComponentInParent<SceneParent>();
 		if (sceneParent)
 		{

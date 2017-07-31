@@ -27,34 +27,24 @@ public class Pickup : MonoBehaviour
 
 	#endregion
 
-#if UNITY_EDITOR
-	[UnityEditor.Callbacks.DidReloadScripts]
-#endif
-	private static void StaticInit()
+	protected virtual void Awake()
 	{
-		if (Pickups == null)
-		{
-			Pickups = new List<Pickup>();
-		}
-		else
-		{
-			Pickups.Clear();
-		}
-		Pickups.AddRange(FindObjectsOfType<Pickup>());
-	}
-
-	private void Awake()
-	{
-		Pickups.Add(this);
-
 		m_collider = GetComponent<Collider2D>();
 		m_rigidbody = GetComponent<Rigidbody2D>();
 	}
 
-	private void OnDestroy()
+	private void OnEnable()
+	{
+		Pickups.Add(this);
+	}
+
+	private void OnDisable()
 	{
 		Pickups.Remove(this);
+	}
 
+	private void OnDestroy()
+	{
 		if (HeldBy)
 		{
 			HeldBy.SetDownPickup();
