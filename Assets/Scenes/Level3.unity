@@ -1128,7 +1128,7 @@ Prefab:
     - target: {fileID: 114784952426032196, guid: ca3d489ac4d1fb34eba37c7d287ba8b7,
         type: 2}
       propertyPath: maxObjects
-      value: 8
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 114784952426032196, guid: ca3d489ac4d1fb34eba37c7d287ba8b7,
         type: 2}
