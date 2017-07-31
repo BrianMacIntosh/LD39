@@ -24,6 +24,11 @@ public class SceneLoader : MonoBehaviour
 		public string SceneName;
 		
 		public SceneParent SceneInstance { get; set; }
+
+		public void Load()
+		{
+			SceneManager.LoadScene(SceneName, LoadSceneMode.Additive);
+		}
 	}
 
 	private int m_currentScene = -1;
@@ -44,7 +49,7 @@ public class SceneLoader : MonoBehaviour
 		// loads in each scene
 		foreach (SceneInfo scene in m_allScenes)
 		{
-			SceneManager.LoadScene(scene.SceneName, LoadSceneMode.Additive);
+			scene.Load();
 		}
 
 		StartUpUi();
@@ -66,6 +71,12 @@ public class SceneLoader : MonoBehaviour
 
 		// hardcoded scene height
 		parent.transform.position = new Vector3(0f, 18f * (index + 1f), 0f);
+
+		if (index == m_currentScene)
+		{
+			parent.gameObject.SetActive(true);
+			PlayerSpawn.RespawnAll();
+		}
 	}
 
 	public void NextScene()
@@ -87,6 +98,12 @@ public class SceneLoader : MonoBehaviour
 				OnSceneChanged(sceneParent);
 			}
 		}
+	}
+
+	public void ReloadCurrentScene()
+	{
+		SceneManager.UnloadScene(m_allScenes[m_currentScene].SceneName);
+		m_allScenes[m_currentScene].Load();
 	}
 
 	private void StartUpUi()
