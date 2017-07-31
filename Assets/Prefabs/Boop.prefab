@@ -490,7 +490,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8c3b703266ba23f46833f099fb414c00, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  currentEnergy: 97.706154
+  currentEnergy: 100
   maxEnergy: 100
   drainRate: 0.25
   ghostsAttacking: 0
