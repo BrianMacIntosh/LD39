@@ -211,7 +211,7 @@ public class PlayerInteraction : MonoBehaviour
                                 Destroy(m_holdingPickup.gameObject);
                                 m_holdingPickup = null;
                                 m_waterSprite.enabled = false;
-								m_audioSource.PlayOneShot(m_extinguishFireAudio);
+								m_audioSource.PlayOneShot(m_extinguishFireAudio, 0.6f);
                                 return true;
                             }
                         }
@@ -231,7 +231,7 @@ public class PlayerInteraction : MonoBehaviour
 		}
 		else
 		{
-			m_audioSource.PlayOneShot(m_interactFailedAudio);
+			m_audioSource.PlayOneShot(m_interactFailedAudio, 0.5f);
 		}
 	}
 

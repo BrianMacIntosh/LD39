@@ -32,6 +32,9 @@ public class PlayerEnergy : MonoBehaviour
 	[SerializeField]
 	private AudioSource m_audioSource;
 
+	[SerializeField]
+	private AudioSource m_takingDamageAudioSource;
+
 	#region Cached Components
 
 	private SpriteRenderer m_spriteRenderer;
@@ -45,6 +48,8 @@ public class PlayerEnergy : MonoBehaviour
 
 	void Update()
 	{
+		m_takingDamageAudioSource.volume = ghostsAttacking > 0 ? 0.75f : 0f;
+
 		AddEnergy(-drainRate * Time.deltaTime);
 		AddEnergy(-ghostsAttacking * ghostDrainRate * Time.deltaTime);
 	}
