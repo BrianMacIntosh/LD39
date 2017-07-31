@@ -94,6 +94,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_onlyPlayer: 1
+  m_pickUpOnTouch: 0
   m_resetRotationOnDrop: 0
   m_onPickUpAudio: {fileID: 8300000, guid: 189d037ae12213d4eb49f7aca480b5fe, type: 3}
 --- !u!212 &212341021030514256
