@@ -74,11 +74,14 @@ public class BossPortrait : MonoBehaviour
 			float spawnRateRat = m_ghostSpawnManager ? m_ghostSpawnManager.SpawnRateRatio : 0f;
 
 			// show reminder
-			bool angry = spawnRateRat >= 0.7f;
-			SpeechBubbleParent.SetActive(true);
-			SpeechBubbleIcon.sprite = angry ? m_sceneParent.ObjectiveSpriteExclame : m_sceneParent.ObjectiveSprite;
-			m_portraitImage.sprite = angry ? m_sceneParent.BossNegativeSprite : m_sceneParent.BossNeutralSprite;
-			m_showTime = ReminderShowTime;
+			if (m_portraitImage.enabled)
+			{
+				bool angry = spawnRateRat >= 0.7f;
+				SpeechBubbleParent.SetActive(true);
+				SpeechBubbleIcon.sprite = angry ? m_sceneParent.ObjectiveSpriteExclame : m_sceneParent.ObjectiveSprite;
+				m_portraitImage.sprite = angry ? m_sceneParent.BossNegativeSprite : m_sceneParent.BossNeutralSprite;
+				m_showTime = ReminderShowTime;
+			}
 
 			// set next reminder timer
 			float min = (1f - spawnRateRat) * 10f;

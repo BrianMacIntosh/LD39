@@ -4,5 +4,12 @@ using UnityEngine;
 
 public class ObjectivePickup : Pickup
 {
-	
+	private void Awake()
+	{
+		SceneParent sceneParent = GetComponentInParent<SceneParent>();
+		if (sceneParent)
+		{
+			GetComponent<SpriteRenderer>().sprite = sceneParent.ObjectiveSprite;
+		}
+	}
 }

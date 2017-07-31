@@ -39,6 +39,7 @@ GameObject:
   - component: {fileID: 198795741403458254}
   - component: {fileID: 199332872352696484}
   - component: {fileID: 82099831881509938}
+  - component: {fileID: 114407204224970000}
   m_Layer: 0
   m_Name: GhostGreenDeath
   m_TagString: Untagged
@@ -153,6 +154,18 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 0
+--- !u!114 &114407204224970000
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1518963156008096}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f98984d618059ef428417c73437d51fe, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Lifetime: 5
 --- !u!198 &198369967193824720
 ParticleSystem:
   m_ObjectHideFlags: 1
