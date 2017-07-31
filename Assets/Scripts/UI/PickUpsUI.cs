@@ -42,7 +42,10 @@ public class PickUpsUI : MonoBehaviour {
         else
         {
             imageComponent.enabled = true;
-            imageComponent.sprite = pickup.GetComponentInChildren<SpriteRenderer>().sprite;
+            imageComponent.sprite = 
+				pickup.HudSprite
+				? pickup.HudSprite
+				: pickup.GetComponentInChildren<SpriteRenderer>().sprite;
         }
     }
 }

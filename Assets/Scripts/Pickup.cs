@@ -21,6 +21,9 @@ public class Pickup : MonoBehaviour
 	[SerializeField]
 	private AudioClip m_onPickUpAudio = null;
 
+	[Tooltip("Optional substitute for the sprite on the HUD.")]
+	public Sprite HudSprite = null;
+
 	public PlayerInteraction HeldBy { get; private set; }
 
 	#region Cached Components
