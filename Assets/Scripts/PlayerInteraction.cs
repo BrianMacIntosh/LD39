@@ -115,6 +115,17 @@ public class PlayerInteraction : MonoBehaviour
                 m_holdingPickupSprite.enabled = true;
                 m_waterSprite.enabled = false;
             }
+            if(m_holdingPickup.CompareTag("Objective"))
+            {
+                SpriteRenderer[] boopSprites = m_boop.GetComponentsInChildren<SpriteRenderer>(true);
+                foreach (SpriteRenderer childSprite in boopSprites)
+                {
+                    if (childSprite.gameObject.CompareTag("Arrow"))
+                    {
+                        childSprite.enabled = false;
+                    }
+                }
+            }
             m_holdingPickup.transform.SetParent(null);
 			m_holdingPickup.NotifyDrop(this);
 			m_holdingPickup = null;
@@ -124,7 +135,10 @@ public class PlayerInteraction : MonoBehaviour
     public bool TryGivePickupToBoop()
     {
         Vector2 d = m_boop.transform.position - transform.position;
-        if (m_isBeep && m_holdingPickup.CompareTag("Objective") && (m_boop.GetComponent<PlayerInteraction>().m_objectiveCount < 5))
+        if (m_isBeep
+			&& m_holdingPickup != null
+			&& m_holdingPickup.CompareTag("Objective")
+			&& (m_boop.GetComponent<PlayerInteraction>().m_objectiveCount < 5))
         {
             if (d.sqrMagnitude <= m_interactRadius * m_interactRadius)
             {
@@ -137,6 +151,26 @@ public class PlayerInteraction : MonoBehaviour
                     Destroy(m_holdingPickup.gameObject);
                     m_holdingPickup = null;
                     m_boop.GetComponent<PlayerInteraction>().m_objectiveCount++;
+                    SpriteRenderer[] boopSprites = m_boop.GetComponentsInChildren<SpriteRenderer>(true);
+                    foreach (SpriteRenderer childSprite in boopSprites)
+                    {
+                        if (childSprite.gameObject.CompareTag("Arrow"))
+                        {
+                            childSprite.enabled = false;
+                        }
+                    }
+                    if(m_boop.GetComponent<PlayerInteraction>().m_objectiveCount >= 5)
+                    {
+                        GameObject objectiveDeposit = GameObject.FindWithTag("ObjectiveDeposit");
+                        SpriteRenderer[] objectiveSprites = objectiveDeposit.GetComponentsInChildren<SpriteRenderer>(true);
+                        foreach (SpriteRenderer childSprite in objectiveSprites)
+                        {
+                            if (childSprite.gameObject.CompareTag("Arrow"))
+                            {
+                                childSprite.enabled = true;
+                            }
+                        }
+                    }
                     return true;
                 }
             }
@@ -146,7 +180,7 @@ public class PlayerInteraction : MonoBehaviour
 
     public bool TryPutOutFire()
     {
-        if (m_holdingPickup.gameObject.CompareTag("Water"))
+        if (m_holdingPickup != null && m_holdingPickup.gameObject.CompareTag("Water"))
         {
             foreach (Pickup pickup in Pickup.Pickups)
             {
@@ -204,6 +238,17 @@ public class PlayerInteraction : MonoBehaviour
                 if (onObjectivePickup != null)
                 {
                     onObjectivePickup(target.transform.position);
+                }
+                if (m_boop.GetComponent<PlayerInteraction>().m_objectiveCount < 5)
+                {
+                    SpriteRenderer[] boopSprites = m_boop.GetComponentsInChildren<SpriteRenderer>(true);
+                    foreach(SpriteRenderer childSprite in boopSprites)
+                    {
+                        if(childSprite.gameObject.CompareTag("Arrow"))
+                        {
+                            childSprite.enabled = true;
+                        }
+                    }
                 }
             }
             target.transform.SetParent(transform);
@@ -306,6 +351,14 @@ public class PlayerInteraction : MonoBehaviour
                 }
                 Destroy(m_holdingPickup.gameObject);
                 m_holdingPickup = null;
+                SpriteRenderer[] boopSprites = m_boop.GetComponentsInChildren<SpriteRenderer>(true);
+                foreach (SpriteRenderer childSprite in boopSprites)
+                {
+                    if (childSprite.gameObject.CompareTag("Arrow"))
+                    {
+                        childSprite.enabled = false;
+                    }
+                }
                 return true;
             }
         }
@@ -324,6 +377,14 @@ public class PlayerInteraction : MonoBehaviour
                     depositedObjects(m_objectiveCount);
                 }
                 m_objectiveCount = 0;
+                SpriteRenderer[] objectiveSprites = objectiveDeposit.GetComponentsInChildren<SpriteRenderer>(true);
+                foreach (SpriteRenderer childSprite in objectiveSprites)
+                {
+                    if (childSprite.gameObject.CompareTag("Arrow"))
+                    {
+                        childSprite.enabled = false;
+                    }
+                }
                 return true;
             }
         }

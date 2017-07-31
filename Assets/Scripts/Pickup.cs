@@ -13,12 +13,6 @@ public class Pickup : MonoBehaviour
 	private PlayerType m_onlyPlayer = PlayerType.None;
 
 	[SerializeField]
-	private string m_tag = "";
-
-	[SerializeField]
-	private string m_cancelsWithTag = "";
-
-	[SerializeField]
 	private bool m_resetRotationOnDrop = false;
 
 	[SerializeField]

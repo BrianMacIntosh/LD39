@@ -4,33 +4,42 @@ using UnityEngine;
 
 public class ObjectiveManager : MonoBehaviour
 {
-    public int m_objectiveCount = 0;
-    public int m_objectiveMax = 20;
+	[SerializeField]
+    private int m_objectiveCount = 0;
+	[SerializeField]
+	private int m_objectiveMax = 20;
 
+	public int ObjectiveProgress { get { return m_objectiveCount; } }
+	public int ObjectiveTarget { get { return m_objectiveMax; } }
 
-// Use this for initialization
+	public delegate void ObjectiveIncremented();
+	public event ObjectiveIncremented OnObjectiveIncremented;
+
     void Start ()
     {
 		foreach (GameObject player in GameManager.Instance.Players)
         {
             player.GetComponent<PlayerInteraction>().depositedObjects += addObjectives;
-            player.GetComponent<PlayerInteraction>().depositedObjects += addObjectives;
         }
 	}
-	
-	// Update is called once per frame
-	void Update ()
-    {
-        if(m_objectiveCount >= m_objectiveMax)
-        {
-            SceneLoader.Instance.NextScene();
-        }
-    }
+
+	void Update()
+	{
+		if (m_objectiveMax > 0 && m_objectiveCount >= m_objectiveMax)
+		{
+			SceneLoader.Instance.NextScene();
+		}
+	}
 
     public void addObjectives(int num)
     {
         m_objectiveCount += num;
         m_objectiveCount = Mathf.Min(m_objectiveCount, m_objectiveMax);
+
+		if (OnObjectiveIncremented != null)
+		{
+			OnObjectiveIncremented();
+		}
     }
 }
 

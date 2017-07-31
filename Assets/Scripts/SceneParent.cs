@@ -10,6 +10,8 @@ public class SceneParent : MonoBehaviour
 	public Sprite BossNegativeSprite;
 	public Sprite BossPositiveSprite;
 	public Sprite ObjectiveSprite;
+	public Sprite ObjectiveSpriteDim;
+	public Sprite ObjectiveSpriteExclame;
 
 	public GameObject CameraRigPrefab;
 	public GameObject BoopPrefab;
@@ -22,5 +24,7 @@ public class SceneParent : MonoBehaviour
 		{
 			loader.NotifySceneLoaded(this);
 		}
+		
+		GameManager.CheckFindInstance();
 	}
 }

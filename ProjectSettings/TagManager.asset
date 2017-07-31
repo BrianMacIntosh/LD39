@@ -12,6 +12,7 @@ TagManager:
   - Battery
   - Fire
   - ObjectiveDeposit
+  - Arrow
   layers:
   - Default
   - TransparentFX
@@ -26,8 +27,8 @@ TagManager:
   - Walls
   - Boxes
   - Pits
-  - 
-  - 
+  - Fire
+  - FireDamager
   - 
   - LightPass
   - FinalPass
