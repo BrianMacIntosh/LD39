@@ -25,6 +25,12 @@ public class PlayerInteraction : MonoBehaviour
 	[SerializeField]
 	private AudioClip m_extinguishFireAudio = null;
 
+	[SerializeField]
+	private GameObject m_zapVfx = null;
+
+	[SerializeField]
+	private Transform m_zapOrigin = null;
+
     public float m_powerTransferAmount = 20;
 
     public bool m_isBeep;
@@ -315,7 +321,9 @@ public class PlayerInteraction : MonoBehaviour
 
     private void TransferPower()
     {
-        float beepEnergy = m_beep.GetComponent<PlayerEnergy>().currentEnergy;
+		Instantiate(m_zapVfx, m_zapOrigin.position, m_zapOrigin.rotation);
+
+		float beepEnergy = m_beep.GetComponent<PlayerEnergy>().currentEnergy;
         float boopEnergy = m_boop.GetComponent<PlayerEnergy>().currentEnergy;
         float transfer_amount;
         if (m_isBeep)
