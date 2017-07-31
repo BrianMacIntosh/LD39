@@ -64,6 +64,6 @@ MonoBehaviour:
   spawnRate: 0.25
   spawnAcceleration: 0.005
   spawnRateMax: 1
-  minSpawnDistance: 2
+  minSpawnDistance: 4
   maxObjects: 15
   isGhosts: 1

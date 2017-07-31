@@ -107,7 +107,7 @@ public class SpawnManager : MonoBehaviour
 		timeSinceLastSpawn += Time.deltaTime;
 		if (spawnRate < spawnRateMax)
 		{
-			spawnRate = baseSpawnRate + m_activeTime * spawnAcceleration;
+			spawnRate = Mathf.Min(baseSpawnRate + m_activeTime * spawnAcceleration, spawnRateMax);
 		}
 		if ((timeSinceLastSpawn > 1.0f / spawnRate) && (SpawnedObjectCount <= maxObjects))
 		{
