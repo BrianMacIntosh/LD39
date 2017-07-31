@@ -31,17 +31,19 @@ public class GhostHealth : MonoBehaviour
 	#region Cached Components
 
 	private AudioSource m_audioSource;
+	private CircleCollider2D m_collider;
 
 	#endregion
 
 	private void Awake()
 	{
 		m_audioSource = OurUtility.GetOrAddComponent<AudioSource>(gameObject);
+		m_collider = GetComponent<CircleCollider2D>();
 	}
 
 	void Update()
 	{
-		float hitCount = GhostDamager.DamageAmount(transform.position);
+		float hitCount = GhostDamager.DamageAmount(transform.position, m_collider.radius);
 		if (hitCount > 0f)
 		{
 			if (!IsBeingDamaged && m_gettingDamagedAudio)

@@ -15,23 +15,23 @@ public class ObjectiveManager : MonoBehaviour
 	public delegate void ObjectiveIncremented();
 	public event ObjectiveIncremented OnObjectiveIncremented;
 
-    void Start ()
-    {
-		foreach (GameObject player in GameManager.Instance.Players)
-        {
-            player.GetComponent<PlayerInteraction>().depositedObjects += addObjectives;
-        }
-	}
-
-	void Update()
+	void OnEnable()
 	{
-		if (m_objectiveMax > 0 && m_objectiveCount >= m_objectiveMax)
+		foreach (GameObject player in GameManager.Instance.Players)
 		{
-			SceneLoader.Instance.NextScene();
+			player.GetComponent<PlayerInteraction>().depositedObjects += addObjectives;
 		}
 	}
 
-    public void addObjectives(int num)
+	private void OnDisable()
+	{
+		foreach (GameObject player in GameManager.Instance.Players)
+		{
+			player.GetComponent<PlayerInteraction>().depositedObjects -= addObjectives;
+		}
+	}
+
+	public void addObjectives(int num)
     {
         m_objectiveCount += num;
         m_objectiveCount = Mathf.Min(m_objectiveCount, m_objectiveMax);
@@ -40,6 +40,11 @@ public class ObjectiveManager : MonoBehaviour
 		{
 			OnObjectiveIncremented();
 		}
-    }
+
+		if (m_objectiveMax > 0 && m_objectiveCount >= m_objectiveMax)
+		{
+			SceneLoader.Instance.NextScene();
+		}
+	}
 }
 

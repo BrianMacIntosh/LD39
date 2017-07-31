@@ -27,16 +27,19 @@ public class PlayerEnergy : MonoBehaviour
 
 	public bool HasEnergy { get { return currentEnergy > 0; } }
 
+	public float MissingEnergy { get { return maxEnergy - currentEnergy; } }
+
+	[SerializeField]
+	private AudioSource m_audioSource;
+
 	#region Cached Components
 
-	private AudioSource m_audioSource;
 	private SpriteRenderer m_spriteRenderer;
 
 	#endregion
 
 	private void Awake()
 	{
-		m_audioSource = OurUtility.GetOrAddComponent<AudioSource>(gameObject);
 		m_spriteRenderer = GetComponent<SpriteRenderer>();
 	}
 

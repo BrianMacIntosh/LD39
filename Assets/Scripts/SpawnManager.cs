@@ -38,6 +38,11 @@ public class SpawnManager : MonoBehaviour
 
 	public float maxObjects = 10;
 
+	/// <summary>
+	/// Time in seconds this manager has been active for.
+	/// </summary>
+	private float m_activeTime;
+
 	private Transform[] spawnTransformList;
     private bool[] spawnIsValidList;
     public bool isGhosts = true;
@@ -98,10 +103,11 @@ public class SpawnManager : MonoBehaviour
 
 	void FixedUpdate()
 	{
+		m_activeTime += Time.deltaTime;
 		timeSinceLastSpawn += Time.deltaTime;
 		if (spawnRate < spawnRateMax)
 		{
-			spawnRate = baseSpawnRate + Time.time * spawnAcceleration;
+			spawnRate = baseSpawnRate + m_activeTime * spawnAcceleration;
 		}
 		if ((timeSinceLastSpawn > 1.0f / spawnRate) && (SpawnedObjectCount <= maxObjects))
 		{

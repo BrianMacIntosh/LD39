@@ -49,11 +49,8 @@ public class PlayerInteraction : MonoBehaviour
     public SpriteRenderer m_waterSprite;
     public int m_objectiveCount;
 
-	#region Cached Components
-
+	[SerializeField]
 	private AudioSource m_audioSource;
-
-	#endregion
 
 	public delegate void objectSpawn(Vector3 position);
 
@@ -65,8 +62,6 @@ public class PlayerInteraction : MonoBehaviour
 
     private void Start()
     {
-		m_audioSource = OurUtility.GetOrAddComponent<AudioSource>(gameObject);
-
 		m_objectiveCount = 0;
         m_isBeep = (m_playerType == PlayerType.Beep);
         bool beepIs1 = false;
@@ -106,7 +101,7 @@ public class PlayerInteraction : MonoBehaviour
 			else
 			{
                 TryEmptyObjectiveBasketOnDeposit();
-				PickUpPickup();
+				PickUpNearest();
 			}
 		}
         if (Input.GetButtonDown(m_interactTransferPower))
@@ -227,55 +222,67 @@ public class PlayerInteraction : MonoBehaviour
         return false;
     }
 
-	public void PickUpPickup()
+	public void PickUpNearest()
 	{
-		Pickup target = GetPickupToGrab(m_playerType, transform.position, transform.forward);
+		Pickup target = GetPickupToGrab(transform.position, transform.forward);
 		if (target != null)
 		{
-            if (target.CompareTag("Water"))
-            {
-                m_holdingPickupSprite = target.gameObject.GetComponent<SpriteRenderer>();
-                m_holdingPickupSprite.enabled = false;
-                m_waterSprite.enabled = true;
-                if(onFireWaterPickup != null)
-                {
-                    onFireWaterPickup(target.transform.position);
-                }
-            }
-            if(target.CompareTag("Objective"))
-            {
-                if (onObjectivePickup != null)
-                {
-                    onObjectivePickup(target.transform.position);
-                }
-                if (m_boop.GetComponent<PlayerInteraction>().m_objectiveCount < 5)
-                {
-                    SpriteRenderer[] boopSprites = m_boop.GetComponentsInChildren<SpriteRenderer>(true);
-                    foreach(SpriteRenderer childSprite in boopSprites)
-                    {
-                        if(childSprite.gameObject.CompareTag("Arrow"))
-                        {
-                            childSprite.enabled = true;
-                        }
-                    }
-                }
-            }
-            target.transform.SetParent(transform);
-			target.transform.localRotation = Quaternion.identity;
-			target.transform.localPosition = new Vector3(0f, 1f, 0f);
-			target.NotifyPickUp(this);
-			m_holdingPickup = target;
+			PickUp(target);
 		}
 		else
 		{
-			m_audioSource.PlayOneShot(m_interactFailedAudio, 1f);
+			m_audioSource.PlayOneShot(m_interactFailedAudio);
 		}
+	}
+
+	public void PickUp(Pickup target)
+	{
+		if (target == null
+			|| target.HeldBy != null
+			|| !target.CanBeGrabbedBy(gameObject))
+		{
+			return;
+		}
+
+		if (target.CompareTag("Water"))
+		{
+			m_holdingPickupSprite = target.gameObject.GetComponent<SpriteRenderer>();
+			m_holdingPickupSprite.enabled = false;
+			m_waterSprite.enabled = true;
+			if (onFireWaterPickup != null)
+			{
+				onFireWaterPickup(target.transform.position);
+			}
+		}
+		if (target.CompareTag("Objective"))
+		{
+			if (onObjectivePickup != null)
+			{
+				onObjectivePickup(target.transform.position);
+			}
+			if (m_boop.GetComponent<PlayerInteraction>().m_objectiveCount < 5)
+			{
+				SpriteRenderer[] boopSprites = m_boop.GetComponentsInChildren<SpriteRenderer>(true);
+				foreach (SpriteRenderer childSprite in boopSprites)
+				{
+					if (childSprite.gameObject.CompareTag("Arrow"))
+					{
+						childSprite.enabled = true;
+					}
+				}
+			}
+		}
+		target.transform.SetParent(transform);
+		target.transform.localRotation = Quaternion.identity;
+		target.transform.localPosition = new Vector3(0f, 1f, 0f);
+		target.NotifyPickUp(this);
+		m_holdingPickup = target;
 	}
 
 	/// <summary>
 	/// Returns the pickup that can be grabbed by this player, if any.
 	/// </summary>
-	private Pickup GetPickupToGrab(PlayerType playerType, Vector3 position, Vector3 forward)
+	private Pickup GetPickupToGrab(Vector3 position, Vector3 forward)
 	{
 		float bestPickupRating = float.MaxValue;
 		Pickup bestPickup = null;
@@ -284,7 +291,7 @@ public class PlayerInteraction : MonoBehaviour
 		{
 			if (pickup != null
 				&& pickup.HeldBy == null
-				&& pickup.CanBeGrabbedBy(playerType))
+				&& pickup.CanBeGrabbedBy(gameObject))
 			{
 				Vector2 d = pickup.transform.position - position;
 
