@@ -3495,6 +3495,11 @@ Prefab:
       propertyPath: m_Name
       value: ObjectivePickupPowerade (2)
       objectReference: {fileID: 0}
+    - target: {fileID: 212203602308506762, guid: 5cb56b5e6f3f476449e5c5af64afd057,
+        type: 2}
+      propertyPath: m_SortingOrder
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 5cb56b5e6f3f476449e5c5af64afd057, type: 2}
   m_IsPrefabParent: 0
@@ -3969,6 +3974,11 @@ Prefab:
     - target: {fileID: 4884887551923058, guid: 5cb56b5e6f3f476449e5c5af64afd057, type: 2}
       propertyPath: m_RootOrder
       value: 104
+      objectReference: {fileID: 0}
+    - target: {fileID: 212203602308506762, guid: 5cb56b5e6f3f476449e5c5af64afd057,
+        type: 2}
+      propertyPath: m_SortingOrder
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 5cb56b5e6f3f476449e5c5af64afd057, type: 2}
@@ -4639,6 +4649,11 @@ Prefab:
     - target: {fileID: 1472391402023876, guid: 5cb56b5e6f3f476449e5c5af64afd057, type: 2}
       propertyPath: m_Name
       value: ObjectivePickupPowerade (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 212203602308506762, guid: 5cb56b5e6f3f476449e5c5af64afd057,
+        type: 2}
+      propertyPath: m_SortingOrder
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 5cb56b5e6f3f476449e5c5af64afd057, type: 2}
@@ -5841,6 +5856,11 @@ Prefab:
     - target: {fileID: 1472391402023876, guid: 5cb56b5e6f3f476449e5c5af64afd057, type: 2}
       propertyPath: m_Name
       value: ObjectivePickupPowerade (3)
+      objectReference: {fileID: 0}
+    - target: {fileID: 212203602308506762, guid: 5cb56b5e6f3f476449e5c5af64afd057,
+        type: 2}
+      propertyPath: m_SortingOrder
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 5cb56b5e6f3f476449e5c5af64afd057, type: 2}
@@ -8314,6 +8334,11 @@ Prefab:
     - target: {fileID: 1472391402023876, guid: 5cb56b5e6f3f476449e5c5af64afd057, type: 2}
       propertyPath: m_Name
       value: ObjectivePickupPowerade (4)
+      objectReference: {fileID: 0}
+    - target: {fileID: 212203602308506762, guid: 5cb56b5e6f3f476449e5c5af64afd057,
+        type: 2}
+      propertyPath: m_SortingOrder
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 5cb56b5e6f3f476449e5c5af64afd057, type: 2}
