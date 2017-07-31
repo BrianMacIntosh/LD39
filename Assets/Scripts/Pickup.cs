@@ -13,13 +13,10 @@ public class Pickup : MonoBehaviour
 	private PlayerType m_onlyPlayer = PlayerType.None;
 
 	[SerializeField]
-	private bool m_pickUpOnTouch = false;
-
-	[SerializeField]
 	private bool m_resetRotationOnDrop = false;
 
 	[SerializeField]
-	private AudioClip m_onPickUpAudio = null;
+	protected AudioClip m_onPickUpAudio = null;
 
 	[Tooltip("Optional substitute for the sprite on the HUD.")]
 	public Sprite HudSprite = null;
@@ -91,14 +88,6 @@ public class Pickup : MonoBehaviour
 			transform.localRotation = Quaternion.identity;
 		}
 		HeldBy = null;
-	}
-
-	private void OnTriggerEnter2D(Collider2D collision)
-	{
-		if (m_pickUpOnTouch && collision.gameObject.CompareTag("Player"))
-		{
-			collision.gameObject.GetComponent<PlayerInteraction>().PickUp(this);
-		}
 	}
 
 	/// <summary>

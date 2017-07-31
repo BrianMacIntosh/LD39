@@ -160,9 +160,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_onlyPlayer: 3
-  m_pickUpOnTouch: 1
   m_resetRotationOnDrop: 0
   m_onPickUpAudio: {fileID: 8300000, guid: 3443130b0dc54a74385040a0e14cdd6f, type: 3}
+  HudSprite: {fileID: 0}
   m_energy: 20
 --- !u!212 &212724040294101826
 SpriteRenderer:

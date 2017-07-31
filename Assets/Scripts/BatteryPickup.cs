@@ -28,4 +28,21 @@ public class BatteryPickup : Pickup
 			return base.CanBeGrabbedBy(player);
 		}
 	}
+
+	private void OnTriggerEnter2D(Collider2D collision)
+	{
+		if (collision.gameObject.CompareTag("Player")
+			&& CanBeGrabbedBy(collision.gameObject))
+		{
+			//HACK: this is just about the worst code I have ever written
+			PlayerInteraction pickUpper = collision.gameObject.GetComponent<PlayerInteraction>();
+			pickUpper.GetComponent<PlayerEnergy>().AddEnergy(m_energy);
+			Destroy(gameObject);
+			if (m_onPickUpAudio)
+			{
+				AudioSource audioSource = OurUtility.GetOrAddComponent<AudioSource>(pickUpper.gameObject);
+				audioSource.PlayOneShot(m_onPickUpAudio);
+			}
+		}
+	}
 }

@@ -80,7 +80,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_onlyPlayer: 2
-  m_pickUpOnTouch: 0
   m_resetRotationOnDrop: 0
   m_onPickUpAudio: {fileID: 0}
   HudSprite: {fileID: 21300000, guid: 342b7cb4cdff04742ae79b9270318d6f, type: 3}
