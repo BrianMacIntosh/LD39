@@ -132,7 +132,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_objectiveCount: 0
-  m_objectiveMax: 15
+  m_objectiveMax: 10
 --- !u!114 &114594319986135184
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -214,7 +214,6 @@ SpriteRenderer:
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
-  m_MaskInteraction: 0
 --- !u!212 &212713382337626180
 SpriteRenderer:
   m_ObjectHideFlags: 1
@@ -256,7 +255,6 @@ SpriteRenderer:
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
-  m_MaskInteraction: 0
 --- !u!212 &212905605808087092
 SpriteRenderer:
   m_ObjectHideFlags: 1
@@ -298,4 +296,3 @@ SpriteRenderer:
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
-  m_MaskInteraction: 0
