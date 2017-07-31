@@ -500,8 +500,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 71cfa5e89fa2b5e488f1dbde88bc98cc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_lightRenderTexture: {fileID: 8400000, guid: 0b29e6221dcb2ff4fa1fe09114e37795,
-    type: 2}
   m_lightPassMaterial: {fileID: 2100000, guid: ff160bab5849bc24c944226430b46e85, type: 2}
 --- !u!114 &114195639503374326
 MonoBehaviour:
