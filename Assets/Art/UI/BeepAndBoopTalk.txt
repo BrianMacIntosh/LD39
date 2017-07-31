@@ -5,13 +5,13 @@ Things Beep and Boop say
 OPENING 
 ------------------------
 
-[Beep]: The ghosts are revolting! They're making the Power Convenience Store a mess! We have to help the customers!
+[Beep]: The ghosts are revolting and making a mess! We have to help the customers!
 [Boop]: ...Do we have to?
 [Beep]: Mr. Watts left the Power Convenience Store to us! We can't just let the customers see the store as it is.
-[Boop]: Beep left... Well I guess if the ghosts are messing arounf there will be floors to clean. Back to work, all the time. 
+[Boop]: Beep left... Well I guess if the ghosts are messing around there will be floors to clean. Back to work, all the time. 
 
 ------------------------
-Random things they say 
+Random things they can say between levels 
 ------------------------
 
 [Boop]: I guess we should be glad the ghosts are knocking stuff off the shelves. It's not like we can reach them ourselves.
@@ -36,6 +36,16 @@ The Ghost Party Squad hosts parties every 1024 hours. This one got a little out 
 
 [Beep]: Why is my light so much shorter than yours?
 [Boop]: I guess you could say you have a power shortage.
+
+------------------------
+
+[Beep]: The ghosts have barricaded themselves behind a wall of fire! They still refurse to work. 
+[Boop]: I propose we leave buggy ghsots behind the firewall.
+
+------------------------
+
+Ghosts are used to power everything in the Power Convenience Store, including its two employees, Beep and Boop. 
+
 
 
 
