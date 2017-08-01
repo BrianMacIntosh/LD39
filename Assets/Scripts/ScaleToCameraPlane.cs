@@ -27,21 +27,21 @@ public class ScaleToCameraPlane : MonoBehaviour
 
 	private void Update()
 	{
-		if (m_lastScreenWidth != m_camera.pixelWidth
-			|| m_lastScreenHeight != m_camera.pixelHeight)
+		if (m_lastScreenWidth != Screen.width
+			|| m_lastScreenHeight != Screen.height)
 		{
-			m_lastScreenWidth = m_camera.pixelWidth;
-			m_lastScreenHeight = m_camera.pixelHeight;
+			m_lastScreenWidth = Screen.width;
+			m_lastScreenHeight = Screen.height;
 			UpdateScale();
 		}
 	}
 
-	private void UpdateScale()
+	public void UpdateScale()
 	{
 		if (m_camera.orthographic)
 		{
 			transform.localScale = new Vector3(
-				(m_camera.orthographicSize * m_camera.pixelWidth / m_camera.pixelHeight) * ManualScale,
+				(m_camera.orthographicSize * Screen.width / Screen.height) * ManualScale,
 				FlipYZ ? m_camera.orthographicSize * ManualScale : transform.localScale.y,
 				FlipYZ ? transform.localScale.z : m_camera.orthographicSize * ManualScale);
 		}

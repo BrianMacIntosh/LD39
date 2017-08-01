@@ -37,6 +37,11 @@ public class CameraSizer : MonoBehaviour
 
 			m_lastScreenWidth = Screen.width;
 			m_lastScreenHeight = Screen.height;
+
+			foreach (ScaleToCameraPlane planeScale in GetComponentsInChildren<ScaleToCameraPlane>())
+			{
+				planeScale.UpdateScale();
+			}
 		}
 	}
 }
